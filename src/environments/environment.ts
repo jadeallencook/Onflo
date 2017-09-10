@@ -4,5 +4,21 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  business: {
+    name: 'onflo',
+    phone: '(555) 555-5555',
+    email: 'hello@onflo.com'
+  },
+  layout: {
+    links: ['home', 'portfolio', 'dashboard', 'contact']
+  },
+  promos: {
+    restaurant: '',
+    tattoo: '',
+    decor: '',
+    mechanics: '',
+    music: '',
+    estate: ''
+  }
 };

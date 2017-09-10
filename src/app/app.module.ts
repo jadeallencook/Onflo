@@ -12,6 +12,10 @@ import { PromoComponent } from './pages/promo/promo.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { TestimonialsComponent } from './pages/testimonials/testimonials.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,7 +31,11 @@ const appRoutes: Routes = [
     PromoComponent,
     PortfolioComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    ServicesComponent,
+    BlogComponent,
+    TestimonialsComponent
   ],
   imports: [
     BrowserModule,

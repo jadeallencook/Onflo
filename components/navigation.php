@@ -11,28 +11,38 @@
 
     <!-- menu -->
     <ul data-menu="main" class="menu__level">
-      <li class="menu__item"><a class="menu__link menu__link--current" data-submenu="submenu-1" href="#">Home</a></li>
-      <li class="menu__item"><a class="menu__link" data-submenu="submenu-2" href="#">About</a></li>
-      <li class="menu__item"><a class="menu__link" data-submenu="submenu-3" href="#">Services</a></li>
-      <li class="menu__item"><a class="menu__link" href="portfolio.html">Portfolio</a></li>
-      <li class="menu__item"><a class="menu__link" href="blog.html">Blog</a></li>
-      <li class="menu__item"><a class="menu__link" href="testimonials.html">Testimonials</a></li>
-      <li class="menu__item"><a class="menu__link" href="contact-us.html">Contact us</a></li>
-      <li class="menu__item"><a class="menu__link" data-submenu="submenu-4" href="#">Pages</a></li>
+      <!-- add to active page: menu__link--current -->
+      <li class="menu__item"><a class="menu__link" href="../home">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="../about">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="../services">Services</a></li>
+      <li class="menu__item"><a class="menu__link" data-submenu="submenu-1">Promotions</a></li>
+      <li class="menu__item"><a class="menu__link" href="../portfolio">Portfolio</a></li>
+      <li class="menu__item"><a class="menu__link" href="../blog">Blog</a></li>
+      <li class="menu__item"><a class="menu__link" href="../testimonials">Testimonials</a></li>
+      <li class="menu__item"><a class="menu__link" href="../contact">Contact</a></li>
     </ul>
 
     <!-- submenu -->
     <ul data-menu="submenu-1" class="menu__level">
-      <li class="menu__item"><a class="menu__link menu__link--current" href="index.html">Slider</a></li>
-      <li class="menu__item"><a class="menu__link" href="index2.html">Image</a></li>
-      <li class="menu__item"><a class="menu__link" href="index3.html">Video</a></li>
+      <li class="menu__item"><a class="menu__link" href="../restaurant">Restaurant</a></li>
+      <li class="menu__item"><a class="menu__link" href="../wholesaler">Wholesaler</a></li>
+      <li class="menu__item"><a class="menu__link" href="../decor">Home Decor</a></li>
+      <li class="menu__item"><a class="menu__link" href="../tattoo">Tattoo Artist</a></li>
+      <li class="menu__item"><a class="menu__link" href="../realestate">Real Estate</a></li>
+      <li class="menu__item"><a class="menu__link" href="../phone">Phone Repair</a></li>
+      <li class="menu__item"><a class="menu__link" href="../attractions">Attraction</a></li>
+      <li class="menu__item"><a class="menu__link" href="../fitness">Fitness</a></li>
     </ul>
 
   </div>
 </nav>
 
 <header>
-  <div class="header-upper"><a class="logo" href="index.html"><img src="../../images/onflo-white-logo.png" alt="Onflo Logo" /></a> </div>
+  <div class="header-upper">
+    <a class="logo" href="index.html">
+      <img src="../../images/onflo-white-logo.png" id="navigation-logo" alt="Onflo Logo" />
+    </a>
+  </div>
   <div class="header-lower">
     <ul class="quick-contact">
       <li>

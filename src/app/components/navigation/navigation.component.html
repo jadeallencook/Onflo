@@ -4,25 +4,25 @@
   <button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
   <div class="menu__wrap">
     <ul data-menu="main" class="menu__level">
-      <li class="menu__item"><a class="menu__link menu__link--current">Home</a></li>
-      <li class="menu__item"><a class="menu__link">About</a></li>
-      <li class="menu__item"><a class="menu__link">Services</a></li>
+      <li class="menu__item"><a class="menu__link menu__link--current" (click)="homepageLoaders()" routerLink="home">Home</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="about">About</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="services">Services</a></li>
       <li class="menu__item"><a class="menu__link" data-submenu="submenu-1">Promotions</a></li>
-      <li class="menu__item"><a class="menu__link">Portfolio</a></li>
-      <li class="menu__item"><a class="menu__link">Blog</a></li>
-      <li class="menu__item"><a class="menu__link">Testimonials</a></li>
-      <li class="menu__item"><a class="menu__link">Contact</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="portfolio">Portfolio</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="blog">Blog</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="testimonials">Testimonials</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="contact">Contact</a></li>
     </ul>
     <!-- Submenu 1 -->
     <ul data-menu="submenu-1" class="menu__level">
-      <li class="menu__item"><a class="menu__link" href="index.html">Restaurant</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Wholesaler</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Home Decor</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Tatoo Artist</a></li>
-      <li class="menu__item"><a class="menu__link" href="index2.html">Real Estate</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Phone Repair</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Attraction</a></li>
-      <li class="menu__item"><a class="menu__link" href="index.html">Fitness</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/restaurant">Restaurant</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/wholesaler">Wholesaler</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/decor">Home Decor</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/tattoo">Tattoo Artist</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/realestate">Real Estate</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/phone">Phone Repair</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/attraction">Attraction</a></li>
+      <li class="menu__item"><a class="menu__link" routerLink="promo/fitness">Fitness</a></li>
     </ul>
   </div>
 </nav>
@@ -38,10 +38,15 @@
     <ul class="quick-contact">
     <li><b>PHONE :</b> <a href="tel:#"><i class="ion ion-android-call visible-xs"></i><span>+91 9876 543 210</span></a></li>
       <li><a href="mailto:#"><i class="ion ion-email visible-xs" style="margin-right: 15px;"></i><span>hello@onflo.io</span></a></li>
-      <li class="social-links"><b>GET SOCIAL :</b> <a href="#" target="_blank"><i class="ion ion-social-facebook"></i></a><a href="#" target="_blank"><i class="ion ion-social-twitter"></i></a><a href="#" target="_blank"><i class="ion ion-social-googleplus"></i></a><a href="#"
-          target="_blank"><i class="ion ion-social-instagram"></i></a></li>
+      <li class="social-links">
+        <b>GET SOCIAL :</b>
+        <a href="#" target="_blank"><i class="ion ion-social-facebook"></i></a>
+        <a href="#" target="_blank"><i class="ion ion-social-twitter"></i></a>
+        <a href="#" target="_blank"><i class="ion ion-social-googleplus"></i></a>
+        <a href="#" target="_blank"><i class="ion ion-social-instagram"></i></a>
+      </li>
     </ul>
-    <p class="copyright">&copy; 2016. All right reserved.</p>
+    <p class="copyright">&copy; 2017 All right reserved.</p>
   </div>
 </header>
 <!-- header start -->

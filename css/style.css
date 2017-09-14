@@ -254,7 +254,7 @@ p:last-child {
 }
 
 .os-animation {
-  opacity: 0;
+  opacity: 1;
 }
 
 .os-animation.animated {
@@ -426,6 +426,7 @@ header .copyright {
   display: block;
   width: calc(100% - 35px);
   border-bottom: solid 1px rgba(255, 255, 255, 0.02);
+  cursor: pointer;
 }
 
 .menu__link {
@@ -436,6 +437,7 @@ header .copyright {
   color: #999;
   -webkit-transition: color 0.1s;
   transition: color 0.1s;
+  cursor: pointer;
 }
 
 .menu__link:hover, .menu__link[data-submenu]:hover::after {
@@ -2623,4 +2625,14 @@ blockquote {
   .inner-banner h2 {
     font-size: 36px
   }
+}
+
+div#form-container {
+  width: 100%;
+  height: 100%;
+}
+
+div#form-container iframe {
+  width: 100%;
+  height: 100%;
 }

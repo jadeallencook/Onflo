@@ -15,10 +15,10 @@
       <li class="menu__item"><a class="menu__link" href="../home">Home</a></li>
       <li class="menu__item"><a class="menu__link" href="../about">About</a></li>
       <li class="menu__item"><a class="menu__link" href="../services">Services</a></li>
-      <li class="menu__item"><a class="menu__link" data-submenu="submenu-1">Promotions</a></li>
+      <!-- <li class="menu__item"><a class="menu__link" data-submenu="submenu-1">Promotions</a></li> -->
       <li class="menu__item"><a class="menu__link" href="../portfolio">Portfolio</a></li>
-      <li class="menu__item"><a class="menu__link" href="../blog">Blog</a></li>
-      <li class="menu__item"><a class="menu__link" href="../testimonials">Testimonials</a></li>
+      <!-- <li class="menu__item"><a class="menu__link" href="../blog">Blog</a></li> -->
+      <!-- <li class="menu__item"><a class="menu__link" href="../testimonials">Testimonials</a></li> -->
       <li class="menu__item"><a class="menu__link" href="../contact">Contact</a></li>
     </ul>
 
@@ -39,7 +39,7 @@
 
 <header>
   <div class="header-upper">
-    <a class="logo" href="index.html">
+    <a class="logo" href="../home">
       <img src="../../images/onflo-white-logo.png" id="navigation-logo" alt="Onflo Logo" />
     </a>
   </div>
@@ -47,14 +47,16 @@
     <ul class="quick-contact">
       <li>
         <b>EMAIL : </b>
-        <a href="mailto:#"><i class="ion ion-email visible-xs"></i><span>hello@onflo.io</span></a>
+        <a href="mailto:hello@onflo.io"><i class="ion ion-email visible-xs"></i><span>hello@onflo.io</span></a>
       </li>
       <li class="social-links">
         <b>GET SOCIAL :</b>
-        <a href="#" target="_blank"><i class="ion ion-social-facebook"></i></a>
+        <a href="https://www.facebook.com/onflo.io/" target="_blank"><i class="ion ion-social-facebook"></i></a>
+        <!--
         <a href="#" target="_blank"><i class="ion ion-social-twitter"></i></a>
         <a href="#" target="_blank"><i class="ion ion-social-googleplus"></i></a>
         <a href="#" target="_blank"><i class="ion ion-social-instagram"></i></a>
+      -->
       </li>
     </ul>
     <p class="copyright">&copy; <?php echo date("Y"); ?>. All right reserved.</p>

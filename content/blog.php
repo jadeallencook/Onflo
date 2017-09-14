@@ -4,7 +4,7 @@
       <div class="container">
         <div class="top-bar">
           <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../home">Home</a></li>
             <li><span>Blog</span></li>
           </ul>
         </div>

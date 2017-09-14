@@ -4,7 +4,7 @@
       <div class="container">
         <div class="top-bar">
           <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../home">Home</a></li>
             <li><span>Portfolio</span></li>
           </ul>
         </div>
@@ -22,90 +22,45 @@
       </div>
     </div>
     <div class="main-container">
-      <div class="inner-banner parallax" data-parallax-speed="5" style="background-image:url(../../images/project-slide3.jpg);">
+      <div class="inner-banner parallax" data-parallax-speed="5" style="background-image:url(../../images/erick-with-camera.jpg);">
         <h2>Portfolio</h2>
       </div>
 
       <!-- Content Holder Start -->
       <div class="content-holder">
         <h3 class="content-title">Our Portfolio</h3>
-        <p class="large-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas ligula nisl, in rutrum felis laoreet ut. Viva mus at lorem dapibus, iaculis mi nec, euismod tellus. Integer sed vehicula urna, ac cursus dui.</p>
-        <p>Cras egestas ligula nisl, in rutrum felis laoreet ut. Viva mus at lorem dapibus, iaculis mi nec, euismod tellus. Integer sed vehicula urna, ac cursus dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas ligula nisl, in rutrum felis laoreet ut. Viva mus at lorem dapibus, iaculis mi nec, euismod tellus. Integer sed vehicula urna, ac cursus dui.</p>
+        <p class="large-para">Bring your business up to speed, aesthetically and technically. Nowadays, more and more people visit businesses online before deciding if they want a product or service. At that rate, having an outdated, stale web presence could be costing you business.</p>
+        <p>Please have a look at our portfolio items to learn more about the types of work that we've have done in the past. We're pleased to have worked with these professionals and will offer the same level of dedication for your project as well. Clients are able to be proactively get involved in updating their own websites within the framework we setup just for them without any prior coding knowledge. We give you the tools you need to successfully keep your websites current and fresh!</p>
         <div class="portfolio-container">
           <ul class="project-category">
             <li><a href="#" data-filter="" class="active">All</a></li>
-            <li><a href="#" data-filter="Website">Web Design</a></li>
-            <li><a href="#" data-filter="Graphic">Graphic</a></li>
-            <li><a href="#" data-filter="WebDev">Web Development</a></li>
-            <li><a href="#" data-filter="MobApp">Mobile App</a></li>
+            <li><a href="#" data-filter="webdev">Web & Graphic</a></li>
+            <li><a href="#" data-filter="video">Video Production</a></li>
           </ul>
-          <div  id="masonry" class="grid project-gallery">
+          <div id="portofolio-container">
+            <div id="masonry" class="grid project-gallery">
+          <?php
+            include '../../enviroment/portfolio.php';
+            foreach($projects as $key=>$value):
+          ?>
+
+
             <div class="grid-sizer"></div>
             <div class="gutter-sizer"></div>
-            <div data-filter="Website" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide1.jpg" alt=""></a></div>
+            <div data-filter="<?php echo $value["type"]; ?>" class="grid-item">
+              <div class="box-item">
+                <a href="<?php echo $value["link"]; ?>" target="_blank">
+                  <img src="<?php echo $value["image"]; ?>" alt="">
+                </a>
+              </div>
               <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Website</p>
+                <h6><?php echo $value["name"]; ?></h6>
+                <p><?php echo $value["subtitle"]; ?></p>
               </div>
             </div>
-            <div data-filter="WebDev" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide2.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Web Development</p>
-              </div>
-            </div>
-            <div data-filter="MobApp" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide3.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Mobile App</p>
-              </div>
-            </div>
-            <div data-filter="Graphic" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide2.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Graphic</p>
-              </div>
-            </div>
-            <div data-filter="Website" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide1.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Website</p>
-              </div>
-            </div>
-            <div data-filter="WebDev" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide3.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Web Development</p>
-              </div>
-            </div>
-            <div data-filter="MobApp" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide2.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Mobile App</p>
-              </div>
-            </div>
-            <div data-filter="Graphic" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide3.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Graphic</p>
-              </div>
-            </div>
-            <div data-filter="MobApp" class="grid-item">
-              <div class="box-item"><a href="portfolio-single.html"><img src="../../images/project-slide1.jpg" alt=""></a></div>
-              <div class="project-heading">
-                <h6>Project Name</h6>
-                <p>Mobile App</p>
-              </div>
-            </div>
-          </div>
+
+          <?php endforeach; ?>
+</div></div>
         </div>
       </div>
       <!-- Content Holder End -->

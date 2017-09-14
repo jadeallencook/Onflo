@@ -32,7 +32,7 @@
 
         <!-- service list start -->
         <ul class="service-list">
-          <li> <a href="service-single.html">
+          <li> <a href="../start">
             <div class="service-box">
               <div class="service-num">01.</div>
               <div class="service-icon"><i class="ion ion-images"></i></div>
@@ -40,7 +40,7 @@
               <p>Logo, Brochure, Menu, Business Cards</p>
             </div>
             </a> </li>
-          <li> <a href="service-single.html">
+          <li> <a href="../start">
             <div class="service-box">
               <div class="service-num">02.</div>
               <div class="service-icon"><i class="ion ion-android-settings"></i></div>
@@ -48,7 +48,7 @@
               <p>HTML5, CSS3, JavaScript, PHP, Node.JS</p>
             </div>
             </a> </li>
-          <li> <a href="service-single.html">
+          <li> <a href="../start">
             <div class="service-box">
               <div class="service-num">03.</div>
               <div class="service-icon"><i class="ion ion-social-apple"></i></div>
@@ -56,7 +56,7 @@
               <p>Android, iOS, React Native</p>
             </div>
             </a> </li>
-          <li> <a href="service-single.html">
+          <li> <a href="../start">
             <div class="service-box">
               <div class="service-num">04.</div>
               <div class="service-icon"><i class="ion ion-android-cart"></i></div>
@@ -64,7 +64,7 @@
               <p>PayPal, Stripe, WooCommerce, Shopify</p>
             </div>
             </a> </li>
-          <li> <a href="service-single.html">
+          <li> <a href="../start">
             <div class="service-box">
               <div class="service-num">05.</div>
               <div class="service-icon"><i class="ion ion-arrow-graph-up-right"></i></div>
@@ -72,7 +72,7 @@
               <p>On-Page, Link Building, SEO Content Writing</p>
             </div>
             </a> </li>
-            <li> <a href="service-single.html">
+            <li> <a href="../start">
               <div class="service-box">
                 <div class="service-num">06.</div>
                 <div class="service-icon"><i class="ion ion-videocamera"></i></div>
@@ -80,7 +80,7 @@
                 <p>Commercial, Music, Informational</p>
               </div>
               </a> </li>
-              <li> <a href="service-single.html">
+              <li> <a href="../start">
                 <div class="service-box">
                   <div class="service-num">07.</div>
                   <div class="service-icon"><i class="ion ion-android-camera"></i></div>

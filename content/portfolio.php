@@ -66,7 +66,7 @@
       <!-- Content Holder End -->
       <div class="quote-box">
         <h6>Want to discuss a new project ?</h6>
-        <a href="contact-us.html" class="btn btn-default">LET'S TALK</a> </div>
+        <a href="../start" class="btn btn-default">LET'S TALK</a> </div>
     </div>
   </div>
 </div>

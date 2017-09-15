@@ -14,6 +14,7 @@
       <!-- add to active page: menu__link--current -->
       <li class="menu__item"><a class="menu__link" href="../home">Home</a></li>
       <li class="menu__item"><a class="menu__link" href="../about">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="../dashboard">Dashboard</a></li>
       <li class="menu__item"><a class="menu__link" href="../services">Services</a></li>
       <!-- <li class="menu__item"><a class="menu__link" data-submenu="submenu-1">Promotions</a></li> -->
       <li class="menu__item"><a class="menu__link" href="../portfolio">Portfolio</a></li>

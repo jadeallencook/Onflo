@@ -28,7 +28,7 @@
       <div class="content-holder">
         <h3 class="content-title">Our Services</h3>
         <p class="large-para">We offer you the best in brand strategy, identity development, advertising expertise and more at a competitive price. We can help you make sense of it all and deliver the best options for your business.</p>
-        <p>The role of the online consultants is constantly evolving; that is why we are doing everything we can to move with you, your goals and your targeted audience. Using our powerful marketing tools, our clients can integrate all their marketing goals into one strategic channel. Whether it is inbound or outbound, our integrated programs will ensure you are earning new subscribers and engaging the audience you have worked over time to develop.</p>
+        <p>The role of online consultants is constantly evolving; that is why we are doing everything we can to move with you, your goals and your targeted audience. Using our powerful marketing tools, our clients can integrate all their marketing goals into one strategic channel. Whether it is inbound or outbound, our integrated programs will ensure you are earning new subscribers and engaging the audience you have worked over time to develop.</p>
 
         <!-- service list start -->
         <ul class="service-list">

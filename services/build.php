@@ -8,10 +8,11 @@
     include_once '../../components/meta-data.php';
     include_once '../../components/head-includes.php';
     include_once '../../components/ie-support.php';
-    // end head
     echo '</head>';
-    // start body & wrapper
     echo '<body>';
+    // google analytics
+    include_once '../../components/google-analytics.php';
+    // start page wrapper
     echo '<div class="animsition">';
     // navigation
     include_once '../../components/navigation.php';
@@ -23,6 +24,7 @@
     echo '</div>';
     // js includes
     include_once '../../components/js-includes.php';
+    include_once '../../components/hubspot.php';
     // end html
     echo '</body>';
     echo '</html>';

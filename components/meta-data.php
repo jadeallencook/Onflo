@@ -13,6 +13,6 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Onflo | Automated Online Workflow" />
 <meta property="og:description" content="Onflo is the online marketing automation software that is designed and built for small to medium-sized businesses. We arm you with the necessary tools to collect more leads, drive more sales, and help design your dream." />
-<meta property="og:image" content="../../onflo-header.jpg" />
+<meta property="og:image" content="http://www.onflo.io/images/onflo-avatar.jpg" />
 
 <link rel="icon" href="../../images/favicon.png" sizes="32x32"/>

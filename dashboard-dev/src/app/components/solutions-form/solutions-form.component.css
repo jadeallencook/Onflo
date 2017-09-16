@@ -1,0 +1,16 @@
+div#solutions-form {
+  margin-bottom: 25px;
+}
+
+textarea {
+  width: 75%;
+  max-width: 500px;
+}
+
+.date {
+  font-size: .5em;
+}
+
+div.desc a {
+  cursor: pointer;
+}

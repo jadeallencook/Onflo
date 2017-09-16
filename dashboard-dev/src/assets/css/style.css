@@ -251,7 +251,7 @@ body {
 }
 
 a {
-	color: #646464;
+	cursor: pointer;
 }
 
 hr {
@@ -736,16 +736,13 @@ ul.messages li .message {
 
 #content {
 	background: #ffffff;
-	filter: none;
-	min-height: 100%;
-	padding: 20px 20px;
-	position: relative;
+	overflow-y: auto;
 }
 
 .breadcrumb {
 	margin: -28px -28px 28px -28px;
 	line-height: 34px;
-	background: #F7F7F7;
+	background: #ddd;
 	border: 0px;
 	color: #888;
 	-webkit-box-shadow: none;

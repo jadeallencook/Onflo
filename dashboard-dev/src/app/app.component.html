@@ -1,7 +1,44 @@
 <app-navigation></app-navigation>
 <app-js-warning></app-js-warning>
 
-<div id="content" class="span10">
+<div id="content">
   <app-breadcrum></app-breadcrum>
-  <router-outlet id="angular-content"></router-outlet>
+
+  <!-- dashboard outlet -->
+  <router-outlet *ngIf="this.FirebaseAuthService.ActiveUser" id="angular-content"></router-outlet>
+
+  <!-- signin outlet -->
+  <div *ngIf="!this.FirebaseAuthService.ActiveUser" id="login-wrapper">
+    <div class="login-box">
+      <img src="http://onflo.io/images/onflo-black-logo.png" alt="Onflo Logo" id="onflo-logo"><br />
+      <form class="form-horizontal" action="index.html" method="post">
+        <fieldset>
+
+          <div class="input-prepend" title="Username">
+            <span class="add-on"><i class="halflings-icon user"></i></span>
+            <input [(ngModel)]="email" class="input-large span10" name="email" id="email" type="text" placeholder="email">
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="input-prepend" title="Password">
+            <span class="add-on"><i class="halflings-icon lock"></i></span>
+            <input [(ngModel)]="password" class="input-large span10" name="password" id="password" type="password" placeholder="password">
+          </div>
+
+          <p id="error-message" *ngIf="this.FirebaseAuthService.errorMsg">{{ this.FirebaseAuthService.errorMsg }}</p>
+
+          <div class="clearfix"></div>
+
+          <div class="button-login">
+            <button type="submit" (click)="this.FirebaseAuthService.login(this.email, this.password)" class="btn btn-primary">Login</button>
+            <button type="submit" (click)="this.FirebaseAuthService.createAccount(this.email, this.password)" class="btn btn-default">Create Account</button>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <hr>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </div>

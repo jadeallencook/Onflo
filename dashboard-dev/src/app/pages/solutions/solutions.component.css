@@ -1,0 +1,10 @@
+#solutions-container {
+  display: block;
+  float: none;
+  position: relative;
+}
+
+p {
+  width: 100%;
+  max-width: 750px;
+}

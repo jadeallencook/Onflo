@@ -38,7 +38,8 @@
 @media only screen and (min-width: 980px) and (max-width: 1199px){
 
 	.container-fluid-full {
-		overflow: hidden;
+		overflow-y: scroll;
+		overflow-x: hidden;
 		position: relative;
 		height: 100%;
 	}
@@ -48,6 +49,7 @@
 		padding: 20px;
 		margin: 0px;
 		margin-left: 14.422% !important;
+		box-sizing: border-box;
 	}
 
 	.dark {
@@ -62,7 +64,7 @@
 	#sidebar-left {
 		background: #1C1D22;
 		margin-left: 0px !important;
-		position: absolute;
+		position: fixed;
 		height: 100%;
 	}
 
@@ -159,7 +161,7 @@
 	}
 
 	.breadcrumb {
-		margin: -22px -22px 22px -22px;
+		margin: 0px -22px 22px -22px;
 	}
 
 	.statbox,
@@ -330,7 +332,11 @@
 	}
 
 	.breadcrumb {
-		margin: -5px -5px 5px -5px;
+		margin: 0px -5px 15px -5px;
+	}
+
+	#sidebar-left {
+		display: none;
 	}
 
 	.nav-tabs.nav-stacked > li > a,

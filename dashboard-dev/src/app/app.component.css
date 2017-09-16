@@ -1,0 +1,16 @@
+p#error-message {
+  color: red;
+  text-align: left;
+}
+
+div#content {
+  background-color: #F5F5F5;
+}
+div.login-box {
+  text-align: center;
+}
+
+img#onflo-logo {
+  width: 50%;
+  margin: 25px auto;
+}

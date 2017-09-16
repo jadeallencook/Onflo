@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { environment } from '../environments/environment';
+import { FormsModule } from '@angular/forms';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FirebaseAuthService } from './services/firebase-auth/firebase-auth.service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -11,6 +18,7 @@ import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { JsWarningComponent } from './components/js-warning/js-warning.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SolutionsFormComponent } from './components/solutions-form/solutions-form.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,11 +39,16 @@ const appRoutes: Routes = [
     BreadcrumComponent,
     JsWarningComponent,
     NavigationComponent,
-    SettingsComponent
+    SettingsComponent,
+    SolutionsFormComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

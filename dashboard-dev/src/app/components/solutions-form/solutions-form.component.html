@@ -1,8 +1,14 @@
 <div id="solutions-form">
-<div class="control-group">
-  <label class="control-label" for="prependedInput">What can we help you with?</label>
-	<textarea id="prependedInput" size="32" type="text" placeholder="Tell us a little more..."></textarea>
-</div>
-<button type="submit" class="btn btn-primary">Get Started</button>
-<button class="btn">Cancel</button>
+  <div *ngIf="!this.submitted">
+    <div class="control-group">
+      <label class="control-label" for="prependedInput">What can we help you with?</label>
+      <textarea id="prependedInput" size="32" type="text" placeholder="Tell us a little more..." [(ngModel)]="issue"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="this.submitIssue()">Get Started</button>
+    <button class="btn">Cancel</button>
+  </div>
+  <div class="alert alert-success" *ngIf="this.submitted">
+    <strong>Success!</strong> We will be getting back to you with a solution ASAP.<br /><br />
+    <a><strong (click)="this.reset()">Click here to submit another</strong></a>
+  </div>
 </div>

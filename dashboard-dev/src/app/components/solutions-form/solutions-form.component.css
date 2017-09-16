@@ -14,3 +14,8 @@ textarea {
 div.desc a {
   cursor: pointer;
 }
+
+div.alert {
+  width: 75%;
+  max-width: 500px;
+}

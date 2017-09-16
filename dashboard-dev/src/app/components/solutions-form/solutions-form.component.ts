@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseAuthService } from '../../services/firebase-auth/firebase-auth.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-solutions-form',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolutionsFormComponent implements OnInit {
 
-  constructor() { }
+  issue:string = '';
+  submitted:boolean = false;
+
+  constructor(private FirebaseAuthService: FirebaseAuthService) { }
 
   ngOnInit() {
+  }
+
+  reset() {
+    this.submitted = false;
+    this.issue = '';
+  }
+
+  submitIssue() {
+    let uid = this.FirebaseAuthService.ActiveUser.uid;
+    let date = new Date().toString();
+    if (this.issue.length > 1) {
+      firebase.database().ref('issues').push({
+        uid: uid,
+        msg: this.issue,
+        date: date
+      });
+      this.submitted = true;
+    }
   }
 
 }

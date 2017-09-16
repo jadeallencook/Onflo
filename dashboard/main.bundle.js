@@ -107,6 +107,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_navigation_navigation_component__ = __webpack_require__("../../../../../src/app/components/navigation/navigation.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_solutions_form_solutions_form_component__ = __webpack_require__("../../../../../src/app/components/solutions-form/solutions-form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_window_ref_window_ref_service__ = __webpack_require__("../../../../../src/app/services/window-ref/window-ref.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_admin_admin_component__ = __webpack_require__("../../../../../src/app/pages/admin/admin.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,12 +133,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__pages_home_home_component__["a" /* HomeComponent */] },
     { path: 'solutions', component: __WEBPACK_IMPORTED_MODULE_10__pages_solutions_solutions_component__["a" /* SolutionsComponent */] },
     { path: 'analytics', component: __WEBPACK_IMPORTED_MODULE_11__pages_analytics_analytics_component__["a" /* AnalyticsComponent */] },
     { path: 'learn', component: __WEBPACK_IMPORTED_MODULE_12__pages_learn_learn_component__["a" /* LearnComponent */] },
     { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings_component__["a" /* SettingsComponent */] },
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_19__pages_admin_admin_component__["a" /* AdminComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_9__pages_home_home_component__["a" /* HomeComponent */] }
 ];
 var AppModule = (function () {
@@ -156,7 +161,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_14__components_js_warning_js_warning_component__["a" /* JsWarningComponent */],
             __WEBPACK_IMPORTED_MODULE_15__components_navigation_navigation_component__["a" /* NavigationComponent */],
             __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings_component__["a" /* SettingsComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_solutions_form_solutions_form_component__["a" /* SolutionsFormComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__components_solutions_form_solutions_form_component__["a" /* SolutionsFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__pages_admin_admin_component__["a" /* AdminComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -166,7 +172,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["b" /* AngularFireAuthModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_18__services_window_ref_window_ref_service__["a" /* WindowRefService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -329,7 +335,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n      <li><a routerLink=\"/home\"><i class=\"icon-bar-chart\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <!--\n      <li><a routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      -->\n      <li><a routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\" *ngIf=\"this.FirebaseAuthService.ActiveUser\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a routerLink=\"/home\"><i class=\"icon-bar-chart\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <!-- <li><a routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li> -->\n      <li><a routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!-- admin -->\n      <li *ngIf=\"this.FirebaseAuthService.ActiveUser.email === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -459,6 +465,93 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/admin/admin.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "div.box-content {\n  width: 75%;\n  max-width: 500px;\n}\n\nul.dashboard-list li {\n  padding-bottom: 5px;\n  display: block;\n}\n\n.box-content textarea {\n  width: 75%;\n  max-width: 500px;\n  min-width: 250px;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/admin/admin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- read deals -->\n<div class=\"box-content\" *ngIf=\"!activeDeal\">\n  <ul class=\"dashboard-list\">\n    <li *ngFor=\"let deal of this.deals\">\n      <img class=\"avatar\" src=\"../../assets/img/avatar.png\">\n      <strong>User:</strong> {{ deal.uid }}<br>\n      <strong>Since:</strong> {{ deal.date }}<br>\n      <strong>Status:</strong> <span class=\"label label-warning\">Pending...</span>\n      <br /><br />\n      <strong>Details:</strong> {{ deal.msg }}<br>\n      <a (click)=\"showDeal(deal.dealUID)\">Reply</a> or <a (click)=\"removeDeal(deal.dealUID)\">Delete</a> ({{ deal.dealUID }})\n    </li>\n  </ul>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <h2>Reply to deal</h2>\n  <br />\n  <strong>UID:</strong> {{ activeDeal.uid }}<br />\n  <strong>Since:</strong> {{ activeDeal.date }}<br>\n  <strong>Status:</strong> <span class=\"label label-warning\">Pending...</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}<br></span>\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}<br></span>\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}<br></span>\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}<br></span>\n    <br />\n  </div>\n  <strong>Details:</strong> {{ activeDeal.msg }}\n  <br /><br />\n  <input placeholder=\"What's The Goal?\" type=\"text\" /><br />\n  <textarea placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input placeholder=\"How Much?\" type=\"number\" /><br />\n  <input placeholder=\"How Many Days?\" type=\"number\" />\n  <br /><br />\n  <a (click)=\"activeDeal=false\">Back To All Deals</a>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/admin/admin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminComponent = (function () {
+    function AdminComponent() {
+        this.activeDeal = false;
+        this.client = false;
+    }
+    AdminComponent.prototype.showDeal = function (uid) {
+        var _this = this;
+        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('issues/' + uid).once('value').then(function (snapshot) {
+            _this.activeDeal = snapshot.val();
+        }).then(function () {
+            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + _this.activeDeal.uid).once('value').then(function (snapshot) {
+                _this.client = snapshot.val();
+            });
+        });
+    };
+    AdminComponent.prototype.removeDeal = function (uid) {
+        console.log(uid);
+    };
+    AdminComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('issues/').once('value').then(function (snapshot) {
+            _this.deals = Object.keys(snapshot.val()).map(function (key) {
+                var deal = snapshot.val()[key];
+                deal.dealUID = key;
+                return deal;
+            });
+        });
+    };
+    return AdminComponent;
+}());
+AdminComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-admin',
+        template: __webpack_require__("../../../../../src/app/pages/admin/admin.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/admin/admin.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AdminComponent);
+
+//# sourceMappingURL=admin.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/analytics/analytics.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -467,7 +560,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "section {\n  margin-top: 25px;\n}\n\n.analytics-chart {\n  width: 45%;\n  margin-right: 5px;\n  display: inline-block;\n}\n\n@media only screen and (max-width: 767px) {\n\n\t.analytics-chart {\n\t\twidth: 75%;\n\t}\n\n}\n", ""]);
 
 // exports
 
@@ -480,7 +573,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/analytics/analytics.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Analytics</h1>\n<br />\n<h2>Coming soon...</h2>\n<br />\n"
+module.exports = "<h1>Analytics</h1>\n<section id=\"view-selector\"></section>\n<section class=\"analytics-chart\" id=\"timeline\"></section>\n<div class=\"analytics-chart\" id=\"chart-1-container\"></div>\n<section id=\"auth-button\"></section><br />\n<p>If your analytics don't load, please refesh</p>\n<p>Don't have Google Analytics installed?</p>\n<a routerLink=\"/solutions\">Click here to tell us what you need help with!</a>\n"
 
 /***/ }),
 
@@ -490,6 +583,7 @@ module.exports = "<h1>Analytics</h1>\n<br />\n<h2>Coming soon...</h2>\n<br />\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AnalyticsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_window_ref_window_ref_service__ = __webpack_require__("../../../../../src/app/services/window-ref/window-ref.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -500,10 +594,74 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AnalyticsComponent = (function () {
-    function AnalyticsComponent() {
+    function AnalyticsComponent(windowRef) {
+        this.windowRef = windowRef;
     }
     AnalyticsComponent.prototype.ngOnInit = function () {
+        // reference window {}
+        var window = this.windowRef.nativeWindow;
+        // init connection with ga
+        window.gapi.analytics.ready(function () {
+            // authorize the user
+            var CLIENT_ID = '952694402859-ciaj7o98qkqjj5mmdbiros5v99labv0g.apps.googleusercontent.com';
+            window.gapi.analytics.auth.authorize({
+                container: 'auth-button',
+                clientid: CLIENT_ID,
+            });
+            // create the view selectors
+            var viewSelector = new window.gapi.analytics.ViewSelector({
+                container: 'view-selector'
+            });
+            var dataChart1 = new window.gapi.analytics.googleCharts.DataChart({
+                query: {
+                    metrics: 'ga:sessions',
+                    dimensions: 'ga:city',
+                    'start-date': '30daysAgo',
+                    'end-date': 'yesterday',
+                    'max-results': 6,
+                    sort: '-ga:sessions'
+                },
+                chart: {
+                    container: 'chart-1-container',
+                    type: 'PIE',
+                    options: {
+                        width: '100%',
+                        pieHole: 4 / 9,
+                        backgroundColor: '#F5F5F5'
+                    }
+                }
+            });
+            // create the timeline chart.
+            var timeline = new window.gapi.analytics.googleCharts.DataChart({
+                reportType: 'ga',
+                query: {
+                    metrics: 'ga:sessions',
+                    dimensions: 'ga:date'
+                },
+                chart: {
+                    type: 'LINE',
+                    container: 'timeline',
+                    options: {
+                        title: 'Sessions over the past week.',
+                        fontSize: 12,
+                        backgroundColor: '#F5F5F5'
+                    }
+                }
+            });
+            // hook up the components to work together
+            viewSelector.execute();
+            viewSelector.on('change', function (ids) {
+                var newIds = {
+                    query: {
+                        ids: ids
+                    }
+                };
+                timeline.set(newIds).execute();
+                dataChart1.set({ query: { ids: ids } }).execute();
+            });
+        });
     };
     return AnalyticsComponent;
 }());
@@ -513,9 +671,10 @@ AnalyticsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/analytics/analytics.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/analytics/analytics.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_window_ref_window_ref_service__["a" /* WindowRefService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_window_ref_window_ref_service__["a" /* WindowRefService */]) === "function" && _a || Object])
 ], AnalyticsComponent);
 
+var _a;
 //# sourceMappingURL=analytics.component.js.map
 
 /***/ }),
@@ -541,7 +700,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\n<h1>Dashboard</h1>\n<br />\n<h2>Welcome to your Onflo dashboard!</h2>\n<br />\n\n<!-- features break down -->\n<p><i>Features are under construction and will be available soon.</i></p>\n<br />\n<ul>\n  <!-- solutions -->\n  <li><a routerLink=\"/solutions\">Solutions</a></li>\n  <ul>\n    <li>Connect with our team to solve your problems.</li>\n    <li>Submit issues and receive quotes on fixes.</li>\n    <li>Need an upcoming promotion? We can help!</li>\n    <li>Website have bugs? Don't worry, we have solutions!</li>\n  </ul>\n  <!-- analytics -->\n  <li><a routerLink=\"/home\">Analytics (Coming Soon)</a></li>\n  <ul>\n    <li>Import your Google Analytics to our Dashboard.</li>\n    <li>Don't understand something? Ask us questions!</li>\n    <li>Receive advice for growing your online presence.</li>\n  </ul>\n  <!-- learn -->\n  <li><a routerLink=\"/home\">Learn (Coming Soon)</a></li>\n  <ul>\n    <li>Custom videos to help you get things done!</li>\n    <li>Step by step instructions for running an online business.</li>\n  </ul>\n</ul>\n\n<p><i>Please hold tight until features are available!</i></p>\n"
+module.exports = "<!-- header -->\n<h1>Dashboard</h1>\n<br />\n<h2>Welcome to your Onflo dashboard!</h2>\n<br />\n\n<!-- features break down -->\n<p><i>Features are under construction and will be available soon.</i></p>\n<br />\n<ul>\n  <!-- solutions -->\n  <li><a routerLink=\"/solutions\">Solutions</a></li>\n  <ul>\n    <li>Connect with our team to solve your problems.</li>\n    <li>Submit issues and receive quotes on fixes.</li>\n    <li>Need an upcoming promotion? We can help!</li>\n    <li>Website have bugs? Don't worry, we have solutions!</li>\n  </ul>\n  <!-- analytics -->\n  <li><a routerLink=\"/analytics\">Analytics</a></li>\n  <ul>\n    <li>Import your Google Analytics to our Dashboard.</li>\n    <li>Don't understand something? Ask us questions!</li>\n    <li>Receive advice for growing your online presence.</li>\n  </ul>\n  <!-- learn -->\n  <li><a routerLink=\"/home\">Learn (Coming Soon)</a></li>\n  <ul>\n    <li>Custom videos to help you get things done!</li>\n    <li>Step by step instructions for running an online business.</li>\n  </ul>\n  <!-- learn -->\n  <li><a routerLink=\"/home\">Automation (Coming Soon)</a></li>\n  <ul>\n    <li>Get things done while you're sleeping with these automation tools.</li>\n    <li>Instagram, Twitter, Facebook - advanced tagging options.</li>\n    <li>Add your own settings to the bot so it's personalized.</li>\n  </ul>\n  <!-- markter -->\n  <li><a routerLink=\"/home\">Customers (Coming Soon)</a></li>\n  <ul>\n    <li>Keep track of your customers and their rewards.</li>\n    <li>Customizable pipeline for sales.</li>\n  </ul>\n  <!-- markter -->\n  <li><a routerLink=\"/home\">Reviews (Coming Soon)</a></li>\n  <ul>\n    <li>Read all your reviews in one place.</li>\n  </ul>\n</ul>\n\n<p><i>Please hold tight until features are available!</i></p>\n"
 
 /***/ }),
 
@@ -875,6 +1034,42 @@ FirebaseAuthService = __decorate([
 
 var _a;
 //# sourceMappingURL=firebase-auth.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/window-ref/window-ref.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WindowRefService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+function getWindow() {
+    return window;
+}
+var WindowRefService = (function () {
+    function WindowRefService() {
+    }
+    Object.defineProperty(WindowRefService.prototype, "nativeWindow", {
+        get: function () {
+            return getWindow();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return WindowRefService;
+}());
+WindowRefService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
+], WindowRefService);
+
+//# sourceMappingURL=window-ref.service.js.map
 
 /***/ }),
 

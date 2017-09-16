@@ -1,0 +1,42 @@
+<h1>Admin</h1>
+<br />
+
+<!-- read deals -->
+<div class="box-content" *ngIf="!activeDeal">
+  <ul class="dashboard-list">
+    <li *ngFor="let deal of this.deals">
+      <img class="avatar" src="../../assets/img/avatar.png">
+      <strong>User:</strong> {{ deal.uid }}<br>
+      <strong>Since:</strong> {{ deal.date }}<br>
+      <strong>Status:</strong> <span class="label label-warning">Pending...</span>
+      <br /><br />
+      <strong>Details:</strong> {{ deal.msg }}<br>
+      <a (click)="showDeal(deal.dealUID)">Reply</a> or <a (click)="removeDeal(deal.dealUID)">Delete</a> ({{ deal.dealUID }})
+    </li>
+  </ul>
+</div>
+
+<!-- reply to deals -->
+<div class="box-content" *ngIf="activeDeal">
+  <h2>Reply to deal</h2>
+  <br />
+  <strong>UID:</strong> {{ activeDeal.uid }}<br />
+  <strong>Since:</strong> {{ activeDeal.date }}<br>
+  <strong>Status:</strong> <span class="label label-warning">Pending...</span>
+  <br /><br />
+  <div *ngIf="client">
+    <span *ngIf="client.business"><strong>Business:</strong> {{ client.business }}<br></span>
+    <span *ngIf="client.website"><strong>Website:</strong> {{ client.website }}<br></span>
+    <span *ngIf="client.slack"><strong>Slack:</strong> {{ client.slack }}<br></span>
+    <span *ngIf="client.phone"><strong>Phone:</strong> {{ client.phone }}<br></span>
+    <br />
+  </div>
+  <strong>Details:</strong> {{ activeDeal.msg }}
+  <br /><br />
+  <input placeholder="What's The Goal?" type="text" /><br />
+  <textarea placeholder="How are we going to do it?" size="32" type="text"></textarea><br />
+  <input placeholder="How Much?" type="number" /><br />
+  <input placeholder="How Many Days?" type="number" />
+  <br /><br />
+  <a (click)="activeDeal=false">Back To All Deals</a>
+</div>

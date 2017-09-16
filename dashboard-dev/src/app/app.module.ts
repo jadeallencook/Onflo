@@ -21,6 +21,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { SolutionsFormComponent } from './components/solutions-form/solutions-form.component';
 
 import { WindowRefService } from './services/window-ref/window-ref.service';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'analytics', component: AnalyticsComponent},
   { path: 'learn', component: LearnComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'admin', component: AdminComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     JsWarningComponent,
     NavigationComponent,
     SettingsComponent,
-    SolutionsFormComponent
+    SolutionsFormComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

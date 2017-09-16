@@ -1,0 +1,15 @@
+div.box-content {
+  width: 75%;
+  max-width: 500px;
+}
+
+ul.dashboard-list li {
+  padding-bottom: 5px;
+  display: block;
+}
+
+.box-content textarea {
+  width: 75%;
+  max-width: 500px;
+  min-width: 250px;
+}

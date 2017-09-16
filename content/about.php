@@ -28,6 +28,12 @@
         <h3 class="content-title">Who we are</h3>
         <p class="large-para">Ready to learn new ways of thinking to better connect with your customers? These sophisticated tools will allow you to engage customers, turn that engagement into sales, and help you grow your online presence.</p>
         <p>Take your business' online presense to the next level with Onflo. Our team is confident that we can help you come up with a solution to get your brand headed in the right direction. Our team ranges from graphic designers, photographers, video producers, and a creative assortment of other digital artists. So whether you need custom integrations or unique graphic designs, you can can always count on our developers and artists.</p>
+        <img src="../../images/dashboard-solutions.png" alt="Onflo Dashboard Solutions" />
+        <br /><br />
+        <p>See how much your business has grown using your Google Analytics all in the same place! Our dashboard also displays your analytics in simple, easy to read way. You can view your weekly vistors and your top cities, more to come soon. If you don't have Google Analytics setup on your website, you can follow the link below to get it started (on the dashboard). It's as easy as submitting an issue, our team will take take of the rest!</p>
+        <br />
+        <img src="../../images/dashboard-analytics.png" alt="Onflo Dashboard Analytics" />
+        <br /><br />
         <p>If you need one-on-one help, we will assist you with setting up a Slack chatroom to keep close contact throughout the whole process. Slack creates alignment and shared understanding across your team, making you more productive, less stressed, and just a little bit happier by bringing all your team's communication together. By giving everyone a shared workspace where conversations are organized, we can will have better direction on your vision and can get to work on your project sooner!</p>
         <img src="../../images/slack.png" alt="Slack Dashboard" />
         <br /><br />

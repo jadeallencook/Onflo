@@ -1,0 +1,17 @@
+section {
+  margin-top: 25px;
+}
+
+.analytics-chart {
+  width: 45%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 767px) {
+
+	.analytics-chart {
+		width: 75%;
+	}
+
+}

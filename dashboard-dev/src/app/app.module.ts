@@ -20,6 +20,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SolutionsFormComponent } from './components/solutions-form/solutions-form.component';
 
+import { WindowRefService } from './services/window-ref/window-ref.service';
+
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'solutions', component: SolutionsComponent },
@@ -50,7 +52,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [],
+  providers: [WindowRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

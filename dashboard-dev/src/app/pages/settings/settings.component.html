@@ -1,3 +1,26 @@
 <h1>Settings</h1>
-<br />
-<h2>Coming soon...</h2>
+
+<br /><br />
+
+<div class="input-group">
+  <label class="control-label" for="focusedInput">Business</label>
+  <input class="input-xlarge focused" type="text" [(ngModel)]="business" placeholder="Business Name">
+</div><br />
+<div class="input-group">
+  <label class="control-label" for="focusedInput">Phone</label>
+  <input class="input-xlarge focused" type="text" [(ngModel)]="phone" placeholder="(555) 555-5555">
+</div><br />
+<div class="input-group">
+  <label class="control-label" for="focusedInput">Website</label>
+  <input class="input-xlarge focused" type="text" [(ngModel)]="website" placeholder="mybusiness.com">
+</div><br /><div class="input-group">
+  <label class="control-label" for="focusedInput">Slack</label>
+  <input class="input-xlarge focused" type="text" [(ngModel)]="slack" placeholder="Slack Channel">
+</div><br /><div class="input-group">
+  <label class="control-label" for="focusedInput">Email</label>
+  <input class="input-xlarge focused" type="text" placeholder="{{ this.FirebaseAuthService.ActiveUser.email }}" disabled>
+</div><br />
+<div class="alert alert-success" *ngIf="this.changesSaved">
+  <strong>Success!</strong> Your changes were successfully saved.
+</div>
+<button type="submit" class="btn btn-primary" (click)="this.saveChanges()">Save Changes</button>

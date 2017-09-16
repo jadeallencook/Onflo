@@ -10,10 +10,14 @@ import { LearnComponent } from './pages/learn/learn.component';
 import { BreadcrumComponent } from './components/breadcrum/breadcrum.component';
 import { JsWarningComponent } from './components/js-warning/js-warning.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'solutions', component: SolutionsComponent },
+  { path: 'analytics', component: AnalyticsComponent},
+  { path: 'learn', component: LearnComponent },
+  { path: 'settings', component: SettingsComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -26,7 +30,8 @@ const appRoutes: Routes = [
     LearnComponent,
     BreadcrumComponent,
     JsWarningComponent,
-    NavigationComponent
+    NavigationComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

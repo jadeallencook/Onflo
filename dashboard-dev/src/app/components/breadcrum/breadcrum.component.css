@@ -1,0 +1,4 @@
+li#current-page {
+  cursor: pointer;
+  text-transform: capitalize;
+}

@@ -12,6 +12,8 @@
     echo '<body>';
     // google analytics
     include_once '../../components/google-analytics.php';
+    // image for facebook shared link
+    echo '<img src="http://www.onflo.io/images/onflo-avatar.jpg" height="0px" width="0px">';
     // start page wrapper
     echo '<div class="animsition">';
     // navigation

@@ -422,6 +422,7 @@ ul.nav li a:focus {
 
 #sidebar-left {
 	background: #1C1D22;
+	z-index: 9999;
 }
 
 .sidebar-nav > ul{
@@ -739,7 +740,6 @@ ul.messages li .message {
 	min-height: 100%;
 	padding: 20px 20px;
 	position: relative;
-	z-index: -1;
 }
 
 .breadcrumb {

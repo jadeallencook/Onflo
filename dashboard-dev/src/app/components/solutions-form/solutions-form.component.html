@@ -5,7 +5,7 @@
       <textarea id="prependedInput" size="32" type="text" placeholder="Tell us a little more..." [(ngModel)]="issue"></textarea>
     </div>
     <button type="submit" class="btn btn-primary" (click)="this.submitIssue()">Get Started</button>
-    <button class="btn">Cancel</button>
+    <button class="btn" (click)="this.issue = ''">Cancel</button>
   </div>
   <div class="alert alert-success" *ngIf="this.submitted">
     <strong>Success!</strong> We will be getting back to you with a solution ASAP.<br /><br />

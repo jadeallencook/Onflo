@@ -11,6 +11,7 @@
   <div *ngIf="!this.FirebaseAuthService.ActiveUser" id="login-wrapper">
     <div class="login-box">
       <img src="http://onflo.io/images/onflo-black-logo.png" alt="Onflo Logo" id="onflo-logo"><br />
+      Automated Online Workflow
       <form class="form-horizontal" action="index.html" method="post">
         <fieldset>
 
@@ -30,8 +31,8 @@
           <div class="clearfix"></div>
 
           <div class="button-login">
-            <button type="submit" (click)="this.FirebaseAuthService.login(this.email, this.password)" class="btn btn-primary">Login</button>
-            <button type="submit" (click)="this.FirebaseAuthService.createAccount(this.email, this.password)" class="btn btn-default">Create Account</button>
+            <button type="submit" (click)="this.FirebaseAuthService.login(this.email, this.password)" routerLink="home" class="btn btn-primary">Login</button>
+            <button type="submit" (click)="this.FirebaseAuthService.createAccount(this.email, this.password)" routerLink="home" class="btn btn-default">Create Account</button>
           </div>
 
           <div class="clearfix"></div>

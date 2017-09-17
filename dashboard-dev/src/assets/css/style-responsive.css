@@ -147,7 +147,7 @@
 
 	#content {
 		width: 91.666%;
-		padding: 22px;
+		padding: 0px 22px;
 		margin: 0px 0px;
 		margin-left: 8.334% !important;
 	}
@@ -177,6 +177,11 @@
 		position: absolute;
 		height: 100%;
 		width: 8.334% !important;
+	}
+
+	a#navbar-logo img {
+		width: 75%;
+		height: auto;
 	}
 
 	.sidebar-nav > ul{
@@ -332,7 +337,7 @@
 	}
 
 	.breadcrumb {
-		margin: 0px -5px 15px -5px;
+		margin: 5px -5px 15px -5px;
 	}
 
 	#sidebar-left {
@@ -446,7 +451,7 @@
 	}
 
 	#content {
-		padding: 5px;
+		padding: 15px;
 	}
 
 	.stat {
@@ -488,7 +493,7 @@
 	}
 
 	#content {
-		padding: 5px;
+		padding: 15px;
 	}
 
 	.stat {

@@ -10,8 +10,8 @@ import { FirebaseAuthService } from './services/firebase-auth/firebase-auth.serv
 })
 export class AppComponent {
 
-  email:string;
-  password: string;
+  email:string = '';
+  password: string = '';
 
   constructor(public FirebaseAuthService: FirebaseAuthService) { }
 

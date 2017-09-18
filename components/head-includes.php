@@ -7,4 +7,9 @@
 <link href="../../css/animsition.min.css" rel="stylesheet" type="text/css">
 <link href="../../css/magnific-popup.css" rel="stylesheet" type="text/css">
 <link href="../../css/style.css" rel="stylesheet" type="text/css">
+
 <script src="../../js/modernizr-custom.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/animsition.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.validate.js"></script>

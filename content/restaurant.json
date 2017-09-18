@@ -1,0 +1,41 @@
+{
+  "breadcrum": "Restaurant",
+  "headerTitle": "Restaurant",
+  "headerImage": "../../images/restaurant-header.jpg",
+  "contentTitle": "Let's Get Cookin!",
+  "contentLargeBody": "Test",
+  "contentBody": "Here at Onflo we offer services to help you grow your online presence and look stylish while doing it. We connect you with digital artists that will help you grow organically and succeed online. Not only do we help you improve your brand identity but our dashboard helps you know by how much!",
+  "features": [
+    {
+      "icon": "ios-camera",
+      "title": "Photography",
+      "body": "If you run a restaurant, you know how important your menu is. It's the first introduction to your food and having delicious photography can make the difference between getting the desert or not. How do you attract non English speakers into your food establishment? Everyone can understand a photograph. Most people like to see a photo of their food before ordering and for those from a different culture this is of even more importance.",
+      "photo": "../../images/restaurant-photography.jpg",
+      "video": ""
+    }, {
+      "icon": "android-person",
+      "title": "Social Media & Web Design",
+      "body": "It’s official. The internet is here to stay and isn’t going anywhere soon. Businesses have realized that not only is it a great way to connect with current clients but to land potential clients as well, and that’s only the beginning. We can help you promote your upcoming events and products from your social media all the way to your website, the possibilities are truly endless.",
+      "photo": "../../images/facebook-restaurant-promotion.jpg",
+      "video": ""
+    }, {
+      "icon": "videocamera",
+      "title": "Video",
+      "body": "Certainly, video marketing has become the gear to driving sales. Most people will spend time to watch a video rather than reading articles. Particularly, if the video is entertaining; it will attract more viewers and in turn increase sales. One good video can bring hungry customers to your establishment for years.",
+      "photo": "",
+      "video": "jkbNtwUq1ps"
+    }, {
+      "icon": "arrow-graph-up-right",
+      "title": "Analytics",
+      "body": "Your web data can help you know what your customers are looking for. Within these bytes lie valuable information on customer behavior, business insights, and revenue generation. It gives you a better idea of who they are and the ways they behave. Onflo can help you implement and understand your opportunities, you can even view your analytics on our dashboard!",
+      "photo": "../../images/analytics-on-computer.jpg",
+      "video": ""
+    }, {
+      "icon": "ios-telephone",
+      "title": "Start A Project",
+      "body": "Our team provides simple, honest, and affordable solutions that connect you with more customers. We aren’t afraid of the big data, we study our your users and find the perfect methods to turn your online audience into satisfied guests.<br /><br /><a href=\"../start\" class=\"btn btn-default\">Get In Contact</a>",
+      "photo": "#",
+      "video": ""
+    }
+  ]
+}

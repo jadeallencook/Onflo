@@ -2346,6 +2346,9 @@ blockquote {
   .main-container-outer {
     padding: 0;
   }
+  div.main-container-outer {
+    margin-top: -20px;
+  }
   .main-container-outer>.container {
     padding: 0;
   }

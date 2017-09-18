@@ -1,0 +1,42 @@
+<div class="span7" id="solutions-container">
+
+  <div *ngIf="solutions.length > 0">
+    <div *ngFor="let solution of solutions">
+      <div *ngIf="solution.status === 'pending'" class="priority high"><span>Needs Approval</span></div>
+      <div *ngIf="solution.status === 'pending'" class="task high">
+						<div class="desc">
+							<div class="title">{{ solution.title }}</div>
+							<div>{{ solution.objective }}</div><br />
+              <a (click)="approveDeal(solution)">Approve</a> or <a (click)="removeDeal(solution)">Remove</a>
+						</div>
+						<div class="time">
+							<div class="date">${{ solution.amount }}</div>
+							<div> {{ solution.days }} day(s)</div>
+						</div>
+					</div>
+      <div *ngIf="solution.status === 'production'" class="priority medium"><span>In Progress</span></div>
+      <div *ngIf="solution.status === 'production'" class="task medium">
+						<div class="desc">
+							<div class="title">{{ solution.title }}</div>
+							<div>{{ solution.objective }}</div>
+						</div>
+						<div class="time">
+							<div class="date">{{ this.formatSubmittedDate(solution.date) }}</div>
+							<div> 1 day</div>
+						</div>
+					</div>
+      <div *ngIf="solution.status === 'complete'" class="priority low"><span>Complete!</span></div>
+      <div *ngIf="solution.status === 'complete'" class="task low">
+						<div class="desc">
+							<div class="title">{{ solution.title }}</div>
+							<div>{{ solution.objective }}</div>
+						</div>
+						<div class="time">
+							<div class="date">{{ this.formatSubmittedDate(solution.date) }}</div>
+							<div> 1 day</div>
+						</div>
+					</div>
+    </div>
+  </div>
+
+</div>

@@ -2,17 +2,22 @@
 <br />
 
 <!-- read deals -->
-<div class="box-content" *ngIf="!activeDeal">
+<div class="box-content" *ngIf="!activeDeal && this.deals">
   <ul class="dashboard-list">
-    <li *ngFor="let deal of this.deals">
-      <img class="avatar" src="http://onflo.io/images/default-user.jpg">
-      <strong>User:</strong> {{ deal.uid }}<br>
-      <strong>Since:</strong> {{ deal.date }}<br>
-      <strong>Status:</strong> <span class="label label-warning">Pending...</span>
-      <br /><br />
-      <strong>Details:</strong> {{ deal.msg }}<br>
-      <a (click)="showDeal(deal.dealUID)">Reply</a> or <a (click)="removeDeal(deal.dealUID)">Delete</a> ({{ deal.dealUID }})
-    </li>
+    <div *ngFor="let deal of this.deals">
+      <li *ngIf="deal.status !== 'removed'">
+        <img class="avatar" src="http://onflo.io/images/default-user.jpg">
+        <strong>User:</strong> {{ deal.userUID }}<br>
+        <strong>Since:</strong> {{ deal.submitted }}<br>
+        <strong>Status:</strong>
+        <span class="label" *ngIf="deal.status === 'submitted'">{{ deal.status }}</span>
+        <span class="label label-info" *ngIf="deal.status === 'pending'">{{ deal.status }}</span>
+        <span class="label label-danger" *ngIf="deal.status === 'removed'">{{ deal.status }}</span>
+        <br /><br />
+        <strong>Issue:</strong> {{ deal.issue }}<br />
+        <a (click)="showDeal(deal.dealUID)">Reply</a> or <a (click)="removeDeal(deal.dealUID, deal.userUID)">Delete</a> ({{ deal.dealUID }})
+      </li>
+    </div>
   </ul>
 </div>
 
@@ -20,9 +25,11 @@
 <div class="box-content" *ngIf="activeDeal">
   <h2>Reply to deal</h2>
   <br />
-  <strong>UID:</strong> {{ activeDeal.uid }}<br />
-  <strong>Since:</strong> {{ activeDeal.date }}<br>
-  <strong>Status:</strong> <span class="label label-warning">Pending...</span>
+  <strong>UID:</strong> {{ activeDeal.userUID }}<br />
+  <strong>Since:</strong> {{ activeDeal.submitted }}<br>
+  <strong>Status:</strong>
+  <span class="label" *ngIf="activeDeal.status === 'submitted'">{{ activeDeal.status }}</span>
+  <span class="label label-info" *ngIf="activeDeal.status === 'pending'">{{ activeDeal.status }}</span>
   <br /><br />
   <div *ngIf="client">
     <span *ngIf="client.business"><strong>Business:</strong> {{ client.business }}<br></span>
@@ -31,12 +38,14 @@
     <span *ngIf="client.phone"><strong>Phone:</strong> {{ client.phone }}<br></span>
     <br />
   </div>
-  <strong>Details:</strong> {{ activeDeal.msg }}
+  <strong>Details:</strong> {{ activeDeal.issue }}
   <br /><br />
-  <input placeholder="What's The Goal?" type="text" /><br />
-  <textarea placeholder="How are we going to do it?" size="32" type="text"></textarea><br />
-  <input placeholder="How Much?" type="number" /><br />
-  <input placeholder="How Many Days?" type="number" />
+  <input [(ngModel)]="dealTitle" placeholder="What's the goal?" type="text" /><br />
+  <textarea [(ngModel)]="dealMsg" placeholder="How are we going to do it?" size="32" type="text"></textarea><br />
+  <input [(ngModel)]="dealAmount" placeholder="How much?" type="number" /><br />
+  <input [(ngModel)]="dealDays" placeholder="How many days?" type="number" />
+  <br />
+  <button class="btn btn-primary" (click)="sendDeal()">Update</button>
   <br /><br />
   <a (click)="activeDeal=false">Back To All Deals</a>
 </div>

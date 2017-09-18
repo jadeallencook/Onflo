@@ -22,6 +22,8 @@ import { SolutionsFormComponent } from './components/solutions-form/solutions-fo
 
 import { WindowRefService } from './services/window-ref/window-ref.service';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ExampleSolutionsComponent } from './components/example-solutions/example-solutions.component';
+import { CustomSolutionsComponent } from './components/custom-solutions/custom-solutions.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -45,7 +47,9 @@ const appRoutes: Routes = [
     NavigationComponent,
     SettingsComponent,
     SolutionsFormComponent,
-    AdminComponent
+    AdminComponent,
+    ExampleSolutionsComponent,
+    CustomSolutionsComponent
   ],
   imports: [
     BrowserModule,

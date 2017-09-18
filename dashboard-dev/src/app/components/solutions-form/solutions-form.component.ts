@@ -26,10 +26,11 @@ export class SolutionsFormComponent implements OnInit {
     let uid = this.FirebaseAuthService.ActiveUser.uid;
     let date = new Date().toString();
     if (this.issue.length > 1) {
-      firebase.database().ref('issues').push({
-        uid: uid,
-        msg: this.issue,
-        date: date
+      firebase.database().ref('deals').push({
+        userUID: uid,
+        issue: this.issue,
+        submitted: date,
+        status: 'submitted'
       });
       this.submitted = true;
     }

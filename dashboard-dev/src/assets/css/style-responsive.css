@@ -492,6 +492,14 @@
 		padding: 0px;
 	}
 
+	div.login-box {
+		width: 75%;
+	}
+
+	.mobile-home {
+		display: inline-block;
+	}
+
 	#content {
 		padding: 15px;
 	}

@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="main-container">
-      <div class="inner-banner parallax" data-parallax-speed="5" style="background-image:url(../../images/map.jpg);">
+      <div class="inner-banner parallax" data-parallax-speed="5" style="background-image:url(../../images/sand-garden.jpg);">
         <h2>About Us</h2>
       </div>
       <!-- Content Holder Start -->

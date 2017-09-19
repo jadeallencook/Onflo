@@ -193,6 +193,14 @@
 		margin: 0px;
 	}
 
+	li a:focus {
+		background-color: #CD9F51!important;
+	}
+
+	li a:active {
+		background-color: #CD9F51!important;
+	}
+
 	.nav-tabs.nav-stacked > li > a,
 	.nav-tabs.nav-stacked > li > ul > li > a {
 		text-align: center;
@@ -457,6 +465,10 @@
 
 	#content {
 		padding: 15px;
+	}
+
+	ul.nav-stacked li a:hover {
+		background-color: #CD9F51;
 	}
 
 	.stat {

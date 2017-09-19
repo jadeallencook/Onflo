@@ -373,6 +373,14 @@ ul.nav li {
 	cursor: pointer;
 }
 
+li a:active {
+	background-color: #CD9F51;
+}
+
+ul.nav li a:active {
+	background-color: #CD9F51;
+}
+
 ul.nav li a:focus {
 	background-color: #CD9F51;
 }

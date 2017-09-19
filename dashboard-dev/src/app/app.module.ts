@@ -27,12 +27,14 @@ import { WindowRefService } from './services/window-ref/window-ref.service';
 
 // stripe
 import { StripeCheckoutModule } from 'ng-stripe-checkout';
+import { CustomerComponent } from './pages/customer/customer.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'solutions', component: SolutionsComponent },
   { path: 'analytics', component: AnalyticsComponent},
   { path: 'learn', component: LearnComponent },
+  { path: 'customer', component: CustomerComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'admin', component: AdminComponent },
   { path: '**', component: HomeComponent }
@@ -52,7 +54,8 @@ const appRoutes: Routes = [
     SolutionsFormComponent,
     AdminComponent,
     ExampleSolutionsComponent,
-    CustomSolutionsComponent
+    CustomSolutionsComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

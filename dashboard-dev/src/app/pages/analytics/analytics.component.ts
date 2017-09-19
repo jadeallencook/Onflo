@@ -6,12 +6,17 @@ import { WindowRefService } from '../../services/window-ref/window-ref.service';
   templateUrl: './analytics.component.html',
   styleUrls: ['./analytics.component.css']
 })
+
 export class AnalyticsComponent implements OnInit {
 
   gapi: any;
   private _window: Window;
-  constructor(private windowRef: WindowRefService) { }
-  ngOnInit() {
+
+  gettingStarted: boolean = false;
+
+  displayAnalytics() {
+    this.gettingStarted = true;
+
     // reference window {}
     let window = this.windowRef.nativeWindow;
 
@@ -69,7 +74,7 @@ export class AnalyticsComponent implements OnInit {
       });
 
       // hook up the components to work together
-        viewSelector.execute();
+      viewSelector.execute();
       viewSelector.on('change', function(ids) {
         var newIds = {
           query: {
@@ -80,6 +85,14 @@ export class AnalyticsComponent implements OnInit {
         dataChart1.set({ query: { ids: ids } }).execute();
       });
     });
+  }
+
+  constructor(private windowRef: WindowRefService) {
+
+  }
+
+  ngOnInit() {
+
   }
 
 }

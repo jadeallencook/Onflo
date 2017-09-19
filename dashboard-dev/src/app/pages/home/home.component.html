@@ -1,48 +1,48 @@
 <!-- header -->
-<h1>Welcome!</h1>
-<br />
-<h2>Ready to start growing your online business with Onflo?</h2>
-<br />
+<div id="home-wrapper">
+  <h1>Welcome!</h1>
+  <br />
 
-<!-- features break down -->
-<ul>
-  <!-- solutions -->
-  <li><a routerLink="/solutions">Solutions</a></li>
-  <ul>
-    <li>Connect with our team to solve your problems.</li>
-    <li>Submit issues and receive quotes on fixes.</li>
-    <li>Need an upcoming promotion? We can help!</li>
-    <li>Website have bugs? Don't worry, we have solutions!</li>
-  </ul>
-  <!-- analytics -->
-  <li><a routerLink="/analytics">Analytics</a></li>
-  <ul>
-    <li>Import your Google Analytics to our Dashboard.</li>
-    <li>Don't understand something? Ask us questions!</li>
-    <li>Receive advice for growing your online presence.</li>
-  </ul>
-  <!-- learn -->
-  <li><a routerLink="/home">Learn (Coming Soon)</a></li>
-  <ul>
-    <li>Custom videos to help you get things done!</li>
-    <li>Step by step instructions for running an online business.</li>
-  </ul>
-  <!-- learn -->
-  <li><a routerLink="/home">Automation (Coming Soon)</a></li>
-  <ul>
-    <li>Get things done while you're sleeping with these automation tools.</li>
-    <li>Instagram, Twitter, Facebook - advanced tagging options.</li>
-    <li>Add your own settings to the bot so it's personalized.</li>
-  </ul>
-  <!-- markter -->
-  <li><a routerLink="/home">Customers (Coming Soon)</a></li>
-  <ul>
-    <li>Keep track of your customers and their rewards.</li>
-    <li>Customizable pipeline for sales.</li>
-  </ul>
-  <!-- markter -->
-  <li><a routerLink="/home">Reviews (Coming Soon)</a></li>
-  <ul>
-    <li>Read all your reviews in one place.</li>
-  </ul>
-</ul>
+  <!-- features break down -->
+  <div routerLink="/solutions" class="dash-icon">
+    <i class="icon-list-alt"></i><br />
+    <span>Solutions</span>
+  </div>
+
+  <div routerLink="/analytics" class="dash-icon">
+    <i class="icon-dashboard"></i><br />
+    <span>Analytics</span>
+  </div>
+
+  <div routerLink="/learn" class="dash-icon">
+    <i class="icon-facetime-video"></i><br />
+    <span>Learn</span>
+  </div>
+
+  <div routerLink="/automation" class="dash-icon">
+    <i class="icon-cog"></i><br />
+    <span>Automation</span>
+  </div>
+
+  <br />
+
+  <div routerLink="/customer" class="dash-icon">
+    <i class="icon-user"></i><br />
+    <span>Customers</span>
+  </div>
+
+  <div routerLink="/reviews" class="dash-icon">
+    <i class="icon-bullhorn"></i><br />
+    <span>Reviews</span>
+  </div>
+
+  <div routerLink="/settings" class="dash-icon">
+    <i class="icon-edit"></i><br />
+    <span>Settings</span>
+  </div>
+
+  <div (click)="this.FirebaseAuthService.logout()" class="dash-icon">
+    <i class="icon-off"></i><br />
+    <span>Logout</span>
+  </div>
+</div>

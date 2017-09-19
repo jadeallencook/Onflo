@@ -17,3 +17,7 @@ ul.dashboard-list li {
 span.label-danger {
   background-color: red;
 }
+
+span.label {
+  text-transform: capitalize;
+}

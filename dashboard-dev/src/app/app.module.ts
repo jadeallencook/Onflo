@@ -19,11 +19,14 @@ import { JsWarningComponent } from './components/js-warning/js-warning.component
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SolutionsFormComponent } from './components/solutions-form/solutions-form.component';
-
-import { WindowRefService } from './services/window-ref/window-ref.service';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ExampleSolutionsComponent } from './components/example-solutions/example-solutions.component';
 import { CustomSolutionsComponent } from './components/custom-solutions/custom-solutions.component';
+
+import { WindowRefService } from './services/window-ref/window-ref.service';
+
+// stripe
+import { StripeCheckoutModule } from 'ng-stripe-checkout';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -57,7 +60,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    StripeCheckoutModule,
   ],
   providers: [WindowRefService],
   bootstrap: [AppComponent]

@@ -13,6 +13,7 @@
         <span class="label" *ngIf="deal.status === 'submitted'">{{ deal.status }}</span>
         <span class="label label-info" *ngIf="deal.status === 'pending'">{{ deal.status }}</span>
         <span class="label label-danger" *ngIf="deal.status === 'removed'">{{ deal.status }}</span>
+        <span class="label label-warning" *ngIf="deal.status === 'production'">{{ deal.status }}</span>
         <br /><br />
         <strong>Issue:</strong> {{ deal.issue }}<br />
         <a (click)="showDeal(deal.dealUID)">Reply</a> or <a (click)="removeDeal(deal.dealUID, deal.userUID)">Delete</a> ({{ deal.dealUID }})
@@ -30,6 +31,7 @@
   <strong>Status:</strong>
   <span class="label" *ngIf="activeDeal.status === 'submitted'">{{ activeDeal.status }}</span>
   <span class="label label-info" *ngIf="activeDeal.status === 'pending'">{{ activeDeal.status }}</span>
+  <span class="label label-warning" *ngIf="activeDeal.status === 'production'">{{ activeDeal.status }}</span>
   <br /><br />
   <div *ngIf="client">
     <span *ngIf="client.business"><strong>Business:</strong> {{ client.business }}<br></span>

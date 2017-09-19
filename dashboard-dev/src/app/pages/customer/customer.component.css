@@ -1,0 +1,29 @@
+div#add-new-customer {
+  margin-bottom: 25px;
+}
+
+div#add-new-customer input {
+  background-color: #F5F5F5;
+  border: none;
+  border-bottom: solid #333 medium;
+  width: 30%;
+}
+
+table#DataTables_Table_0 {
+  background-color: #fff;
+}
+
+tbody tr {
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+a#delete-customer {
+  color: red;
+}
+
+@media only screen and (max-width: 600px) {
+  div#add-new-customer input {
+    width: 75%;
+  }
+}

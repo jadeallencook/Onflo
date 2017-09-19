@@ -1,1 +1,76 @@
 <h1>Customers</h1>
+<br />
+
+<!-- add new customer -->
+<div class="control-group" id="add-new-customer" *ngIf="!this.showingCustomer">
+  <div class="controls">
+    <input class="input-xlarge focused" [(ngModel)]="customerFirstName" type="text" placeholder="First Name" />
+    <input class="input-xlarge focused" [(ngModel)]="customerLastName" type="text" placeholder="Last Name" />
+    <input class="input-xlarge focused" [(ngModel)]="customerEmail" type="email" placeholder="Email" />
+    <br />
+    <button class="btn btn-primary" (click)="addNewCustomer()">Add New</button>
+    <button class="btn btn-default" (click)="refineCustomers()">Find Customer</button>
+  </div>
+</div>
+
+<!-- search customers -->
+<div *ngIf="!this.showingCustomer">
+  <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid">
+    <table class="table table-striped table-bordered bootstrap-datatable datatable dataTable" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+      <thead>
+        <tr role="row">
+          <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Username: activate to sort column descending" style="width: 142px;">Name</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Date registered: activate to sort column ascending" style="width: 207px;">Email</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Role: activate to sort column ascending" style="width: 112px;">Signed Up</th>
+          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 128px;">Points</th>
+        </tr>
+      </thead>
+      <tbody role="alert" aria-live="polite" aria-relevant="all">
+        <tr *ngFor="let contact of this.allCustomers" (click)="openCustomer(contact.uid)">
+          <td class="center">{{ contact.first + ' ' + contact.last }}</td>
+          <td class="center">{{ contact.email }}</td>
+          <td class="center">{{ formatDate(contact.signup) }}</td>
+          <td class="center">{{ contact.points }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row-fluid">
+      <div class="span12 center">
+        <div class="dataTables_paginate paging_bootstrap pagination">
+          <ul>
+            <li class="prev disabled"><a>← Previous</a></li>
+            <li class="next disabled"><a>Next → </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit customer -->
+<div *ngIf="this.showingCustomer">
+  <div class="input-group">
+    <label class="control-label" for="focusedInput">First Name</label>
+    <input class="input-xlarge focused" type="text" [(ngModel)]="this.selectedCustomer.first" placeholder="John">
+  </div><div class="input-group">
+    <label class="control-label" for="focusedInput">Last Name</label>
+    <input class="input-xlarge focused" type="text" [(ngModel)]="this.selectedCustomer.last" placeholder="Doe">
+  </div><div class="input-group">
+    <label class="control-label" for="focusedInput">Email</label>
+    <input class="input-xlarge focused" type="email" [(ngModel)]="this.selectedCustomer.email" placeholder="johndoe@gmail.com">
+  </div><div class="input-group">
+    <label class="control-label" for="focusedInput">Points</label>
+    <input class="input-xlarge focused" type="number" [(ngModel)]="this.selectedCustomer.points" placeholder="0">
+  </div><div class="input-group">
+    <label class="control-label" for="focusedInput">Phone</label>
+    <input class="input-xlarge focused" type="text" [(ngModel)]="this.selectedCustomer.phone" placeholder="(555) 555-5555">
+  </div><div class="input-group">
+    <label class="control-label" for="focusedInput">Signed Up</label>
+    <input class="input-xlarge focused" type="text" value="{{ this.formatDate(this.selectedCustomer.signup) }}" disabled>
+  </div>
+  <br />
+  <button class="btn btn-primary" (click)="updateCustomer(this.openCustomerUID)">Save Changes</button>
+  <button (click)="this.showingCustomer = false;" class="btn btn-default">Cancel</button>
+  <br /><br />
+  <a id="delete-customer" (click)="this.deleteCustomer(this.openCustomerUID)">Delete Customer</a>
+</div>

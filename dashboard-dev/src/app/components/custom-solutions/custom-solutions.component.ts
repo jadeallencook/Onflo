@@ -56,6 +56,7 @@ export class CustomSolutionsComponent implements OnInit {
   ngOnInit() {
     this.stripeCheckoutLoader.createHandler({
       key: 'pk_live_LCkKum9lsW57QiO8sHq2a2am',
+      email: firebase.auth().currentUser.email,
       token: (token) => {
         // after deal is paid...
         let deal = this.selectedDeal;

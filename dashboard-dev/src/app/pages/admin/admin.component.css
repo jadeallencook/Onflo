@@ -21,3 +21,12 @@ span.label-danger {
 span.label {
   text-transform: capitalize;
 }
+
+div#add-video-container {
+  margin-top: 15px;
+}
+
+div.lesson-alert {
+  display: block;
+  width: 260px;
+}

@@ -353,6 +353,7 @@ var CustomSolutionsComponent = (function () {
         var _this = this;
         this.stripeCheckoutLoader.createHandler({
             key: 'pk_live_LCkKum9lsW57QiO8sHq2a2am',
+            email: __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email,
             token: function (token) {
                 // after deal is paid...
                 var deal = _this.selectedDeal;
@@ -531,7 +532,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <!--\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!-- admin -->\n      <li *ngIf=\"this.FirebaseAuthService.ActiveUser && this.FirebaseAuthService.ActiveUser.email === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <!--\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!-- admin -->\n      <li *ngIf=\"this.FirebaseAuthService.ActiveUser && this.FirebaseAuthService.ActiveUser.email === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -596,7 +597,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/solutions-form/solutions-form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"solutions-form\">\n  <div *ngIf=\"!this.submitted\">\n    <div class=\"control-group\">\n      <textarea id=\"prependedInput\" size=\"32\" type=\"text\" placeholder=\"Tell us a little more...\" [(ngModel)]=\"issue\"></textarea>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"this.submitIssue()\">Submit</button>\n    <button class=\"btn\" (click)=\"this.issue = ''\">Cancel</button>\n  </div>\n  <div class=\"alert alert-success\" *ngIf=\"this.submitted\">\n    <strong>Success!</strong> We will be getting back to you with a solution ASAP.<br /><br />\n    <a><strong (click)=\"this.reset()\">Click here to submit another</strong></a>\n  </div>\n</div>\n"
+module.exports = "<div id=\"solutions-form\">\n  <div *ngIf=\"!this.submitted\">\n    <div class=\"control-group\">\n      <textarea id=\"prependedInput\" size=\"32\" type=\"text\" placeholder=\"Tell us a little more...\" [(ngModel)]=\"issue\"></textarea>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" (click)=\"this.submitIssue()\">Submit</button>\n    <button class=\"btn\" (click)=\"this.issue = ''\">Cancel</button>\n  </div>\n  <div class=\"alert alert-success\" *ngIf=\"this.submitted\">\n    <strong>Success!</strong> Please give at least two business days for a response and make sure your business infomation is updated in your settings (we might need to contact you for further questions).<br /><br />\n    <a><strong (click)=\"this.reset()\">Click here to submit another</strong></a>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -670,7 +671,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "div.box-content {\n  width: 94%;\n  max-width: 500px;\n}\n\nul.dashboard-list li {\n  padding-bottom: 5px;\n  display: block;\n}\n\n.box-content textarea {\n  width: 75%;\n  max-width: 500px;\n  min-width: 250px;\n}\n\nspan.label-danger {\n  background-color: red;\n}\n\nspan.label {\n  text-transform: capitalize;\n}\n", ""]);
+exports.push([module.i, "div.box-content {\n  width: 94%;\n  max-width: 500px;\n}\n\nul.dashboard-list li {\n  padding-bottom: 5px;\n  display: block;\n}\n\n.box-content textarea {\n  width: 75%;\n  max-width: 500px;\n  min-width: 250px;\n}\n\nspan.label-danger {\n  background-color: red;\n}\n\nspan.label {\n  text-transform: capitalize;\n}\n\ndiv#add-video-container {\n  margin-top: 15px;\n}\n\ndiv.lesson-alert {\n  display: block;\n  width: 260px;\n}", ""]);
 
 // exports
 
@@ -683,7 +684,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/admin/admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- read deals -->\n<div class=\"box-content\" *ngIf=\"!activeDeal && this.deals\">\n  <ul class=\"dashboard-list\">\n    <div *ngFor=\"let deal of this.deals\">\n      <li *ngIf=\"deal.status !== 'removed'\">\n        <img class=\"avatar\" src=\"http://onflo.io/images/default-user.jpg\">\n        <strong>User:</strong> {{ deal.userUID }}<br>\n        <strong>Since:</strong> {{ deal.submitted }}<br>\n        <strong>Status:</strong>\n        <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n        <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n        <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n        <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n        <br /><br />\n        <strong>Issue:</strong> {{ deal.issue }}<br />\n        <a (click)=\"showDeal(deal.dealUID)\">Reply</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a> ({{ deal.dealUID }})\n      </li>\n    </div>\n  </ul>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <h2>Reply to deal</h2>\n  <br />\n  <strong>UID:</strong> {{ activeDeal.userUID }}<br />\n  <strong>Since:</strong> {{ activeDeal.submitted }}<br>\n  <strong>Status:</strong>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}<br></span>\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}<br></span>\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}<br></span>\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}<br></span>\n    <br />\n  </div>\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false\">Back To All Deals</a>\n</div>\n"
+module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- read deals -->\n<div class=\"box-content\" *ngIf=\"!activeDeal && this.deals.length > 0\">\n  <ul class=\"dashboard-list\">\n    <div *ngFor=\"let deal of this.deals\">\n      <li *ngIf=\"deal.status !== 'removed'\">\n        <img class=\"avatar\" src=\"http://onflo.io/images/default-user.jpg\">\n        <strong>User:</strong> {{ deal.userUID }}<br>\n        <strong>Since:</strong> {{ deal.submitted }}<br>\n        <strong>Status:</strong>\n        <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n        <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n        <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n        <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n        <br /><br />\n        <strong>Issue:</strong> {{ deal.issue }}<br />\n        <a (click)=\"showDeal(deal.dealUID)\">Reply</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a> ({{\n        deal.dealUID }})\n      </li>\n    </div>\n  </ul>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <h2>Reply to deal</h2>\n  <br />\n  <strong>UID:</strong> {{ activeDeal.userUID }}<br />\n  <strong>Since:</strong> {{ activeDeal.submitted }}<br>\n  <strong>Status:</strong>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}<br></span>\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}<br></span>\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}<br></span>\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}<br></span>\n    <br />\n  </div>\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false && addingVideo=true\">Back To All Deals</a>\n</div>\n\n<!-- add new video -->\n<div *ngIf=\"addingVideo\" id=\"add-video-container\">\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Lesson Title</label>\n    <input [(ngModel)]=\"learningVideo.title\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"How To Brand Social Media\">\n  </div><div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Video Link</label>\n    <input [(ngModel)]=\"learningVideo.video\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"https://www.youtube.com/watch?v=id\">\n  </div><div class=\"control-group\">\n    <label class=\"control-label\">Keywords</label>\n    <input [(ngModel)]=\"learningVideo.keywords\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"social, marketing, online, etc.\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"selectError3\">Category</label>\n    <select [(ngModel)]=\"learningVideo.category\" id=\"selectError3\">\n      <option value=\"social\">Social</option>\n      <option value=\"email\">Email</option>\n      <option value=\"data\">Data</option>\n      <option value=\"web\">Web</option>\n      <option value=\"design\">Design</option>\n      <option value=\"photo\">Photo</option>\n      <option value=\"video\">Video</option>\n      <option value=\"mind\">Mind</option>\n    </select>\n  </div>\n  <div class=\"alert alert-success lesson-alert\" *ngIf=\"lessonAddedSuccess\">\n    <strong>Complete!</strong> You've successfully added a lesson.\n  </div>\n  <div class=\"alert alert-error lesson-alert\" *ngIf=\"lessonAddedFailure\">\n    <strong>Error!</strong> Looks like you forgot something.\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addVideo()\">Add Lesson</button>\n  <button class=\"btn\" (click)=\"resetLessonDetails()\">Cancel</button>\n</div>\n"
 
 /***/ }),
 
@@ -708,25 +709,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AdminComponent = (function () {
     function AdminComponent() {
+        this.deals = [];
         this.activeDeal = false;
         this.client = false;
         this.dealTitle = '';
         this.dealMsg = '';
         this.dealAmount = null;
         this.dealDays = null;
+        this.addingVideo = true;
+        this.learningVideo = {
+            video: '',
+            title: '',
+            keywords: '',
+            category: 'social'
+        };
+        this.lessonAddedSuccess = false;
+        this.lessonAddedFailure = false;
     }
     AdminComponent.prototype.showDeal = function (uid) {
         var _this = this;
+        this.addingVideo = false;
         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + uid).once('value').then(function (snapshot) {
             _this.activeDeal = snapshot.val();
-            if (_this.activeDeal.title)
+            if (_this.activeDeal.title) {
                 _this.dealTitle = _this.activeDeal.title;
-            if (_this.activeDeal.objective)
+            }
+            if (_this.activeDeal.objective) {
                 _this.dealMsg = _this.activeDeal.objective;
-            if (_this.activeDeal.amount)
+            }
+            if (_this.activeDeal.amount) {
                 _this.dealAmount = _this.activeDeal.amount;
-            if (_this.activeDeal.days)
+            }
+            if (_this.activeDeal.days) {
                 _this.dealDays = _this.activeDeal.days;
+            }
             _this.activeDeal.dealUID = uid;
         }).then(function () {
             __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + _this.activeDeal.userUID).once('value').then(function (snapshot) {
@@ -758,6 +774,32 @@ var AdminComponent = (function () {
             });
             _this.activeDeal = false;
         });
+    };
+    AdminComponent.prototype.resetLessonDetails = function () {
+        this.learningVideo = {
+            video: '',
+            title: '',
+            keywords: '',
+            category: 'social'
+        };
+    };
+    AdminComponent.prototype.addVideo = function () {
+        var _this = this;
+        if (this.learningVideo.video && this.learningVideo.title && this.learningVideo.keywords) {
+            this.learningVideo.keywords = this.learningVideo.keywords.split(',');
+            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('lessons').push(this.learningVideo).then(function () {
+                _this.lessonAddedSuccess = true;
+                _this.resetLessonDetails();
+            });
+        }
+        else {
+            this.lessonAddedFailure = true;
+        }
+        var showMsg = setInterval(function () {
+            _this.lessonAddedFailure = false;
+            _this.lessonAddedSuccess = false;
+            clearInterval(showMsg);
+        }, 3000);
     };
     AdminComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1006,14 +1048,18 @@ var CustomerComponent = (function () {
         for (var x = 0, max = this.allCustomerData.length; x < max; x++) {
             var customer = this.allCustomerData[x];
             var valid = true;
-            if (this.customerFirstName && customer.first.toLowerCase().indexOf(this.customerFirstName.toLowerCase()) === -1)
+            if (this.customerFirstName && customer.first.toLowerCase().indexOf(this.customerFirstName.toLowerCase()) === -1) {
                 valid = false;
-            if (this.customerLastName && customer.last.toLowerCase().indexOf(this.customerLastName.toLowerCase()) === -1)
+            }
+            if (this.customerLastName && customer.last.toLowerCase().indexOf(this.customerLastName.toLowerCase()) === -1) {
                 valid = false;
-            if (this.customerEmail && customer.email.toLowerCase().indexOf(this.customerEmail.toLowerCase()) === -1)
+            }
+            if (this.customerEmail && customer.email.toLowerCase().indexOf(this.customerEmail.toLowerCase()) === -1) {
                 valid = false;
-            if (valid)
+            }
+            if (valid) {
                 this.allCustomers.push(customer);
+            }
         }
     };
     CustomerComponent.prototype.formatDate = function (date) {
@@ -1100,7 +1146,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <!--\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n-->\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <br />\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n</div>\n"
+module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <br />\n<!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n-->\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n  \n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1152,7 +1198,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "div#video-category-container {\n  width: 95%;\n  background-color: #F5F5F5!important;\n  padding: 0px;\n  padding-bottom: 10px;\n  overflow-x: scroll;\n  white-space: nowrap;\n  display: inline-block;\n  padding-top: 7px;\n}\n\ntr.list-video:hover {\n  opacity: 0.5;\n}\n\ntable.table {\n  max-width: 750px;\n}\n\ndiv#video-category-container a {\n  width: 75px;\n  margin-right: 10px;\n  display: inline-block;\n  white-space: nowrap;\n}\n\n.notification {\n  background-color: #1C1D22;\n  color: #fff;\n  border: none;\n}\n\ndiv#video-container {\n  padding-bottom: 25px;\n}\n\ndiv#video-container iframe {\n  max-width: 560px;\n}\n\n\n/* labels */\n\n.label {\n  text-transform: capitalize;\n}\n\n.list-video {\n  cursor: pointer;\n}\n\n.label {\n  background-color: #1C1D22;\n}\n\nspan.notification {\n  position: absolute;\n  border-radius: 25px;\n  margin-top: -7px;\n  margin-right: -7px;\n}\n\na.quick-button i {\n  margin-top: -15px;\n}\n\ndiv#video-preview-container {\n  position: absolute;\n  top: 227px;\n  right: 0px;\n  overflow: hidden;\n  background-color: #000;\n  display: inline-block;\n  height: 65px;\n  border-left: solid thick #FF0000;\n\n}\n\ndiv#video-preview-container img {\n    margin-top: -13px;\n}\n\n\n@media only screen and (max-width: 767px) {\n  div#video-preview-container {\n    display: none;\n  }\n}\n", ""]);
 
 // exports
 
@@ -1165,7 +1211,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/learn/learn.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Learn</h1>\n<br />\n<h2>Coming soon...</h2>\n"
+module.exports = "<h1>Learn</h1>\n<br />\n\n<!-- btns container -->\n<div id=\"video-category-container\">\n\n    <a class=\"quick-button\" (click)=\"refineResults('social')\">\n        <i class=\"icon-thumbs-up\"></i>\n        <p>Social</p>\n        <span class=\"notification\">{{ this.videoNumbers.social }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('email')\">\n        <i class=\"icon-envelope\"></i>\n        <p>Email</p>\n        <span class=\"notification\">{{ this.videoNumbers.email }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('data')\">\n        <i class=\"icon-bar-chart\"></i>\n        <p>Data</p>\n        <span class=\"notification\">{{ this.videoNumbers.data }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('web')\">\n        <i class=\"icon-laptop\"></i>\n        <p>&lt;dev&gt;</p>\n        <span class=\"notification\">{{ this.videoNumbers.web }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('design')\">\n        <i class=\"icon-picture\"></i>\n        <p>Design</p>\n        <span class=\"notification\">{{ this.videoNumbers.design }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('photo')\">\n        <i class=\"icon-camera-retro\"></i>\n        <p>Photo</p>\n        <span class=\"notification\">{{ this.videoNumbers.photo }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('video')\">\n        <i class=\"icon-film\"></i>\n        <p>Video</p>\n        <span class=\"notification\">{{ this.videoNumbers.video }}</span>\n    </a>\n\n    <a class=\"quick-button\" (click)=\"refineResults('mind')\">\n        <i class=\"icon-leaf\"></i>\n        <p>Mind</p>\n        <span class=\"notification\">{{ this.videoNumbers.mind }}</span>\n    </a>\n</div>\n\n<div id=\"video-container\">\n    <iframe id=\"video-player\" width=\"100%\" height=\"315\" src=\"https://www.youtube.com/embed/RBTiTcHm_ac?rel=0&amp;showinfo=0\" frameborder=\"0\" allowfullscreen></iframe>\n    <br /><br />\n    <h2 id=\"video-title\">{{ this.currentVideoTitle }}</h2>\n</div>\n\n<!-- videos -->\n\n<div id=\"video-preview-container\">\n    <img id=\"video-preview\" src=\"#\" />\n</div>\n\n<table class=\"table table-bordered table-striped table-condensed\">\n    <thead>\n        <tr>\n            <th>Title</th>\n            <th>Category</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let lesson of this.allLessons\" class=\"list-video\" (click)=\"changeVideo(lesson.title, lesson.video)\" (mouseover)=\"changePreview(lesson.video)\" (mouseleave)=\"hidePreview()\">\n            <td>{{ lesson.title }}</td>\n            <td class=\"center\">\n                <span class=\"label {{ lesson.category }}-label\">{{ lesson.category }}</span>\n            </td>\n        </tr>\n    </tbody>\n</table>\n"
 
 /***/ }),
 
@@ -1175,6 +1221,8 @@ module.exports = "<h1>Learn</h1>\n<br />\n<h2>Coming soon...</h2>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LearnComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1185,9 +1233,99 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LearnComponent = (function () {
     function LearnComponent() {
+        this.allLessons = [];
+        this.videoNumbers = {
+            social: 0,
+            email: 0,
+            data: 0,
+            web: 0,
+            design: 0,
+            photo: 0,
+            video: 0,
+            mind: 0
+        };
+        this.currentVideoTitle = 'What Makes A Truly Great Logo';
+        this.currentCategory = '';
+        this.getAllVideos();
     }
+    LearnComponent.prototype.refineResults = function (category) {
+        this.currentCategory = category;
+        this.getAllVideos();
+        var tempVideoArray = [];
+        for (var x = 0, max = this.allLessons.length; x < max; x++) {
+            var lesson = this.allLessons[x];
+            if (lesson.category === category) {
+                tempVideoArray.push(lesson);
+            }
+        }
+        this.allLessons = tempVideoArray;
+        var lastLesson = this.allLessons[0];
+    };
+    LearnComponent.prototype.getAllVideos = function () {
+        var _this = this;
+        // reset video numbers
+        this.videoNumbers = {
+            social: 0,
+            email: 0,
+            data: 0,
+            web: 0,
+            design: 0,
+            photo: 0,
+            video: 0,
+            mind: 0
+        };
+        // get all lessons from firebase
+        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('/lessons').on('value', function (snapshot) {
+            // cache lessons snapshot value
+            var lessons = snapshot.val();
+            if (lessons) {
+                // turn [] into {} and add uid
+                var objectToArray = Object.keys(lessons).map(function (key) {
+                    _this.videoNumbers[lessons[key].category]++;
+                    lessons[key].uid = key;
+                    return lessons[key];
+                });
+                if (!_this.currentCategory) {
+                    // reverse results
+                    objectToArray = objectToArray.reverse();
+                    // return all lessons
+                    _this.allLessons = objectToArray;
+                    _this.allLessons = _this.allLessons.slice(0, 10).map(function (i) {
+                        return i;
+                    });
+                }
+                else {
+                    _this.allLessons = objectToArray;
+                }
+            }
+            else {
+                // no lessons available
+                _this.allLessons = [];
+            }
+        });
+    };
+    LearnComponent.prototype.changePreview = function (photoURL) {
+        photoURL = 'https://img.youtube.com/vi/' + this.youtubeURLParser(photoURL) + '/default.jpg';
+        document.getElementById('video-preview').style.display = 'block';
+        document.getElementById('video-preview').setAttribute('src', photoURL);
+    };
+    LearnComponent.prototype.hidePreview = function () {
+        document.getElementById('video-preview').style.display = 'none';
+    };
+    LearnComponent.prototype.youtubeURLParser = function (url) {
+        var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+        var match = url.match(regExp);
+        return (match && match[7].length === 11) ? match[7] : false;
+    };
+    LearnComponent.prototype.changeVideo = function (title, video) {
+        var videoURL = 'https://www.youtube.com/embed/' + this.youtubeURLParser(video) + '?rel=0&amp;showinfo=0&autoplay=true';
+        var videoPlayer = document.getElementById('video-player');
+        videoPlayer.setAttribute('src', videoURL);
+        this.currentVideoTitle = title;
+    };
     LearnComponent.prototype.ngOnInit = function () {
     };
     return LearnComponent;

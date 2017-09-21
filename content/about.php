@@ -35,10 +35,7 @@
         <img src="../../images/dashboard-analytics.png" alt="Onflo Dashboard Analytics" />
         <br /><br />
         <p>If you need one-on-one help, we will assist you with setting up a Slack chatroom to keep close contact throughout the whole process. Slack creates alignment and shared understanding across your team, making you more productive, less stressed, and just a little bit happier by bringing all your team's communication together. By giving everyone a shared workspace where conversations are organized, we can will have better direction on your vision and can get to work on your project sooner!</p>
-        <img src="../../images/slack.png" alt="Slack Dashboard" />
-        <br /><br />
-        <p>When coding custom sites or integrating extentions into existing ones, we'll setup a repository to keep track of changes on GitHub. Better code starts with a Pull Request, a living conversation about changes where you can talk through ideas, assign tasks, discuss details, and conduct reviews. See everything happening in your project and help focus our team’s efforts, task boards that live right where they belong: close to your code.</p>
-        <img src="../../images/github.png" alt="Github Dashboard">
+        <img src="../../images/dashboard-customers.png" alt="Onflo Dashboard Analytics" />
         <!--
         <div class="simple-slider">
           <div><img src="../../images/inner-banner9.jpg" alt="" /></div>

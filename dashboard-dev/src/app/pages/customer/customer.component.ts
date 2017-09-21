@@ -29,12 +29,12 @@ export class CustomerComponent implements OnInit {
     updated: null,
     phone: null,
     link: null,
-  }
+  };
 
   constructor() { }
 
   addNewCustomer() {
-    let date = new Date().toString();
+    const date = new Date().toString();
     this.usersCustomerDB.push({
       first: this.customerFirstName,
       last: this.customerLastName,
@@ -53,22 +53,30 @@ export class CustomerComponent implements OnInit {
 
   refineCustomers() {
     this.allCustomers = [];
-    for (var x = 0, max = this.allCustomerData.length; x < max; x++) {
-      let customer = this.allCustomerData[x];
+    for (let x = 0, max = this.allCustomerData.length; x < max; x++) {
+      const customer = this.allCustomerData[x];
       let valid = true;
-      if (this.customerFirstName && customer.first.toLowerCase().indexOf(this.customerFirstName.toLowerCase()) === -1) valid = false;
-      if (this.customerLastName && customer.last.toLowerCase().indexOf(this.customerLastName.toLowerCase()) === -1) valid = false;
-      if (this.customerEmail && customer.email.toLowerCase().indexOf(this.customerEmail.toLowerCase()) === -1) valid = false;
-      if (valid) this.allCustomers.push(customer);
+      if (this.customerFirstName && customer.first.toLowerCase().indexOf(this.customerFirstName.toLowerCase()) === -1) {
+        valid = false;
+      }
+      if (this.customerLastName && customer.last.toLowerCase().indexOf(this.customerLastName.toLowerCase()) === -1) {
+        valid = false;
+      }
+      if (this.customerEmail && customer.email.toLowerCase().indexOf(this.customerEmail.toLowerCase()) === -1) {
+        valid = false;
+      }
+      if (valid) {
+        this.allCustomers.push(customer);
+      }
     }
   }
 
   formatDate(date) {
     date = new Date(date);
-    var day = date.getDate();
-    var monthIndex = date.getMonth();
+    const day = date.getDate();
+    let monthIndex = date.getMonth();
     monthIndex++;
-    var year = date.getFullYear();
+    const year = date.getFullYear();
     return monthIndex + '/' + day + '/' + year;
   }
 
@@ -94,9 +102,9 @@ export class CustomerComponent implements OnInit {
 
   getAllCustomers() {
     this.usersCustomerDB.on('value', (snapshot) => {
-      let customers = snapshot.val();
+      const customers = snapshot.val();
       if (customers) {
-        let objectToArray = Object.keys(customers).map((key) => {
+        const objectToArray = Object.keys(customers).map((key) => {
           customers[key].uid = key;
           return customers[key];
         });

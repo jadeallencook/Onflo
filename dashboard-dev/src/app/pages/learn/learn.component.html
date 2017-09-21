@@ -1,3 +1,83 @@
 <h1>Learn</h1>
 <br />
-<h2>Coming soon...</h2>
+
+<!-- btns container -->
+<div id="video-category-container">
+
+    <a class="quick-button" (click)="refineResults('social')">
+        <i class="icon-thumbs-up"></i>
+        <p>Social</p>
+        <span class="notification">{{ this.videoNumbers.social }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('email')">
+        <i class="icon-envelope"></i>
+        <p>Email</p>
+        <span class="notification">{{ this.videoNumbers.email }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('data')">
+        <i class="icon-bar-chart"></i>
+        <p>Data</p>
+        <span class="notification">{{ this.videoNumbers.data }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('web')">
+        <i class="icon-laptop"></i>
+        <p>&lt;dev&gt;</p>
+        <span class="notification">{{ this.videoNumbers.web }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('design')">
+        <i class="icon-picture"></i>
+        <p>Design</p>
+        <span class="notification">{{ this.videoNumbers.design }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('photo')">
+        <i class="icon-camera-retro"></i>
+        <p>Photo</p>
+        <span class="notification">{{ this.videoNumbers.photo }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('video')">
+        <i class="icon-film"></i>
+        <p>Video</p>
+        <span class="notification">{{ this.videoNumbers.video }}</span>
+    </a>
+
+    <a class="quick-button" (click)="refineResults('mind')">
+        <i class="icon-leaf"></i>
+        <p>Mind</p>
+        <span class="notification">{{ this.videoNumbers.mind }}</span>
+    </a>
+</div>
+
+<div id="video-container">
+    <iframe id="video-player" width="100%" height="315" src="https://www.youtube.com/embed/RBTiTcHm_ac?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    <br /><br />
+    <h2 id="video-title">{{ this.currentVideoTitle }}</h2>
+</div>
+
+<!-- videos -->
+
+<div id="video-preview-container">
+    <img id="video-preview" src="#" />
+</div>
+
+<table class="table table-bordered table-striped table-condensed">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lesson of this.allLessons" class="list-video" (click)="changeVideo(lesson.title, lesson.video)" (mouseover)="changePreview(lesson.video)" (mouseleave)="hidePreview()">
+            <td>{{ lesson.title }}</td>
+            <td class="center">
+                <span class="label {{ lesson.category }}-label">{{ lesson.category }}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

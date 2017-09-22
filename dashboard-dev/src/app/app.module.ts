@@ -28,6 +28,12 @@ import { WindowRefService } from './services/window-ref/window-ref.service';
 // stripe
 import { StripeCheckoutModule } from 'ng-stripe-checkout';
 import { CustomerComponent } from './pages/customer/customer.component';
+import { FinanceComponent } from './pages/finance/finance.component';
+import { ProductsComponent } from './components/products/products.component';
+import { SalesComponent } from './components/sales/sales.component';
+import { AddSaleComponent } from './components/add-sale/add-sale.component';
+
+import { HttpModule } from '@angular/http';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,6 +41,7 @@ const appRoutes: Routes = [
   { path: 'analytics', component: AnalyticsComponent},
   { path: 'learn', component: LearnComponent },
   { path: 'customer', component: CustomerComponent },
+  { path: 'finance', component: FinanceComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'admin', component: AdminComponent },
   { path: '**', component: HomeComponent }
@@ -55,7 +62,11 @@ const appRoutes: Routes = [
     AdminComponent,
     ExampleSolutionsComponent,
     CustomSolutionsComponent,
-    CustomerComponent
+    CustomerComponent,
+    FinanceComponent,
+    ProductsComponent,
+    SalesComponent,
+    AddSaleComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +76,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     FormsModule,
     StripeCheckoutModule,
+    HttpModule
   ],
   providers: [WindowRefService],
   bootstrap: [AppComponent]

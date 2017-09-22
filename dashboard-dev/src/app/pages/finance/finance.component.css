@@ -1,0 +1,13 @@
+div#category-container {
+    padding-top: 15px;
+}
+
+div#category-container a.quick-button {
+    width: 100px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+div#category-container a.quick-button i {
+    margin-top: -15px;
+}

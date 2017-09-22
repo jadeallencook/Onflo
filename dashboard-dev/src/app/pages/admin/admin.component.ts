@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
   dealMsg: string = '';
   dealAmount: number = null;
   dealDays: number = null;
+  dealStatus: string = '';
 
   addingVideo: boolean = true;
   learningVideo: any = {
@@ -46,10 +47,15 @@ export class AdminComponent implements OnInit {
       if (this.activeDeal.days) {
         this.dealDays = this.activeDeal.days;
       }
+      if (this.activeDeal.status) {
+        this.dealStatus = this.activeDeal.status;
+      }
       this.activeDeal.dealUID = uid;
     }).then(() => {
       firebase.database().ref('users/' + this.activeDeal.userUID).once('value').then((snapshot) => {
-        this.client = snapshot.val();
+        if (Object.keys(snapshot.val()).length > 2) {
+          this.client = snapshot.val();
+        }
       });
     });
   }
@@ -61,6 +67,9 @@ export class AdminComponent implements OnInit {
 
   sendDeal() {
     const today = new Date().toString();
+    if (!this.activeDeal.started) {
+      this.activeDeal.started = null;
+    }
     firebase.database().ref('deals/' + this.activeDeal.dealUID).set({
       title: this.dealTitle,
       objective: this.dealMsg,
@@ -71,11 +80,14 @@ export class AdminComponent implements OnInit {
       dealUID: this.activeDeal.dealUID,
       submitted: this.activeDeal.submitted,
       issue: this.activeDeal.issue,
-      status: 'pending'
+      status: this.activeDeal.status,
+      started: this.activeDeal.started
     }).then(() => {
-      firebase.database().ref('users/' + this.activeDeal.userUID + '/deals/' + this.activeDeal.dealUID).set({
-        active: true
-      });
+      if (this.activeDeal.status !== 'removed' || this.activeDeal.status !== 'pending') {
+        firebase.database().ref('users/' + this.activeDeal.userUID + '/deals/' + this.activeDeal.dealUID).set({
+          active: true
+        });
+      }
       this.activeDeal = false;
     });
   }
@@ -87,6 +99,22 @@ export class AdminComponent implements OnInit {
       keywords: '',
       category: 'social'
     };
+  }
+
+  formatDate(date) {
+    date = new Date(date);
+    return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+  }
+
+  getDaysLeft(date, days) {
+    date = new Date(date);
+    const endDate: any = new Date(date);
+    endDate.setDate(date.getDate() + days);
+    let daysLeft = Math.round((endDate - date) / (1000 * 60 * 60 * 24));
+    if (daysLeft < 0) {
+      daysLeft = 0;
+    }
+    return daysLeft;
   }
 
   addVideo() {

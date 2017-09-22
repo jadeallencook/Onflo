@@ -21,14 +21,17 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "ajax-request": "^1.2.3",
     "angular-stripe-checkout": "^5.1.0",
     "angularfire2": "^4.0.0-rc.2",
     "core-js": "^2.4.1",
     "firebase": "^4.3.1",
     "ga-api": "0.0.4",
     "ng-stripe-checkout": "^1.0.2",
+    "paypal-rest-sdk": "^1.7.1",
     "rxjs": "^5.4.2",
     "stripe": "^5.0.0",
+    "superagent": "^3.6.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

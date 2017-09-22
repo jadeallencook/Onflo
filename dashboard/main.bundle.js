@@ -115,6 +115,11 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_window_ref_window_ref_service__ = __webpack_require__("../../../../../src/app/services/window-ref/window-ref.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22_ng_stripe_checkout__ = __webpack_require__("../../../../ng-stripe-checkout/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_customer_customer_component__ = __webpack_require__("../../../../../src/app/pages/customer/customer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_finance_finance_component__ = __webpack_require__("../../../../../src/app/pages/finance/finance.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_products_products_component__ = __webpack_require__("../../../../../src/app/components/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_sales_sales_component__ = __webpack_require__("../../../../../src/app/components/sales/sales.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_add_sale_add_sale_component__ = __webpack_require__("../../../../../src/app/components/add-sale/add-sale.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -146,12 +151,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // stripe
 
 
+
+
+
+
+
 var appRoutes = [
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__pages_home_home_component__["a" /* HomeComponent */] },
     { path: 'solutions', component: __WEBPACK_IMPORTED_MODULE_10__pages_solutions_solutions_component__["a" /* SolutionsComponent */] },
     { path: 'analytics', component: __WEBPACK_IMPORTED_MODULE_11__pages_analytics_analytics_component__["a" /* AnalyticsComponent */] },
     { path: 'learn', component: __WEBPACK_IMPORTED_MODULE_12__pages_learn_learn_component__["a" /* LearnComponent */] },
     { path: 'customer', component: __WEBPACK_IMPORTED_MODULE_23__pages_customer_customer_component__["a" /* CustomerComponent */] },
+    { path: 'finance', component: __WEBPACK_IMPORTED_MODULE_24__pages_finance_finance_component__["a" /* FinanceComponent */] },
     { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings_component__["a" /* SettingsComponent */] },
     { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_18__pages_admin_admin_component__["a" /* AdminComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_9__pages_home_home_component__["a" /* HomeComponent */] }
@@ -177,7 +188,11 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_18__pages_admin_admin_component__["a" /* AdminComponent */],
             __WEBPACK_IMPORTED_MODULE_19__components_example_solutions_example_solutions_component__["a" /* ExampleSolutionsComponent */],
             __WEBPACK_IMPORTED_MODULE_20__components_custom_solutions_custom_solutions_component__["a" /* CustomSolutionsComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__pages_customer_customer_component__["a" /* CustomerComponent */]
+            __WEBPACK_IMPORTED_MODULE_23__pages_customer_customer_component__["a" /* CustomerComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__pages_finance_finance_component__["a" /* FinanceComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__components_products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__components_sales_sales_component__["a" /* SalesComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__components_add_sale_add_sale_component__["a" /* AddSaleComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -187,6 +202,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["b" /* AngularFireAuthModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_22_ng_stripe_checkout__["b" /* StripeCheckoutModule */],
+            __WEBPACK_IMPORTED_MODULE_28__angular_http__["b" /* HttpModule */]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_21__services_window_ref_window_ref_service__["a" /* WindowRefService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
@@ -194,6 +210,67 @@ AppModule = __decorate([
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/add-sale/add-sale.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/add-sale/add-sale.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  add-sale works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/add-sale/add-sale.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddSaleComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AddSaleComponent = (function () {
+    function AddSaleComponent() {
+    }
+    AddSaleComponent.prototype.ngOnInit = function () {
+    };
+    return AddSaleComponent;
+}());
+AddSaleComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-add-sale',
+        template: __webpack_require__("../../../../../src/app/components/add-sale/add-sale.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/add-sale/add-sale.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AddSaleComponent);
+
+//# sourceMappingURL=add-sale.component.js.map
 
 /***/ }),
 
@@ -290,7 +367,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/custom-solutions/custom-solutions.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ngIf=\"solutions.length > 0\">\n    <div *ngFor=\"let solution of solutions\">\n      <div *ngIf=\"solution.status === 'pending'\" class=\"priority high\"><span>Needs Approval</span></div>\n      <div *ngIf=\"solution.status === 'pending'\" class=\"task high\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div><br />\n              <a (click)=\"approveDeal(solution)\">Approve</a> or <a (click)=\"removeDeal(solution)\">Remove</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">${{ solution.amount }}</div>\n\t\t\t\t\t\t\t<div>Est. {{ solution.days }} day(s)</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"priority medium\"><span>In Progress</span></div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"task medium\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div> 1 day</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"priority low\"><span>Complete!</span></div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"task low\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div> 1 day</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ngIf=\"solutions.length > 0\">\n    <div *ngFor=\"let solution of solutions\">\n      <div *ngIf=\"solution.status === 'pending'\" class=\"priority high\"><span>Needs Approval</span></div>\n      <div *ngIf=\"solution.status === 'pending'\" class=\"task high\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div><br />\n              <a href=\"http://www.onflo.io/payment/#/{{ solution.dealUID }}\">Approve</a> or <a (click)=\"removeDeal(solution)\">Remove</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">${{ solution.amount }}</div>\n\t\t\t\t\t\t\t<div>Est. {{ solution.days }} day(s)</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"priority medium\"><span>In Progress</span></div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"task medium\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>{{ getDaysLeft(solution.date, solution.days) }} Day(s) left</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"priority low\"><span>Complete!</span></div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"task low\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>Complete</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -303,6 +380,7 @@ module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ng
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__ = __webpack_require__("../../../../ng-stripe-checkout/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -315,9 +393,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CustomSolutionsComponent = (function () {
-    function CustomSolutionsComponent(stripeCheckoutLoader) {
+    function CustomSolutionsComponent(stripeCheckoutLoader, http) {
         this.stripeCheckoutLoader = stripeCheckoutLoader;
+        this.http = http;
         this.solutions = [];
     }
     CustomSolutionsComponent.prototype.formatSubmittedDate = function (date) {
@@ -327,16 +407,6 @@ var CustomSolutionsComponent = (function () {
         return date;
     };
     // charge user after 'approve' is clicked
-    CustomSolutionsComponent.prototype.approveDeal = function (deal) {
-        this.selectedDeal = deal;
-        this.stripeCheckoutHandler.open({
-            amount: (deal.amount * 100),
-            name: deal.title,
-            description: deal.objective,
-            currency: 'USD',
-            image: 'http://www.onflo.io/images/onflo-avatar.jpg'
-        });
-    };
     // delete deal from database
     CustomSolutionsComponent.prototype.removeDeal = function (deal) {
         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + deal.userUID + '/deals/' + deal.dealUID).remove();
@@ -349,10 +419,24 @@ var CustomSolutionsComponent = (function () {
             var solution = this.solutions[x];
         }
     };
+    CustomSolutionsComponent.prototype.getDaysLeft = function (date, days) {
+        date = new Date(date);
+        var endDate = new Date(date);
+        endDate.setDate(date.getDate() + days);
+        var daysLeft = Math.round((endDate - date) / (1000 * 60 * 60 * 24));
+        if (daysLeft < 0) {
+            daysLeft = 0;
+        }
+        return daysLeft;
+    };
+    CustomSolutionsComponent.prototype.formatDate = function (date) {
+        date = new Date(date);
+        return ((date.getDate() < 10) ? '0' : '') + date.getDate() + '/' + (((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1) + '/' + date.getFullYear();
+    };
     CustomSolutionsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.stripeCheckoutLoader.createHandler({
-            key: 'pk_live_LCkKum9lsW57QiO8sHq2a2am',
+            key: 'pk_test_g7IXNmaPSC72rjf8KRHNgnOk',
             email: __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email,
             token: function (token) {
                 // after deal is paid...
@@ -360,9 +444,12 @@ var CustomSolutionsComponent = (function () {
                 deal.stripeID = token.id;
                 deal.status = 'production';
                 deal.started = new Date().toString();
-                // update deal in firebase
-                __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + _this.selectedDeal.dealUID).set(deal).then(function () {
-                    console.log('Complete!');
+                var stripeAPI = 'http://onflo.io/api/stripe.php';
+                var postOptions = { token: token.id, desc: deal.title, amount: (deal.amount * 100) };
+                console.log(postOptions);
+                // firebase.database().ref('deals/' + this.selectedDeal.dealUID).set(deal);
+                _this.http.post(stripeAPI, postOptions).subscribe(function (res) {
+                    console.log(res['_body']);
                 });
             },
         }).then(function (handler) {
@@ -381,10 +468,10 @@ CustomSolutionsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/custom-solutions/custom-solutions.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/custom-solutions/custom-solutions.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object])
 ], CustomSolutionsComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=custom-solutions.component.js.map
 
 /***/ }),
@@ -532,7 +619,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <!--\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!-- admin -->\n      <li *ngIf=\"this.FirebaseAuthService.ActiveUser && this.FirebaseAuthService.ActiveUser.email === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <!-- <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/finance\"><i class=\"icon-money\"></i><span class=\"hidden-tablet\"> Finance</span></a></li> -->\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!--\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.FirebaseAuthService.ActiveUser\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n\n      <!-- admin -->\n      <li *ngIf=\"this.FirebaseAuthService.ActiveUser && this.FirebaseAuthService.ActiveUser.email === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -573,6 +660,128 @@ NavigationComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=navigation.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/products/products.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/products/products.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  products works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/products/products.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProductsComponent = (function () {
+    function ProductsComponent() {
+    }
+    ProductsComponent.prototype.ngOnInit = function () {
+    };
+    return ProductsComponent;
+}());
+ProductsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-products',
+        template: __webpack_require__("../../../../../src/app/components/products/products.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/products/products.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ProductsComponent);
+
+//# sourceMappingURL=products.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sales/sales.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sales/sales.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  sales works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sales/sales.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SalesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SalesComponent = (function () {
+    function SalesComponent() {
+    }
+    SalesComponent.prototype.ngOnInit = function () {
+    };
+    return SalesComponent;
+}());
+SalesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-sales',
+        template: __webpack_require__("../../../../../src/app/components/sales/sales.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/sales/sales.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SalesComponent);
+
+//# sourceMappingURL=sales.component.js.map
 
 /***/ }),
 
@@ -671,7 +880,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "div.box-content {\n  width: 94%;\n  max-width: 500px;\n}\n\nul.dashboard-list li {\n  padding-bottom: 5px;\n  display: block;\n}\n\n.box-content textarea {\n  width: 75%;\n  max-width: 500px;\n  min-width: 250px;\n}\n\nspan.label-danger {\n  background-color: red;\n}\n\nspan.label {\n  text-transform: capitalize;\n}\n\ndiv#add-video-container {\n  margin-top: 15px;\n}\n\ndiv.lesson-alert {\n  display: block;\n  width: 260px;\n}", ""]);
+exports.push([module.i, "div.box-content {\n  width: 94%;\n  max-width: 500px;\n}\n\n.dashboard-list div {\n  margin: 5px;\n  display: inline-block;\n  border-bottom: solid thick #F5F5F5;\n  background-color: #fff;\n}\n\n.box-content textarea {\n  width: 75%;\n  max-width: 500px;\n  min-width: 250px;\n}\n\nspan.label-danger {\n  background-color: red;\n}\n\nspan.label {\n  text-transform: capitalize;\n}\n\ndiv#add-video-container {\n  margin-top: 15px;\n}\n\ndiv.lesson-alert {\n  display: block;\n  width: 260px;\n}\n\n#open-deal-wrapper {\n  width: 100%;\n}\n\n#open-deal-wrapper div {\n  width: 25%;\n  height: 250px;\n  min-width: 250px;\n  margin-bottom: 15px;\n  margin-right: 15px;\n  background-color: #fff;\n  display: inline-block;\n  overflow: scroll;\n  padding: 0px 15px;\n  box-sizing: border-box;\n}\n\n#open-deal-wrapper div div {\n  margin: 15px 0px;\n  width: 100%;\n}\n\n@media only screen and (max-width: 479px) {\n  #open-deal-wrapper div {\n    width: 100%;\n  }\n}\n\n", ""]);
 
 // exports
 
@@ -684,7 +893,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/admin/admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- read deals -->\n<div class=\"box-content\" *ngIf=\"!activeDeal && this.deals.length > 0\">\n  <ul class=\"dashboard-list\">\n    <div *ngFor=\"let deal of this.deals\">\n      <li *ngIf=\"deal.status !== 'removed'\">\n        <img class=\"avatar\" src=\"http://onflo.io/images/default-user.jpg\">\n        <strong>User:</strong> {{ deal.userUID }}<br>\n        <strong>Since:</strong> {{ deal.submitted }}<br>\n        <strong>Status:</strong>\n        <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n        <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n        <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n        <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n        <br /><br />\n        <strong>Issue:</strong> {{ deal.issue }}<br />\n        <a (click)=\"showDeal(deal.dealUID)\">Reply</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a> ({{\n        deal.dealUID }})\n      </li>\n    </div>\n  </ul>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <h2>Reply to deal</h2>\n  <br />\n  <strong>UID:</strong> {{ activeDeal.userUID }}<br />\n  <strong>Since:</strong> {{ activeDeal.submitted }}<br>\n  <strong>Status:</strong>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}<br></span>\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}<br></span>\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}<br></span>\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}<br></span>\n    <br />\n  </div>\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false && addingVideo=true\">Back To All Deals</a>\n</div>\n\n<!-- add new video -->\n<div *ngIf=\"addingVideo\" id=\"add-video-container\">\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Lesson Title</label>\n    <input [(ngModel)]=\"learningVideo.title\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"How To Brand Social Media\">\n  </div><div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Video Link</label>\n    <input [(ngModel)]=\"learningVideo.video\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"https://www.youtube.com/watch?v=id\">\n  </div><div class=\"control-group\">\n    <label class=\"control-label\">Keywords</label>\n    <input [(ngModel)]=\"learningVideo.keywords\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"social, marketing, online, etc.\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"selectError3\">Category</label>\n    <select [(ngModel)]=\"learningVideo.category\" id=\"selectError3\">\n      <option value=\"social\">Social</option>\n      <option value=\"email\">Email</option>\n      <option value=\"data\">Data</option>\n      <option value=\"web\">Web</option>\n      <option value=\"design\">Design</option>\n      <option value=\"photo\">Photo</option>\n      <option value=\"video\">Video</option>\n      <option value=\"mind\">Mind</option>\n    </select>\n  </div>\n  <div class=\"alert alert-success lesson-alert\" *ngIf=\"lessonAddedSuccess\">\n    <strong>Complete!</strong> You've successfully added a lesson.\n  </div>\n  <div class=\"alert alert-error lesson-alert\" *ngIf=\"lessonAddedFailure\">\n    <strong>Error!</strong> Looks like you forgot something.\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addVideo()\">Add Lesson</button>\n  <button class=\"btn\" (click)=\"resetLessonDetails()\">Cancel</button>\n</div>\n"
+module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- read deals -->\n<div id=\"open-deal-wrapper\" *ngIf=\"!activeDeal && this.deals.length > 0\">\n  <div *ngFor=\"let deal of this.deals\" >\n    <div *ngIf=\"deal.status !== 'removed'\">\n      <!-- apply correct label -->\n      <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n      <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n      <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n      <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n      <br />\n      {{ formatDate(deal.submitted) }}\n      <br /><br />\n      <strong>Issue:</strong> {{ deal.issue }}<br />\n      <br />\n      <a (click)=\"showDeal(deal.dealUID)\">Edit</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a>\n    </div>\n  </div>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'removed'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-success\" *ngIf=\"activeDeal.status === 'complete'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br />\n  {{ formatDate(activeDeal.submitted) }}<br />\n  <span *ngIf=\"activeDeal.started\">{{ getDaysLeft(activeDeal.started, dealDays) }} day(s) left</span>\n  <span *ngIf=\"!activeDeal.started\">Project has not stated</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}</span><br />\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}</span><br />\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}</span><br />\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}</span><br />\n  </div><div *ngIf=\"!client\">\n    <span><strong>User UID:</strong>{{ activeDeal.userUID }}</span><br />\n    <span><i>This is the only client info available, they need to fill out their settings.</i></span>\n  </div>\n  <br />\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <select [(ngModel)]=\"activeDeal.status\">\n    <option value=\"pending\">Pending</option>\n    <option value=\"production\">Production</option>\n    <option value=\"complete\">Complete</option>\n  </select>\n  <br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false && addingVideo=true\">Back To All Deals</a>\n</div>\n\n<!-- add new video -->\n<div *ngIf=\"addingVideo\" id=\"add-video-container\">\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Lesson Title</label>\n    <input [(ngModel)]=\"learningVideo.title\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"How To Brand Social Media\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Video Link</label>\n    <input [(ngModel)]=\"learningVideo.video\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"https://www.youtube.com/watch?v=id\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\">Keywords</label>\n    <input [(ngModel)]=\"learningVideo.keywords\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"social, marketing, online, etc.\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"selectError3\">Category</label>\n    <select [(ngModel)]=\"learningVideo.category\" id=\"selectError3\">\n      <option value=\"social\">Social</option>\n      <option value=\"email\">Email</option>\n      <option value=\"data\">Data</option>\n      <option value=\"web\">Web</option>\n      <option value=\"design\">Design</option>\n      <option value=\"photo\">Photo</option>\n      <option value=\"video\">Video</option>\n      <option value=\"mind\">Mind</option>\n    </select>\n  </div>\n  <div class=\"alert alert-success lesson-alert\" *ngIf=\"lessonAddedSuccess\">\n    <strong>Complete!</strong> You've successfully added a lesson.\n  </div>\n  <div class=\"alert alert-error lesson-alert\" *ngIf=\"lessonAddedFailure\">\n    <strong>Error!</strong> Looks like you forgot something.\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addVideo()\">Add Lesson</button>\n  <button class=\"btn\" (click)=\"resetLessonDetails()\">Cancel</button>\n</div>\n"
 
 /***/ }),
 
@@ -716,6 +925,7 @@ var AdminComponent = (function () {
         this.dealMsg = '';
         this.dealAmount = null;
         this.dealDays = null;
+        this.dealStatus = '';
         this.addingVideo = true;
         this.learningVideo = {
             video: '',
@@ -743,10 +953,15 @@ var AdminComponent = (function () {
             if (_this.activeDeal.days) {
                 _this.dealDays = _this.activeDeal.days;
             }
+            if (_this.activeDeal.status) {
+                _this.dealStatus = _this.activeDeal.status;
+            }
             _this.activeDeal.dealUID = uid;
         }).then(function () {
             __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + _this.activeDeal.userUID).once('value').then(function (snapshot) {
-                _this.client = snapshot.val();
+                if (Object.keys(snapshot.val()).length > 2) {
+                    _this.client = snapshot.val();
+                }
             });
         });
     };
@@ -757,6 +972,9 @@ var AdminComponent = (function () {
     AdminComponent.prototype.sendDeal = function () {
         var _this = this;
         var today = new Date().toString();
+        if (!this.activeDeal.started) {
+            this.activeDeal.started = null;
+        }
         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + this.activeDeal.dealUID).set({
             title: this.dealTitle,
             objective: this.dealMsg,
@@ -767,11 +985,14 @@ var AdminComponent = (function () {
             dealUID: this.activeDeal.dealUID,
             submitted: this.activeDeal.submitted,
             issue: this.activeDeal.issue,
-            status: 'pending'
+            status: this.activeDeal.status,
+            started: this.activeDeal.started
         }).then(function () {
-            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + _this.activeDeal.userUID + '/deals/' + _this.activeDeal.dealUID).set({
-                active: true
-            });
+            if (_this.activeDeal.status !== 'removed' || _this.activeDeal.status !== 'pending') {
+                __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + _this.activeDeal.userUID + '/deals/' + _this.activeDeal.dealUID).set({
+                    active: true
+                });
+            }
             _this.activeDeal = false;
         });
     };
@@ -782,6 +1003,20 @@ var AdminComponent = (function () {
             keywords: '',
             category: 'social'
         };
+    };
+    AdminComponent.prototype.formatDate = function (date) {
+        date = new Date(date);
+        return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+    };
+    AdminComponent.prototype.getDaysLeft = function (date, days) {
+        date = new Date(date);
+        var endDate = new Date(date);
+        endDate.setDate(date.getDate() + days);
+        var daysLeft = Math.round((endDate - date) / (1000 * 60 * 60 * 24));
+        if (daysLeft < 0) {
+            daysLeft = 0;
+        }
+        return daysLeft;
     };
     AdminComponent.prototype.addVideo = function () {
         var _this = this;
@@ -1125,6 +1360,67 @@ CustomerComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/finance/finance.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "div#category-container {\n    padding-top: 15px;\n}\n\ndiv#category-container a.quick-button {\n    width: 100px;\n    display: inline-block;\n    margin-right: 10px;\n}\n\ndiv#category-container a.quick-button i {\n    margin-top: -15px;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/finance/finance.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Finance</h1>\n\n<!-- btns container -->\n<div id=\"category-container\">\n\n  <a class=\"quick-button\">\n      <i class=\"icon-barcode\"></i>\n      <p>Products</p>\n  </a>\n\n  <a class=\"quick-button\">\n      <i class=\"icon-inbox\"></i>\n      <p>Sales</p>\n  </a>\n  \n  <a class=\"quick-button\">\n      <i class=\"icon-plus\"></i>\n      <p>Add Sale</p>\n  </a>\n\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/finance/finance.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FinanceComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FinanceComponent = (function () {
+    function FinanceComponent() {
+    }
+    FinanceComponent.prototype.ngOnInit = function () {
+    };
+    return FinanceComponent;
+}());
+FinanceComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-finance',
+        template: __webpack_require__("../../../../../src/app/pages/finance/finance.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/finance/finance.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], FinanceComponent);
+
+//# sourceMappingURL=finance.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/home/home.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1146,7 +1442,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <br />\n<!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n-->\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n  \n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n</div>\n"
+module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <br />\n  <!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n  <div routerLink=\"/finance\" class=\"dash-icon\">\n    <i class=\"icon-money\"></i><br />\n    <span>Finance</span>\n  </div>\n  -->\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1512,8 +1808,9 @@ var SolutionsComponent = (function () {
                         // add deal to solutions
                         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + objectKey).once('value').then(function (deal) {
                             deal = deal.val();
-                            if (deal)
+                            if (deal) {
                                 _this.solutions.push(deal);
+                            }
                         });
                     }
                 });

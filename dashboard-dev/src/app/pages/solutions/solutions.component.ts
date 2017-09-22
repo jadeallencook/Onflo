@@ -15,7 +15,7 @@ export class SolutionsComponent implements OnInit {
 
   ngOnInit() {
     // get deals for user
-    let userUID = this.FirebaseAuthService.ActiveUser.uid;
+    const userUID = this.FirebaseAuthService.ActiveUser.uid;
     firebase.database().ref('users/' + userUID + '/deals').on('value', (deals) => {
       // add each deal
       if (deals.val()) {
@@ -23,12 +23,14 @@ export class SolutionsComponent implements OnInit {
         deals = deals.val();
         Object.keys(deals).map((objectKey, index) => {
           // check if deal is active
-          let isActive = deals[objectKey].active;
+          const isActive = deals[objectKey].active;
           if (isActive) {
             // add deal to solutions
             firebase.database().ref('deals/' + objectKey).once('value').then((deal) => {
               deal = deal.val();
-              if (deal) this.solutions.push(deal);
+              if (deal) {
+                this.solutions.push(deal);
+              }
             });
           }
         });

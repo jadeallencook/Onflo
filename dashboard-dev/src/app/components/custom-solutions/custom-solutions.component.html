@@ -7,7 +7,7 @@
 						<div class="desc">
 							<div class="title">{{ solution.title }}</div>
 							<div>{{ solution.objective }}</div><br />
-              <a (click)="approveDeal(solution)">Approve</a> or <a (click)="removeDeal(solution)">Remove</a>
+              <a href="http://www.onflo.io/payment/#/{{ solution.dealUID }}">Approve</a> or <a (click)="removeDeal(solution)">Remove</a>
 						</div>
 						<div class="time">
 							<div class="date">${{ solution.amount }}</div>
@@ -22,7 +22,7 @@
 						</div>
 						<div class="time">
 							<div class="date">{{ this.formatSubmittedDate(solution.date) }}</div>
-							<div> 1 day</div>
+							<div>{{ getDaysLeft(solution.date, solution.days) }} Day(s) left</div>
 						</div>
 					</div>
       <div *ngIf="solution.status === 'complete'" class="priority low"><span>Complete!</span></div>
@@ -33,7 +33,7 @@
 						</div>
 						<div class="time">
 							<div class="date">{{ this.formatSubmittedDate(solution.date) }}</div>
-							<div> 1 day</div>
+							<div>Complete</div>
 						</div>
 					</div>
     </div>

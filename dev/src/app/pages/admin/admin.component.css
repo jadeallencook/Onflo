@@ -38,7 +38,7 @@ div.lesson-alert {
 }
 
 #open-deal-wrapper div {
-  width: 25%;
+  width: 20%;
   height: 250px;
   min-width: 250px;
   margin-bottom: 15px;
@@ -47,17 +47,26 @@ div.lesson-alert {
   display: inline-block;
   overflow: scroll;
   padding: 0px 15px;
-  box-sizing: border-box;
+  overflow-x: hidden;
+
 }
+
+#open-deal-wrapper div::-webkit-scrollbar {
+  display: none;
+}
+
+
 
 #open-deal-wrapper div div {
   margin: 15px 0px;
   width: 100%;
+  box-sizing: border-box;
+
 }
 
 @media only screen and (max-width: 479px) {
   #open-deal-wrapper div {
-    width: 100%;
+    width: 92%;
   }
 }
 

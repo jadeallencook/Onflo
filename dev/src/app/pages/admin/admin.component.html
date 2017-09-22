@@ -12,10 +12,12 @@
       <span class="label label-warning" *ngIf="deal.status === 'production'">{{ deal.status }}</span>
       <br />
       {{ formatDate(deal.submitted) }}
-      <br /><br />
-      <strong>Issue:</strong> {{ deal.issue }}<br />
       <br />
       <a (click)="showDeal(deal.dealUID)">Edit</a> or <a (click)="removeDeal(deal.dealUID, deal.userUID)">Delete</a>
+      <br /><br />
+      <i>{{ deal.issue }}</i>
+      <br />
+      <br />
     </div>
   </div>
 </div>

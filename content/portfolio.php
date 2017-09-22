@@ -28,7 +28,7 @@
 
       <!-- Content Holder Start -->
       <div class="content-holder">
-        <h3 class="content-title">Our Portfolio</h3>
+        <h3 class="content-title">What We've Done</h3>
         <p class="large-para">Bring your business up to speed, aesthetically and technically. Nowadays, more and more people visit businesses online before deciding if they want a product or service. At that rate, having an outdated, stale web presence could be costing you business.</p>
         <p>Please have a look at our portfolio items to learn more about the types of work that we've have done in the past. We're pleased to have worked with these professionals and will offer the same level of dedication for your project as well. Clients are able to be proactively get involved in updating their own websites within the framework we setup just for them without any prior coding knowledge. We give you the tools you need to successfully keep your websites current and fresh!</p>
         <div class="portfolio-container">

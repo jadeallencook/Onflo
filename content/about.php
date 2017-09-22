@@ -25,17 +25,19 @@
       </div>
       <!-- Content Holder Start -->
       <div class="content-holder" id="intro">
-        <h3 class="content-title">Who we are</h3>
-        <p class="large-para">Ready to learn new ways of thinking to better connect with your customers? These sophisticated tools will allow you to engage customers, turn that engagement into sales, and help you grow your online presence.</p>
-        <p>Take your business' online presense to the next level with Onflo. Our team is confident that we can help you come up with a solution to get your brand headed in the right direction. Our team ranges from graphic designers, photographers, video producers, and a creative assortment of other digital artists. So whether you need custom integrations or unique graphic designs, you can can always count on our developers and artists.</p>
+        <h3 class="content-title">Go with the flo</h3>
+        <p class="large-para">Ready to learn new ways to connect with your customers? These sophisticated tools will teach you how to engage customers and help you grow your online presence.</p>
+        <p>Our team is confident that we can help you come up with solutions to get your brand headed in the right direction. We have a creative assortment of digital artists that range from designers all the way to video producers. So whether you need website updates or graphics designed, you can can always count us!</p>
         <img src="../../images/dashboard-solutions.png" alt="Onflo Dashboard Solutions" />
         <br /><br />
-        <p>See how much your business has grown using your Google Analytics all in the same place! Our dashboard also displays your analytics in simple, easy to read way. You can view your weekly vistors and your top cities, more to come soon. If you don't have Google Analytics setup on your website, you can follow the link below to get it started (on the dashboard). It's as easy as submitting an issue, our team will take take of the rest!</p>
-        <br />
+        <p>See how much your business has grown using your Google Analytics on our dashboard. Our analytics are displayed in a simple, easy to read way. If you don't have Google Analytics setup on your website we can help you with that too; it's as easy as submitting a solution, our team will take take of the rest!</p>
         <img src="../../images/dashboard-analytics.png" alt="Onflo Dashboard Analytics" />
         <br /><br />
-        <p>If you need one-on-one help, we will assist you with setting up a Slack chatroom to keep close contact throughout the whole process. Slack creates alignment and shared understanding across your team, making you more productive, less stressed, and just a little bit happier by bringing all your team's communication together. By giving everyone a shared workspace where conversations are organized, we can will have better direction on your vision and can get to work on your project sooner!</p>
-        <img src="../../images/dashboard-customers.png" alt="Onflo Dashboard Analytics" />
+        <p>Manage your customers using our dashboard to keep track of information like emails and reward points. After adding customers you'll be able to export your contacts to services like MailChimp to run email campaigns. This feature will work seamlessly with our finance feature coming soon!</p>
+        <img src="../../images/dashboard-customers.png" alt="Onflo Dashboard Customers" />
+        <br /><br />
+        <p>With the boom of the Internet, it's a full time job just trying to stay up to date with the current tech lingo and industry standards. In an attempt to help we have organized a series of informational videos into our learning feature. There you can learn new things such as design, marketing, and even video production!</p>
+        <img src="../../images/dashboard-learn.png" alt="Onflo Dashboard Learning" />
         <!--
         <div class="simple-slider">
           <div><img src="../../images/inner-banner9.jpg" alt="" /></div>

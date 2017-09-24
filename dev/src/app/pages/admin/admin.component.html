@@ -1,6 +1,15 @@
 <h1>Admin</h1>
 <br />
 
+<!-- unread messages -->
+<div id="unread-container">
+  <ul>
+    <li *ngFor="let msg of unreadMsgs">
+      <a routerLink="/messenger/{{ msg }}">{{ msg }}</a>
+    </li>
+  </ul>
+</div>
+
 <!-- read deals -->
 <div id="open-deal-wrapper" *ngIf="!activeDeal && this.deals.length > 0">
   <div *ngFor="let deal of this.deals" >
@@ -10,6 +19,7 @@
       <span class="label label-info" *ngIf="deal.status === 'pending'">{{ deal.status }}</span>
       <span class="label label-danger" *ngIf="deal.status === 'removed'">{{ deal.status }}</span>
       <span class="label label-warning" *ngIf="deal.status === 'production'">{{ deal.status }}</span>
+      <span class="label label-success" *ngIf="deal.status === 'complete'">{{ deal.status }}</span>
       <br />
       {{ formatDate(deal.submitted) }}
       <br />

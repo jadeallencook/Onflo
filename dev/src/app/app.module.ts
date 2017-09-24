@@ -34,9 +34,12 @@ import { SalesComponent } from './components/sales/sales.component';
 import { AddSaleComponent } from './components/add-sale/add-sale.component';
 
 import { HttpModule } from '@angular/http';
+import { MessengerComponent } from './pages/messenger/messenger.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'messenger/:userUID', component: MessengerComponent },
+  { path: 'messenger', component: MessengerComponent },
   { path: 'solutions', component: SolutionsComponent },
   { path: 'analytics', component: AnalyticsComponent},
   { path: 'learn', component: LearnComponent },
@@ -66,7 +69,8 @@ const appRoutes: Routes = [
     FinanceComponent,
     ProductsComponent,
     SalesComponent,
-    AddSaleComponent
+    AddSaleComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,

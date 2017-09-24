@@ -27,6 +27,7 @@
     "core-js": "^2.4.1",
     "firebase": "^4.3.1",
     "ga-api": "0.0.4",
+    "jquery": "^3.2.1",
     "ng-stripe-checkout": "^1.0.2",
     "paypal-rest-sdk": "^1.7.1",
     "rxjs": "^5.4.2",

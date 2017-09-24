@@ -29,7 +29,21 @@ export class AdminComponent implements OnInit {
   lessonAddedSuccess: boolean = false;
   lessonAddedFailure: boolean = false;
 
-  constructor() { }
+  unreadMsgs: Array<{}> = [];
+
+  constructor() {
+    // set unread messages
+    firebase.database().ref('unread/').on('value', (snapshot) => {
+      const msgKeys = Object.keys(snapshot.val());
+      const msgs = snapshot.val();
+      for (let x = 0, max = msgKeys.length; x < max; x++) {
+        const key = msgKeys[x];
+        if (msgs[key].onflo && key !== undefined) {
+          this.unreadMsgs.push(key);
+        }
+      }
+    });
+  }
 
   showDeal(uid) {
     this.addingVideo = false;

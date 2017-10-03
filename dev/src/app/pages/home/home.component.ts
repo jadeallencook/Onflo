@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseAuthService } from '../../services/firebase-auth/firebase-auth.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -8,7 +9,7 @@ import * as firebase from 'firebase';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {}
+  constructor(private FirebaseAuthService: FirebaseAuthService) {}
 
   isAdmin() {
     if (firebase.auth().currentUser.email !== 'hello@onflo.io') {

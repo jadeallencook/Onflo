@@ -1539,8 +1539,9 @@ module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__ = __webpack_require__("../../../../../src/app/services/firebase-auth/firebase-auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1552,11 +1553,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(FirebaseAuthService) {
+        this.FirebaseAuthService = FirebaseAuthService;
     }
     HomeComponent.prototype.isAdmin = function () {
-        if (__WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email !== 'hello@onflo.io') {
+        if (__WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.email !== 'hello@onflo.io') {
             return false;
         }
         return true;
@@ -1571,9 +1574,10 @@ HomeComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/home/home.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */]) === "function" && _a || Object])
 ], HomeComponent);
 
+var _a;
 //# sourceMappingURL=home.component.js.map
 
 /***/ }),

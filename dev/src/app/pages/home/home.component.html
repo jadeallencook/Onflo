@@ -56,4 +56,9 @@
     <i class="icon-off"></i><br />
     <span>Logout</span>
   </div>
+
+  <div routerLink="/admin" class="dash-icon" *ngIf="isAdmin()">
+    <i class="icon-unlock"></i><br />
+    <span>Admin</span>
+  </div>
 </div>

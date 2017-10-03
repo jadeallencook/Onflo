@@ -1529,7 +1529,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/messenger\" class=\"dash-icon\">\n    <i class=\"icon-envelope\"></i><br />\n    <span>Messenger</span>\n  </div>\n\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <br />\n  <!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n  <div routerLink=\"/finance\" class=\"dash-icon\">\n    <i class=\"icon-money\"></i><br />\n    <span>Finance</span>\n  </div>\n  -->\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n</div>\n"
+module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/messenger\" class=\"dash-icon\">\n    <i class=\"icon-envelope\"></i><br />\n    <span>Messenger</span>\n  </div>\n\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <br />\n  <!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n  <div routerLink=\"/finance\" class=\"dash-icon\">\n    <i class=\"icon-money\"></i><br />\n    <span>Finance</span>\n  </div>\n  -->\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n\n  <div routerLink=\"/admin\" class=\"dash-icon\" *ngIf=\"isAdmin()\">\n    <i class=\"icon-unlock\"></i><br />\n    <span>Admin</span>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1539,7 +1539,8 @@ module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__ = __webpack_require__("../../../../../src/app/services/firebase-auth/firebase-auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1552,9 +1553,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomeComponent = (function () {
-    function HomeComponent(FirebaseAuthService) {
-        this.FirebaseAuthService = FirebaseAuthService;
+    function HomeComponent() {
     }
+    HomeComponent.prototype.isAdmin = function () {
+        if (__WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email !== 'hello@onflo.io') {
+            return false;
+        }
+        return true;
+    };
     HomeComponent.prototype.ngOnInit = function () {
     };
     return HomeComponent;
@@ -1565,10 +1571,9 @@ HomeComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/home/home.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [])
 ], HomeComponent);
 
-var _a;
 //# sourceMappingURL=home.component.js.map
 
 /***/ }),

@@ -10,8 +10,11 @@ export class FirebaseAuthService {
 
   constructor(public AngularFireAuth: AngularFireAuth) {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) this.ActiveUser = user;
-      else this.ActiveUser = false;
+      if (user) {
+        this.ActiveUser = user;
+      } else {
+        this.ActiveUser = false;
+      }
     });
   }
 
@@ -26,7 +29,7 @@ export class FirebaseAuthService {
       this.AngularFireAuth.auth.createUserWithEmailAndPassword(email, password).then(() => {
         this.login(email, password);
         firebase.auth().onAuthStateChanged((user) => {
-          let date = new Date().toString();
+          const date = new Date().toString();
           firebase.database().ref('users/' + user.uid).set({
             created: date
           });

@@ -207,7 +207,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_7_angularfire2_auth__["b" /* AngularFireAuthModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_22_ng_stripe_checkout__["b" /* StripeCheckoutModule */],
-            __WEBPACK_IMPORTED_MODULE_28__angular_http__["b" /* HttpModule */]
+            __WEBPACK_IMPORTED_MODULE_28__angular_http__["a" /* HttpModule */]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_21__services_window_ref_window_ref_service__["a" /* WindowRefService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
@@ -372,7 +372,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/custom-solutions/custom-solutions.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ngIf=\"solutions.length > 0\">\n    <div *ngFor=\"let solution of solutions\">\n      <div *ngIf=\"solution.status === 'pending'\" class=\"priority high\"><span>Needs Approval</span></div>\n      <div *ngIf=\"solution.status === 'pending'\" class=\"task high\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div><br />\n              <a href=\"http://www.onflo.io/payment/#/{{ solution.dealUID }}\">Approve</a> or <a (click)=\"removeDeal(solution)\">Remove</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">${{ solution.amount }}</div>\n\t\t\t\t\t\t\t<div>Est. {{ solution.days }} day(s)</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"priority medium\"><span>In Progress</span></div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"task medium\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>{{ getDaysLeft(solution.date, solution.days) }} Day(s) left</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"priority low\"><span>Complete!</span></div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"task low\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>Complete</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ngIf=\"solutions.length > 0\">\n    <div *ngFor=\"let solution of solutions\">\n      <div *ngIf=\"solution.status === 'pending'\" class=\"priority high\"><span>Needs Approval</span></div>\n      <div *ngIf=\"solution.status === 'pending'\" class=\"task high\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div><br />\n              <a (click)=\"this.stripeCheckout(solution.dealUID, solution.amount, solution.title)\">Approve</a> or <a (click)=\"removeDeal(solution)\">Remove</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">${{ solution.amount }}</div>\n\t\t\t\t\t\t\t<div>Est. {{ solution.days }} day(s)</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"priority medium\"><span>In Progress</span></div>\n      <div *ngIf=\"solution.status === 'production'\" class=\"task medium\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>{{ getDaysLeft(solution.date, solution.days) }} Day(s) left</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"priority low\"><span>Complete!</span></div>\n      <div *ngIf=\"solution.status === 'complete'\" class=\"task low\">\n\t\t\t\t\t\t<div class=\"desc\">\n\t\t\t\t\t\t\t<div class=\"title\">{{ solution.title }}</div>\n\t\t\t\t\t\t\t<div>{{ solution.objective }}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"time\">\n\t\t\t\t\t\t\t<div class=\"date\">{{ this.formatSubmittedDate(solution.date) }}</div>\n\t\t\t\t\t\t\t<div>Complete</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -385,7 +385,8 @@ module.exports = "<div class=\"span7\" id=\"solutions-container\">\n\n  <div *ng
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__ = __webpack_require__("../../../../ng-stripe-checkout/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -400,10 +401,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var CustomSolutionsComponent = (function () {
-    function CustomSolutionsComponent(stripeCheckoutLoader, http) {
+    function CustomSolutionsComponent(stripeCheckoutLoader) {
         this.stripeCheckoutLoader = stripeCheckoutLoader;
-        this.http = http;
         this.solutions = [];
+        this.deal = {
+            amount: 0,
+            description: '',
+            uid: ''
+        };
     }
     CustomSolutionsComponent.prototype.formatSubmittedDate = function (date) {
         date = new Date(date);
@@ -434,32 +439,56 @@ var CustomSolutionsComponent = (function () {
         }
         return daysLeft;
     };
+    CustomSolutionsComponent.prototype.stripeCheckout = function (dealUID, price, title) {
+        this.deal.amount = price * 100;
+        this.deal.description = title;
+        this.deal.uid = dealUID;
+        this.stripeCheckoutHandler.open({
+            amount: this.deal.amount,
+            currency: 'USD',
+            email: __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email,
+            name: 'Onflo',
+            description: this.deal.description
+        });
+    };
     CustomSolutionsComponent.prototype.formatDate = function (date) {
         date = new Date(date);
         return ((date.getDate() < 10) ? '0' : '') + date.getDate() + '/' + (((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1) + '/' + date.getFullYear();
     };
-    CustomSolutionsComponent.prototype.ngOnInit = function () {
+    CustomSolutionsComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         this.stripeCheckoutLoader.createHandler({
-            key: 'pk_test_g7IXNmaPSC72rjf8KRHNgnOk',
-            email: __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email,
+            key: 'pk_live_LCkKum9lsW57QiO8sHq2a2am',
+            image: 'http://www.onflo.io/images/onflo-avatar.jpg',
             token: function (token) {
-                // after deal is paid...
-                var deal = _this.selectedDeal;
-                deal.stripeID = token.id;
-                deal.status = 'production';
-                deal.started = new Date().toString();
-                var stripeAPI = 'http://onflo.io/api/stripe.php';
-                var postOptions = { token: token.id, desc: deal.title, amount: (deal.amount * 100) };
-                console.log(postOptions);
-                // firebase.database().ref('deals/' + this.selectedDeal.dealUID).set(deal);
-                _this.http.post(stripeAPI, postOptions).subscribe(function (res) {
-                    console.log(res['_body']);
+                // Do something with the token...
+                __WEBPACK_IMPORTED_MODULE_3_jquery__["ajax"]({
+                    method: 'post',
+                    url: 'http://onflo.io/api/stripe.php',
+                    data: {
+                        token: token.id,
+                        amount: _this.deal.amount,
+                        desc: _this.deal.description
+                    }
+                }).done(function (data) {
+                    if (data) {
+                        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + _this.deal.uid).once('value', function (snapshot) {
+                            var tmpDeal = snapshot.val();
+                            tmpDeal.status = 'production';
+                            tmpDeal.start = new Date().toString();
+                            tmpDeal.stripeToken = token;
+                            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + _this.deal.uid).set(tmpDeal);
+                        });
+                    }
+                }).catch(function () {
+                    console.log('Failed to process payment');
                 });
-            },
+            }
         }).then(function (handler) {
             _this.stripeCheckoutHandler = handler;
         });
+    };
+    CustomSolutionsComponent.prototype.ngOnInit = function () {
     };
     return CustomSolutionsComponent;
 }());
@@ -473,10 +502,10 @@ CustomSolutionsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/custom-solutions/custom-solutions.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/custom-solutions/custom-solutions.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng_stripe_checkout__["a" /* StripeCheckoutLoader */]) === "function" && _a || Object])
 ], CustomSolutionsComponent);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=custom-solutions.component.js.map
 
 /***/ }),
@@ -624,7 +653,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      \n      <li>\n        <a *ngIf=\"this.loggedIn\" routerLink=\"/messenger\"><i class=\"icon-envelope\"></i>\n          <span class=\"hidden-tablet\" *ngIf=\"this.unreadMsgs\"><b>Messenger</b></span>\n          <span class=\"hidden-tablet\" *ngIf=\"!this.unreadMsgs\">Messenger</span>\n        </a>\n      </li>\n      \n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <!-- <li><a *ngIf=\"this.loggedIn\" routerLink=\"/finance\"><i class=\"icon-money\"></i><span class=\"hidden-tablet\"> Finance</span></a></li> -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!--\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n\n      <!-- admin -->\n      <li *ngIf=\"this.loggedIn && this.userEmail === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      \n      <li>\n        <a *ngIf=\"this.loggedIn\" routerLink=\"/messenger\"><i class=\"icon-envelope\"></i>\n          <span class=\"hidden-tablet\" *ngIf=\"this.unreadMsgs\"><b>Messenger</b></span>\n          <span class=\"hidden-tablet\" *ngIf=\"!this.unreadMsgs\">Messenger</span>\n        </a>\n      </li>\n      \n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/finance\"><i class=\"icon-money\"></i><span class=\"hidden-tablet\"> Finance</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!--\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n\n      <!-- admin -->\n      <li *ngIf=\"this.loggedIn && this.userEmail === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -636,6 +665,7 @@ module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_firebase_auth_firebase_auth_service__ = __webpack_require__("../../../../../src/app/services/firebase-auth/firebase-auth.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -647,9 +677,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var NavigationComponent = (function () {
-    function NavigationComponent() {
+    function NavigationComponent(FirebaseAuthService) {
         var _this = this;
+        this.FirebaseAuthService = FirebaseAuthService;
         this.unreadMsgs = false;
         this.loggedIn = false;
         __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().onAuthStateChanged(function (user) {
@@ -674,9 +706,10 @@ NavigationComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/navigation/navigation.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/navigation/navigation.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_firebase_auth_firebase_auth_service__["a" /* FirebaseAuthService */]) === "function" && _a || Object])
 ], NavigationComponent);
 
+var _a;
 //# sourceMappingURL=navigation.component.js.map
 
 /***/ }),
@@ -911,7 +944,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/admin/admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- unread messages -->\n<div id=\"unread-container\">\n  <ul>\n    <li *ngFor=\"let msg of unreadMsgs\">\n      <a routerLink=\"/messenger/{{ msg }}\">{{ msg }}</a>\n    </li>\n  </ul>\n</div>\n\n<!-- read deals -->\n<div id=\"open-deal-wrapper\" *ngIf=\"!activeDeal && this.deals.length > 0\">\n  <div *ngFor=\"let deal of this.deals\" >\n    <div *ngIf=\"deal.status !== 'removed'\">\n      <!-- apply correct label -->\n      <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n      <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n      <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n      <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n      <span class=\"label label-success\" *ngIf=\"deal.status === 'complete'\">{{ deal.status }}</span>\n      <br />\n      {{ formatDate(deal.submitted) }}\n      <br />\n      <a (click)=\"showDeal(deal.dealUID)\">Edit</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a>\n      <br /><br />\n      <i>{{ deal.issue }}</i>\n      <br />\n      <br />\n    </div>\n  </div>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'removed'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-success\" *ngIf=\"activeDeal.status === 'complete'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br />\n  {{ formatDate(activeDeal.submitted) }}<br />\n  <span *ngIf=\"activeDeal.started\">{{ getDaysLeft(activeDeal.started, dealDays) }} day(s) left</span>\n  <span *ngIf=\"!activeDeal.started\">Project has not stated</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}</span><br />\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}</span><br />\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}</span><br />\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}</span><br />\n  </div><div *ngIf=\"!client\">\n    <span><strong>User UID:</strong>{{ activeDeal.userUID }}</span><br />\n    <span><i>This is the only client info available, they need to fill out their settings.</i></span>\n  </div>\n  <br />\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <select [(ngModel)]=\"activeDeal.status\">\n    <option value=\"pending\">Pending</option>\n    <option value=\"production\">Production</option>\n    <option value=\"complete\">Complete</option>\n  </select>\n  <br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false && addingVideo=true\">Back To All Deals</a>\n</div>\n\n<!-- add new video -->\n<div *ngIf=\"addingVideo\" id=\"add-video-container\">\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Lesson Title</label>\n    <input [(ngModel)]=\"learningVideo.title\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"How To Brand Social Media\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Video Link</label>\n    <input [(ngModel)]=\"learningVideo.video\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"https://www.youtube.com/watch?v=id\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\">Keywords</label>\n    <input [(ngModel)]=\"learningVideo.keywords\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"social, marketing, online, etc.\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"selectError3\">Category</label>\n    <select [(ngModel)]=\"learningVideo.category\" id=\"selectError3\">\n      <option value=\"social\">Social</option>\n      <option value=\"email\">Email</option>\n      <option value=\"data\">Data</option>\n      <option value=\"web\">Web</option>\n      <option value=\"design\">Design</option>\n      <option value=\"photo\">Photo</option>\n      <option value=\"video\">Video</option>\n      <option value=\"mind\">Mind</option>\n    </select>\n  </div>\n  <div class=\"alert alert-success lesson-alert\" *ngIf=\"lessonAddedSuccess\">\n    <strong>Complete!</strong> You've successfully added a lesson.\n  </div>\n  <div class=\"alert alert-error lesson-alert\" *ngIf=\"lessonAddedFailure\">\n    <strong>Error!</strong> Looks like you forgot something.\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addVideo()\">Add Lesson</button>\n  <button class=\"btn\" (click)=\"resetLessonDetails()\">Cancel</button>\n</div>\n"
+module.exports = "<h1>Admin</h1>\n<br />\n\n<!-- unread messages -->\n<div id=\"unread-container\">\n  <ul>\n    <li *ngFor=\"let msg of unreadMsgs\">\n      <a routerLink=\"/messenger/{{ msg.uid }}\">{{ msg.sender }}</a>\n    </li>\n  </ul>\n</div>\n\n<!-- read deals -->\n<div id=\"open-deal-wrapper\" *ngIf=\"!activeDeal && this.deals.length > 0\">\n  <div *ngFor=\"let deal of this.deals\" >\n    <div>\n      <!-- apply correct label -->\n      <span class=\"label\" *ngIf=\"deal.status === 'submitted'\">{{ deal.status }}</span>\n      <span class=\"label label-info\" *ngIf=\"deal.status === 'pending'\">{{ deal.status }}</span>\n      <span class=\"label label-danger\" *ngIf=\"deal.status === 'removed'\">{{ deal.status }}</span>\n      <span class=\"label label-warning\" *ngIf=\"deal.status === 'production'\">{{ deal.status }}</span>\n      <span class=\"label label-success\" *ngIf=\"deal.status === 'complete'\">{{ deal.status }}</span>\n      <br />\n      {{ formatDate(deal.submitted) }}\n      <br />\n      <a (click)=\"showDeal(deal.dealUID)\">Edit</a> or <a (click)=\"removeDeal(deal.dealUID, deal.userUID)\">Delete</a>\n      <br /><br />\n      <i>{{ deal.issue }}</i>\n      <br />\n      <br />\n    </div>\n  </div>\n</div>\n\n<!-- reply to deals -->\n<div class=\"box-content\" *ngIf=\"activeDeal\">\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'submitted'\">{{ activeDeal.status }}</span>\n  <span class=\"label\" *ngIf=\"activeDeal.status === 'removed'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-success\" *ngIf=\"activeDeal.status === 'complete'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-info\" *ngIf=\"activeDeal.status === 'pending'\">{{ activeDeal.status }}</span>\n  <span class=\"label label-warning\" *ngIf=\"activeDeal.status === 'production'\">{{ activeDeal.status }}</span>\n  <br />\n  {{ formatDate(activeDeal.submitted) }}<br />\n  <span *ngIf=\"activeDeal.start\">{{ getDaysLeft(activeDeal.start, dealDays) }} day(s) left</span>\n  <span *ngIf=\"!activeDeal.start\">Project has not stated</span>\n  <br /><br />\n  <div *ngIf=\"client\">\n    <span *ngIf=\"client.business\"><strong>Business:</strong> {{ client.business }}</span><br />\n    <span *ngIf=\"client.website\"><strong>Website:</strong> {{ client.website }}</span><br />\n    <span *ngIf=\"client.slack\"><strong>Slack:</strong> {{ client.slack }}</span><br />\n    <span *ngIf=\"client.phone\"><strong>Phone:</strong> {{ client.phone }}</span><br />\n  </div><div *ngIf=\"!client\">\n    <span><strong>User UID:</strong>{{ activeDeal.userUID }}</span><br />\n    <span><i>This is the only client info available, they need to fill out their settings.</i></span>\n  </div>\n  <br />\n  <strong>Details:</strong> {{ activeDeal.issue }}\n  <br /><br />\n  <select [(ngModel)]=\"activeDeal.status\">\n    <option value=\"pending\">Pending</option>\n    <option value=\"production\">Production</option>\n    <option value=\"complete\">Complete</option>\n  </select>\n  <br />\n  <input [(ngModel)]=\"dealTitle\" placeholder=\"What's the goal?\" type=\"text\" /><br />\n  <textarea [(ngModel)]=\"dealMsg\" placeholder=\"How are we going to do it?\" size=\"32\" type=\"text\"></textarea><br />\n  <input [(ngModel)]=\"dealAmount\" placeholder=\"How much?\" type=\"number\" /><br />\n  <input [(ngModel)]=\"dealDays\" placeholder=\"How many days?\" type=\"number\" />\n  <br />\n  <button class=\"btn btn-primary\" (click)=\"sendDeal()\">Update</button>\n  <br /><br />\n  <a (click)=\"activeDeal=false && addingVideo=true\">Back To All Deals</a>\n</div>\n\n<!-- add new video -->\n<div *ngIf=\"addingVideo\" id=\"add-video-container\">\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Lesson Title</label>\n    <input [(ngModel)]=\"learningVideo.title\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"How To Brand Social Media\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"focusedInput\">Video Link</label>\n    <input [(ngModel)]=\"learningVideo.video\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"https://www.youtube.com/watch?v=id\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\">Keywords</label>\n    <input [(ngModel)]=\"learningVideo.keywords\" class=\"input-xlarge focused\" type=\"text\" placeholder=\"social, marketing, online, etc.\">\n  </div>\n  <div class=\"control-group\">\n    <label class=\"control-label\" for=\"selectError3\">Category</label>\n    <select [(ngModel)]=\"learningVideo.category\" id=\"selectError3\">\n      <option value=\"social\">Social</option>\n      <option value=\"email\">Email</option>\n      <option value=\"data\">Data</option>\n      <option value=\"web\">Web</option>\n      <option value=\"design\">Design</option>\n      <option value=\"photo\">Photo</option>\n      <option value=\"video\">Video</option>\n      <option value=\"mind\">Mind</option>\n    </select>\n  </div>\n  <div class=\"alert alert-success lesson-alert\" *ngIf=\"lessonAddedSuccess\">\n    <strong>Complete!</strong> You've successfully added a lesson.\n  </div>\n  <div class=\"alert alert-error lesson-alert\" *ngIf=\"lessonAddedFailure\">\n    <strong>Error!</strong> Looks like you forgot something.\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\" (click)=\"addVideo()\">Add Lesson</button>\n  <button class=\"btn\" (click)=\"resetLessonDetails()\">Cancel</button>\n</div>\n"
 
 /***/ }),
 
@@ -957,13 +990,28 @@ var AdminComponent = (function () {
         this.unreadMsgs = [];
         // set unread messages
         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('unread/').on('value', function (snapshot) {
+            _this.unreadMsgs = [];
             var msgKeys = Object.keys(snapshot.val());
             var msgs = snapshot.val();
-            for (var x = 0, max = msgKeys.length; x < max; x++) {
+            var _loop_1 = function (x, max) {
                 var key = msgKeys[x];
-                if (msgs[key].onflo && key !== undefined) {
-                    _this.unreadMsgs.push(key);
-                }
+                __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('users/' + key).once('value', function (user) {
+                    var msg = {};
+                    if (user.val()) {
+                        msg.sender = user.val().business;
+                    }
+                    else {
+                        msg.sender = '(User Has No Settings)';
+                    }
+                    msg.uid = key;
+                    if (msgs[msgKeys[x]].onflo) {
+                        msg.sender += '*';
+                    }
+                    _this.unreadMsgs.push(msg);
+                });
+            };
+            for (var x = 0, max = msgKeys.length; x < max; x++) {
+                _loop_1(x, max);
             }
         });
     }
@@ -1076,6 +1124,14 @@ var AdminComponent = (function () {
                     deal.dealUID = key;
                     return deal;
                 });
+                var tmpDeals = [];
+                for (var _i = 0, _a = _this.deals; _i < _a.length; _i++) {
+                    var deal = _a[_i];
+                    if (deal.status !== 'removed' && deal.status !== 'complete') {
+                        tmpDeals.push(deal);
+                    }
+                }
+                _this.deals = tmpDeals;
             }
         });
     };
@@ -1703,8 +1759,8 @@ module.exports = "<h1>Messenger</h1>\n<br />\n\n<div class=\"box-content\" id=\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jQuery__ = __webpack_require__("../../../../jQuery/dist/jquery.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jQuery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jQuery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1767,8 +1823,8 @@ var MessengerComponent = (function () {
                 when: now
             });
             __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('unread/' + userUID).set(unreadByWhom);
-            __WEBPACK_IMPORTED_MODULE_2_jQuery__('#chatroom-container').animate({
-                scrollTop: __WEBPACK_IMPORTED_MODULE_2_jQuery__('#msgs-container').height()
+            __WEBPACK_IMPORTED_MODULE_2_jquery__('#chatroom-container').animate({
+                scrollTop: __WEBPACK_IMPORTED_MODULE_2_jquery__('#msgs-container').height()
             }, 'slow');
             _this.message = '';
         });
@@ -1811,7 +1867,6 @@ var MessengerComponent = (function () {
             unreadByWhom['onflo'] = false;
         }
         else {
-            console.log(this.route.snapshot['_routeConfig'].path);
             unreadByWhom['user'] = false;
         }
         __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('messages/' + userUID).on('value', function (snapshot) {
@@ -1829,8 +1884,8 @@ var MessengerComponent = (function () {
                     _this.messages.push(snapshot.val()[objectKey]);
                 });
                 var scrollToBottom_1 = setInterval(function () {
-                    __WEBPACK_IMPORTED_MODULE_2_jQuery__('#chatroom-container').animate({
-                        scrollTop: __WEBPACK_IMPORTED_MODULE_2_jQuery__('#msgs-container').height()
+                    __WEBPACK_IMPORTED_MODULE_2_jquery__('#chatroom-container').animate({
+                        scrollTop: __WEBPACK_IMPORTED_MODULE_2_jquery__('#msgs-container').height()
                     }, 'slow');
                     if (_this.messages[_this.messages.length - 1]['who'] === 'onflo' && !_this.initMsgsLoad) {
                         new Audio('../../assets/bell.mp3').play();
@@ -2033,7 +2088,7 @@ var SolutionsComponent = (function () {
                     var isActive = deals[objectKey].active;
                     if (isActive) {
                         // add deal to solutions
-                        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + objectKey).once('value').then(function (deal) {
+                        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('deals/' + objectKey).on('value', function (deal) {
                             deal = deal.val();
                             if (deal) {
                                 _this.solutions.push(deal);
@@ -2091,10 +2146,12 @@ var FirebaseAuthService = (function () {
         this.ActiveUser = false;
         this.errorMsg = '';
         __WEBPACK_IMPORTED_MODULE_2_firebase_app__["auth"]().onAuthStateChanged(function (user) {
-            if (user)
+            if (user) {
                 _this.ActiveUser = user;
-            else
+            }
+            else {
                 _this.ActiveUser = false;
+            }
         });
     }
     // firebase

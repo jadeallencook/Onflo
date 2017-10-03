@@ -34,13 +34,24 @@ export class AdminComponent implements OnInit {
   constructor() {
     // set unread messages
     firebase.database().ref('unread/').on('value', (snapshot) => {
+      this.unreadMsgs = [];
       const msgKeys = Object.keys(snapshot.val());
       const msgs = snapshot.val();
       for (let x = 0, max = msgKeys.length; x < max; x++) {
         const key = msgKeys[x];
-        if (msgs[key].onflo && key !== undefined) {
-          this.unreadMsgs.push(key);
-        }
+        firebase.database().ref('users/' + key).once('value', (user) => {
+          const msg: any = {};
+          if (user.val()) {
+            msg.sender = user.val().business;
+          } else {
+            msg.sender = '(User Has No Settings)';
+          }
+          msg.uid = key;
+          if (msgs[msgKeys[x]].onflo) {
+            msg.sender += '*';
+          }
+          this.unreadMsgs.push(msg);
+        });
       }
     });
   }
@@ -157,6 +168,13 @@ export class AdminComponent implements OnInit {
           deal.dealUID = key;
           return deal;
         });
+        const tmpDeals = [];
+        for (const deal of this.deals) {
+          if (deal.status !== 'removed' && deal.status !== 'complete') {
+            tmpDeals.push(deal);
+          }
+        }
+        this.deals = tmpDeals;
       }
     });
   }

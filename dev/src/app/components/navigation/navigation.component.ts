@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { FirebaseAuthService } from '../../services/firebase-auth/firebase-auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,7 @@ export class NavigationComponent implements OnInit {
   loggedIn: boolean = false;
   userEmail: string;
 
-  constructor() {
+  constructor(private FirebaseAuthService: FirebaseAuthService) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.userEmail = user.email;

@@ -5,7 +5,7 @@
 <div id="unread-container">
   <ul>
     <li *ngFor="let msg of unreadMsgs">
-      <a routerLink="/messenger/{{ msg }}">{{ msg }}</a>
+      <a routerLink="/messenger/{{ msg.uid }}">{{ msg.sender }}</a>
     </li>
   </ul>
 </div>
@@ -13,7 +13,7 @@
 <!-- read deals -->
 <div id="open-deal-wrapper" *ngIf="!activeDeal && this.deals.length > 0">
   <div *ngFor="let deal of this.deals" >
-    <div *ngIf="deal.status !== 'removed'">
+    <div>
       <!-- apply correct label -->
       <span class="label" *ngIf="deal.status === 'submitted'">{{ deal.status }}</span>
       <span class="label label-info" *ngIf="deal.status === 'pending'">{{ deal.status }}</span>
@@ -41,8 +41,8 @@
   <span class="label label-warning" *ngIf="activeDeal.status === 'production'">{{ activeDeal.status }}</span>
   <br />
   {{ formatDate(activeDeal.submitted) }}<br />
-  <span *ngIf="activeDeal.started">{{ getDaysLeft(activeDeal.started, dealDays) }} day(s) left</span>
-  <span *ngIf="!activeDeal.started">Project has not stated</span>
+  <span *ngIf="activeDeal.start">{{ getDaysLeft(activeDeal.start, dealDays) }} day(s) left</span>
+  <span *ngIf="!activeDeal.start">Project has not stated</span>
   <br /><br />
   <div *ngIf="client">
     <span *ngIf="client.business"><strong>Business:</strong> {{ client.business }}</span><br />

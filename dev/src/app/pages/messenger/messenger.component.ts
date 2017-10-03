@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as firebase from 'firebase';
-import * as $ from 'jQuery';
+import * as $ from 'jquery';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -97,7 +97,6 @@ export class MessengerComponent implements OnInit {
     if (this.route.snapshot.params['userUID']) {
       unreadByWhom['onflo'] = false;
     } else {
-      console.log(this.route.snapshot['_routeConfig'].path);
       unreadByWhom['user'] = false;
     }
     firebase.database().ref('messages/' + userUID).on('value', (snapshot) => {

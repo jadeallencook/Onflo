@@ -1,7 +1,7 @@
 <?php 
     require_once('../php/stripe-php/init.php');
 
-    \Stripe\Stripe::setApiKey(/* Stripe SK */);
+\Stripe\Stripe::setApiKey(/* Stripe SK */);
 
     if (isset($_POST['token']) && isset($_POST['amount']) && isset($_POST['desc'])) {
 

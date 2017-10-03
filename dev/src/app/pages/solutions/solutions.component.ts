@@ -26,7 +26,7 @@ export class SolutionsComponent implements OnInit {
           const isActive = deals[objectKey].active;
           if (isActive) {
             // add deal to solutions
-            firebase.database().ref('deals/' + objectKey).once('value').then((deal) => {
+            firebase.database().ref('deals/' + objectKey).on('value', (deal) => {
               deal = deal.val();
               if (deal) {
                 this.solutions.push(deal);

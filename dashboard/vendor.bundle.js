@@ -27522,7 +27522,7 @@ var validateContextObject = exports.validateContextObject = function validateCon
 
 /***/ }),
 
-/***/ "../../../../jQuery/dist/jquery.js":
+/***/ "../../../../jquery/dist/jquery.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -96856,9 +96856,9 @@ ReactiveFormsModule.ctorParameters = function () { return []; };
 /* unused harmony export ResponseContentType */
 /* unused harmony export ResponseType */
 /* unused harmony export Headers */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Http; });
+/* unused harmony export Http */
 /* unused harmony export Jsonp */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return HttpModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpModule; });
 /* unused harmony export JsonpModule */
 /* unused harmony export Connection */
 /* unused harmony export ConnectionBackend */

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 import * as firebase from 'firebase';
 import { StripeCheckoutLoader, StripeCheckoutHandler } from 'ng-stripe-checkout';
-import { Http } from '@angular/http';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-custom-solutions',
@@ -16,8 +16,13 @@ export class CustomSolutionsComponent implements OnInit {
 
   private stripeCheckoutHandler: StripeCheckoutHandler;
   private selectedDeal: any;
+  private deal = {
+    amount: 0,
+    description: '',
+    uid: ''
+  };
 
-  constructor(private stripeCheckoutLoader: StripeCheckoutLoader, private http: Http) {
+  constructor(private stripeCheckoutLoader: StripeCheckoutLoader) {
 
   }
 
@@ -55,32 +60,58 @@ export class CustomSolutionsComponent implements OnInit {
     return daysLeft;
   }
 
+  stripeCheckout(dealUID, price, title) {
+    this.deal.amount = price * 100;
+    this.deal.description = title;
+    this.deal.uid = dealUID;
+    this.stripeCheckoutHandler.open({
+      amount: this.deal.amount,
+      currency: 'USD',
+      email: firebase.auth().currentUser.email,
+      name: 'Onflo',
+      description: this.deal.description
+    });
+  }
+
   formatDate(date) {
     date = new Date(date);
     return ((date.getDate() < 10) ? '0' : '') + date.getDate() + '/' + (((date.getMonth() + 1) < 10) ? '0' : '') + (date.getMonth() + 1) + '/' + date.getFullYear();
   }
 
-  ngOnInit() {
+  public ngAfterViewInit() {
     this.stripeCheckoutLoader.createHandler({
-      key: 'pk_test_g7IXNmaPSC72rjf8KRHNgnOk',
-      email: firebase.auth().currentUser.email,
+      key: 'pk_live_LCkKum9lsW57QiO8sHq2a2am',
+      image: 'http://www.onflo.io/images/onflo-avatar.jpg',
       token: (token) => {
-        // after deal is paid...
-        const deal = this.selectedDeal;
-        deal.stripeID = token.id;
-        deal.status = 'production';
-        deal.started = new Date().toString();
-        const stripeAPI = 'http://onflo.io/api/stripe.php';
-        const postOptions = { token: token.id, desc: deal.title, amount: (deal.amount * 100) };
-        console.log(postOptions);
-        // firebase.database().ref('deals/' + this.selectedDeal.dealUID).set(deal);
-        this.http.post(stripeAPI, postOptions).subscribe((res) => {
-          console.log(res['_body']);
+        // Do something with the token...
+        $.ajax({
+          method: 'post',
+          url: 'http://onflo.io/api/stripe.php',
+          data: {
+            token: token.id,
+            amount: this.deal.amount,
+            desc: this.deal.description
+          }
+        }).done((data) => {
+          if (data) {
+            firebase.database().ref('deals/' + this.deal.uid).once('value', (snapshot) => {
+              const tmpDeal = snapshot.val();
+              tmpDeal.status = 'production';
+              tmpDeal.start = new Date().toString();
+              tmpDeal.stripeToken = token;
+              firebase.database().ref('deals/' + this.deal.uid).set(tmpDeal);
+            });
+          }
+        }).catch(() => {
+          console.log('Failed to process payment');
         });
-      },
+      }
     }).then((handler: StripeCheckoutHandler) => {
       this.stripeCheckoutHandler = handler;
     });
+  }
+
+  ngOnInit() {
   }
 
 }

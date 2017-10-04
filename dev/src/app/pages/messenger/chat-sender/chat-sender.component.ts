@@ -13,7 +13,7 @@ export class ChatSenderComponent implements OnInit {
   msg: string = '';
 
   sendMsg(key) {
-    if (key.keyCode === 13 || !key) {
+    if (!key || key.keyCode === 13) {
       // cache build info
       const now = new Date().toString();
       let who: string;

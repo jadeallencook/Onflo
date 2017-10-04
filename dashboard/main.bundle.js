@@ -1939,7 +1939,7 @@ var ChatSenderComponent = (function () {
         this.msg = '';
     }
     ChatSenderComponent.prototype.sendMsg = function (key) {
-        if (key.keyCode === 13 || !key) {
+        if (!key || key.keyCode === 13) {
             // cache build info
             var now = new Date().toString();
             var who = void 0;

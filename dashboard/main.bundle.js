@@ -1905,7 +1905,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box-content\" id=\"chatroom-form\">\n  <div class=\"chat-form\">\n    <!-- message sender -->\n    <textarea placeholder=\"Type your message here...\" [(ngModel)]=\"msg\" (keyup)=\"sendMsg($event)\"></textarea>\n    <button class=\"btn btn-primary\" (click)=\"sengMsg()\">Send</button>\n  </div>\n</div>"
+module.exports = "<div class=\"box-content\" id=\"chatroom-form\">\n  <div class=\"chat-form\">\n    <!-- message sender -->\n    <textarea placeholder=\"Type your message here...\" [(ngModel)]=\"msg\" (keyup)=\"sendMsg($event)\"></textarea>\n    <button class=\"btn btn-primary\" (click)=\"sendMsg()\">Send</button>\n  </div>\n</div>"
 
 /***/ }),
 

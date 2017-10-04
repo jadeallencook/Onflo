@@ -121,6 +121,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_add_sale_add_sale_component__ = __webpack_require__("../../../../../src/app/components/add-sale/add-sale.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_messenger_messenger_component__ = __webpack_require__("../../../../../src/app/pages/messenger/messenger.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_messenger_chat_msgs_chat_msgs_component__ = __webpack_require__("../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_messenger_chat_sender_chat_sender_component__ = __webpack_require__("../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -150,6 +152,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // stripe
+
+
 
 
 
@@ -197,7 +201,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_25__components_products_products_component__["a" /* ProductsComponent */],
             __WEBPACK_IMPORTED_MODULE_26__components_sales_sales_component__["a" /* SalesComponent */],
             __WEBPACK_IMPORTED_MODULE_27__components_add_sale_add_sale_component__["a" /* AddSaleComponent */],
-            __WEBPACK_IMPORTED_MODULE_29__pages_messenger_messenger_component__["a" /* MessengerComponent */]
+            __WEBPACK_IMPORTED_MODULE_29__pages_messenger_messenger_component__["a" /* MessengerComponent */],
+            __WEBPACK_IMPORTED_MODULE_30__pages_messenger_chat_msgs_chat_msgs_component__["a" /* ChatMsgsComponent */],
+            __WEBPACK_IMPORTED_MODULE_31__pages_messenger_chat_sender_chat_sender_component__["a" /* ChatSenderComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -653,7 +659,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navigation/navigation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      \n      <li>\n        <a *ngIf=\"this.loggedIn\" routerLink=\"/messenger\"><i class=\"icon-envelope\"></i>\n          <span class=\"hidden-tablet\" *ngIf=\"this.unreadMsgs\"><b>Messenger</b></span>\n          <span class=\"hidden-tablet\" *ngIf=\"!this.unreadMsgs\">Messenger</span>\n        </a>\n      </li>\n      \n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/finance\"><i class=\"icon-money\"></i><span class=\"hidden-tablet\"> Finance</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!--\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n\n      <!-- admin -->\n      <li *ngIf=\"this.loggedIn && this.userEmail === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
+module.exports = "<div id=\"sidebar-left\" class=\"span2\">\n  <div class=\"nav-collapse sidebar-nav\">\n    <ul class=\"nav nav-tabs nav-stacked main-menu\">\n      <li><a href=\"../pages/home\" id=\"navbar-logo\">\n        <img src=\"http://onflo.io/images/onflo-white-logo.png\" />\n      </a></li>\n\n      <!-- main navigation -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/home\"><i class=\"icon-home\"></i><span class=\"hidden-tablet\"> Dashboard</span></a></li>\n      \n      <li>\n        <a *ngIf=\"this.loggedIn\" routerLink=\"/messenger\"><i class=\"icon-envelope\"></i>\n          <span class=\"hidden-tablet\" *ngIf=\"this.unreadMsgs\"><b>Messenger</b></span>\n          <span class=\"hidden-tablet\" *ngIf=\"!this.unreadMsgs\">Messenger</span>\n        </a>\n      </li>\n      \n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/solutions\"><i class=\"icon-list-alt\"></i><span class=\"hidden-tablet\"> Solutions</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/analytics\"><i class=\"icon-dashboard\"></i><span class=\"hidden-tablet\"> Analytics</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/customer\"><i class=\"icon-user\"></i><span class=\"hidden-tablet\"> Customers</span></a></li>\n      <!-- <li><a *ngIf=\"this.loggedIn\" routerLink=\"/finance\"><i class=\"icon-money\"></i><span class=\"hidden-tablet\"> Finance</span></a></li> -->\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/learn\"><i class=\"icon-facetime-video\"></i><span class=\"hidden-tablet\"> Learn</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/settings\"><i class=\"icon-edit\"></i><span class=\"hidden-tablet\"> Settings</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" (click)=\"this.FirebaseAuthService.logout()\"><i class=\"icon-off\"></i><span class=\"hidden-tablet\"> Logout</span></a></li>\n\n      <!--\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/automation\"><i class=\"icon-cog\"></i><span class=\"hidden-tablet\"> Automation</span></a></li>\n      <li><a *ngIf=\"this.loggedIn\" routerLink=\"/reviews\"><i class=\"icon-bullhorn\"></i><span class=\"hidden-tablet\"> Reviews</span></a></li>\n      -->\n\n      <!-- admin -->\n      <li *ngIf=\"this.loggedIn && this.userEmail === 'hello@onflo.io'\">\n        <a routerLink=\"/admin\"><i class=\"icon-unlock\"></i><span class=\"hidden-tablet\"> Admin</span></a>\n      </li>\n    </ul>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1529,7 +1535,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/messenger\" class=\"dash-icon\">\n    <i class=\"icon-envelope\"></i><br />\n    <span>Messenger</span>\n  </div>\n\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <br />\n  <!--\n  <div routerLink=\"/automation\" class=\"dash-icon\">\n    <i class=\"icon-cog\"></i><br />\n    <span>Automation</span>\n  </div>\n\n  <div routerLink=\"/reviews\" class=\"dash-icon\">\n    <i class=\"icon-bullhorn\"></i><br />\n    <span>Reviews</span>\n  </div>\n\n  <div routerLink=\"/finance\" class=\"dash-icon\">\n    <i class=\"icon-money\"></i><br />\n    <span>Finance</span>\n  </div>\n  -->\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n\n  <div routerLink=\"/admin\" class=\"dash-icon\" *ngIf=\"isAdmin()\">\n    <i class=\"icon-unlock\"></i><br />\n    <span>Admin</span>\n  </div>\n</div>\n"
+module.exports = "<!-- header -->\n<div id=\"home-wrapper\">\n  <h1>Welcome!</h1>\n  <br />\n\n  <!-- features break down -->\n  <div routerLink=\"/messenger\" class=\"dash-icon\">\n    <i class=\"icon-envelope\"></i><br />\n    <span>Messenger</span>\n  </div>\n\n  <div routerLink=\"/solutions\" class=\"dash-icon\">\n    <i class=\"icon-list-alt\"></i><br />\n    <span>Solutions</span>\n  </div>\n\n  <div routerLink=\"/analytics\" class=\"dash-icon\">\n    <i class=\"icon-dashboard\"></i><br />\n    <span>Analytics</span>\n  </div>\n\n  <div routerLink=\"/customer\" class=\"dash-icon\">\n    <i class=\"icon-user\"></i><br />\n    <span>Customers</span>\n  </div>\n\n  <br />\n\n  <div routerLink=\"/learn\" class=\"dash-icon\">\n    <i class=\"icon-facetime-video\"></i><br />\n    <span>Learn</span>\n  </div>\n\n  <div routerLink=\"/settings\" class=\"dash-icon\">\n    <i class=\"icon-edit\"></i><br />\n    <span>Settings</span>\n  </div>\n\n  <div (click)=\"this.FirebaseAuthService.logout()\" class=\"dash-icon\">\n    <i class=\"icon-off\"></i><br />\n    <span>Logout</span>\n  </div>\n\n  <div routerLink=\"/admin\" class=\"dash-icon\" *ngIf=\"isAdmin()\">\n    <i class=\"icon-unlock\"></i><br />\n    <span>Admin</span>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1735,7 +1741,7 @@ LearnComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/messenger/messenger.component.css":
+/***/ "../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -1743,7 +1749,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "div#chatroom-container {\n    background-color: #F5F5F5!important;\n    max-width: 750px;\n    margin: 0px;\n    padding: 0px;\n    position: absolute;\n}\n\ndiv#chatroom-form {\n    background-color: #F5F5F5!important;\n    max-width: 750px;\n}\n\ndiv#chatroom-container {\n    height: 350px;\n    overflow-y: scroll;\n    padding-left: 5px;\n    box-sizing: border-box;\n    position: relative;\n    bottom: 0px;\n}\n\ndiv#chatroom-container::-webkit-scrollbar {\n  display: none;\n}\n\n\nul.chat {\n    vertical-align: top;\n}\n\nul.chat li {\n    padding: 15px 0px;\n    width: 98%;\n}\n\nli.right span,\nli.left span {\n    margin: 0px;\n}\n\nli.right span.from,\nli.right span.text {\n    margin: 0px 15px;\n}\n\nli.left span.from,\nli.left span.text {\n  margin: 0px 15px;\n}\n\n\n\ndiv.chat-form {\n    background-color: #F5F5F5!important;\n    border: none;\n}", ""]);
+exports.push([module.i, "div#chatroom-container {\n  background-color: #F5F5F5!important;\n  max-width: 750px;\n  margin: 0px;\n  padding: 0px;\n  position: absolute;\n}\n\ndiv#chatroom-form {\n  background-color: #F5F5F5!important;\n  max-width: 750px;\n}\n\ndiv#chatroom-container {\n  height: 350px;\n  overflow-y: scroll;\n  padding-left: 5px;\n  box-sizing: border-box;\n  position: relative;\n  bottom: 0px;\n}\n\ndiv#chatroom-container::-webkit-scrollbar {\n  display: none;\n}\n\nul.chat {\n  vertical-align: top;\n}\n\nul.chat li {\n  padding: 15px 0px;\n  width: 98%;\n}\n\nli.right span,\nli.left span {\n  margin: 0px;\n}\n\nli.right span.from,\nli.right span.text {\n  margin: 0px 15px;\n}\n\nli.left span.from,\nli.left span.text {\n  margin: 0px 15px;\n}\n", ""]);
 
 // exports
 
@@ -1753,24 +1759,24 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/messenger/messenger.component.html":
+/***/ "../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Messenger</h1>\n<br />\n\n<div class=\"box-content\" id=\"chatroom-container\">\n  <!-- messages -->\n  <div id=\"msgs-container\">\n  <ul class=\"chat\" *ngFor=\"let message of this.messages\" id=\"msgs-list\">\n    <li class=\"left\" *ngIf=\"message.who === 'you'\">\n      <span class=\"message\"><span class=\"arrow\"></span>\n      <span class=\"from\"><b>You</b> <i>({{ formatDate(message.when) }})</i></span>\n      <span class=\"text\">{{ message.what }}</span>\n      </span>\n    </li>\n    <li class=\"right\" *ngIf=\"message.who === 'onflo'\">\n      <span class=\"message\"><span class=\"arrow\"></span>\n      <span class=\"from\">({{ formatDate(message.when) }}) <b>Onflo</b></span>\n      <span class=\"text\">{{ message.what }}</span>\n      </span>\n    </li>\n  </ul>\n  </div>\n</div>\n\n<div class=\"box-content\" id=\"chatroom-form\">\n  <div class=\"chat-form\">\n    <!-- message sender -->\n    <textarea placeholder=\"Type your message here...\" [(ngModel)]=\"message\"></textarea>\n    <button class=\"btn btn-primary\" (click)=\"sendMessage()\">Send</button>\n  </div>\n</div>"
+module.exports = "<div class=\"box-content\" id=\"chatroom-container\">\n  <!-- messages -->\n  <div id=\"msgs-container\">\n    <ul class=\"chat\" *ngFor=\"let msg of this.msgs\" id=\"msgs-list\">\n      <li class=\"left\" *ngIf=\"msg.who === 'you'\">\n        <span class=\"message\"><span class=\"arrow\"></span>\n        <span class=\"from\"><b>You</b> <i>({{ formatDate(msg.when) }})</i></span>\n        <span class=\"text\" [innerHTML]=\"formatMsg(msg.what)\"></span>\n        </span>\n      </li>\n      <li class=\"right\" *ngIf=\"msg.who === 'onflo'\">\n        <span class=\"message\"><span class=\"arrow\"></span>\n        <span class=\"from\">({{ formatDate(msg.when) }}) <b>Onflo</b></span>\n        <span class=\"text\" [innerHTML]=\"formatMsg(msg.what)\"></span>\n        </span>\n      </li>\n    </ul>\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/messenger/messenger.component.ts":
+/***/ "../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessengerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatMsgsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1784,136 +1790,248 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MessengerComponent = (function () {
-    function MessengerComponent(route, router) {
+var ChatMsgsComponent = (function () {
+    function ChatMsgsComponent(route) {
         this.route = route;
-        this.router = router;
-        this.messages = [];
-        this.message = '';
-        this.initMsgsLoad = true;
-        this.pageIsActive = false;
+        this.msgs = [];
+        this.userUID = '';
+        this.formInView = false;
     }
-    MessengerComponent.prototype.sendMessage = function () {
-        var _this = this;
-        var now = new Date().toString();
-        var who;
-        var userUID;
-        if (this.route.snapshot.params['userUID'] && __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email === 'hello@onflo.io') {
-            userUID = this.route.snapshot.params['userUID'];
-        }
-        else {
-            userUID = __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.uid;
-        }
-        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('unread/' + userUID).once('value', function (snapshot) {
-            var unreadByWhom;
-            if (!snapshot.val()) {
-                console.log(snapshot.val());
-                unreadByWhom = snapshot.val();
-            }
-            else {
-                unreadByWhom = {
-                    onflo: true,
-                    user: true
-                };
-            }
-            if (_this.route.snapshot.params['userUID'] && __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.email === 'hello@onflo.io') {
-                who = 'onflo';
-                userUID = _this.route.snapshot.params['userUID'];
-                unreadByWhom.onflo = false;
-            }
-            else {
-                who = 'you';
-                userUID = __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.uid;
-                unreadByWhom.user = false;
-            }
-            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('messages/' + userUID).push({
-                who: who,
-                what: _this.message,
-                when: now
-            });
-            __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('unread/' + userUID).set(unreadByWhom);
-            __WEBPACK_IMPORTED_MODULE_2_jquery__('#chatroom-container').animate({
-                scrollTop: __WEBPACK_IMPORTED_MODULE_2_jquery__('#msgs-container').height()
-            }, 'slow');
-            _this.message = '';
-        });
-    };
-    MessengerComponent.prototype.snapshotToArray = function (snapshot) {
-        var returnArr = [];
-        snapshot.forEach(function (childSnapshot) {
-            var item = childSnapshot.val();
-            item.key = childSnapshot.key;
-            returnArr.push(item);
-        });
-        return returnArr;
-    };
-    MessengerComponent.prototype.formatDate = function (date) {
+    ChatMsgsComponent.prototype.formatDate = function (date) {
+        // get date & time from string
         date = new Date(date);
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
+        hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0' + minutes : minutes;
         var strTime = hours + ':' + minutes + ' ' + ampm;
         return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear() + ' ' + strTime;
     };
-    MessengerComponent.prototype.ngOnInit = function () {
+    ChatMsgsComponent.prototype.formatMsg = function (msg) {
+        // add anchors to links
+        var urlRegex = /(https?:\/\/[^\s]+)/g;
+        return msg.replace(urlRegex, function (url) {
+            return '<a target="_blank" href="' + url + '">' + url + '</a>';
+        });
+    };
+    ChatMsgsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.pageIsActive = true;
-        var userUID;
-        var unreadByWhom = {
-            user: true,
-            onflo: true
-        };
-        if (this.route.snapshot.params['userUID']) {
-            userUID = this.route.snapshot.params['userUID'];
+        // form view for read reciept
+        this.formInView = true;
+        // switch for admin user uid retrieval
+        if (this.route.snapshot.params['userUID'] && __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.email === 'hello@onflo.io') {
+            this.userUID = this.route.snapshot.params['userUID'];
         }
         else {
-            userUID = __WEBPACK_IMPORTED_MODULE_1_firebase__["auth"]().currentUser.uid;
+            this.userUID = __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.uid;
         }
-        if (this.route.snapshot.params['userUID']) {
-            unreadByWhom['onflo'] = false;
-        }
-        else {
-            unreadByWhom['user'] = false;
-        }
-        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('messages/' + userUID).on('value', function (snapshot) {
+        // get msgs from firebase
+        __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('messages/' + this.userUID).on('value', function (snapshot) {
+            // show user has read msg
+            if (__WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.email === 'hello@onflo.io' && _this.formInView) {
+                __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('unread/' + _this.userUID + '/onflo').set(false);
+            }
+            else if (_this.formInView) {
+                __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('unread/' + _this.userUID + '/user').set(false);
+            }
+            // first time to messenger
             if (!snapshot.val()) {
+                // add init msg
                 var now = new Date().toString();
-                __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('messages/' + userUID).push({
+                __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('messages/' + __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.uid).push({
                     who: 'onflo',
                     what: 'Welcome to Onflo messenger! If you need help navigating your dashboard or need advice for an upcoming project, you can message us here and we\'ll get back with you ASAP.',
                     when: now
                 });
             }
             else {
-                _this.messages = [];
+                // get all msgs
+                _this.msgs = [];
                 Object.keys(snapshot.val()).map(function (objectKey, index) {
-                    _this.messages.push(snapshot.val()[objectKey]);
+                    _this.msgs.push(snapshot.val()[objectKey]);
                 });
+                // scroll to bottom and play sound
                 var scrollToBottom_1 = setInterval(function () {
-                    __WEBPACK_IMPORTED_MODULE_2_jquery__('#chatroom-container').animate({
-                        scrollTop: __WEBPACK_IMPORTED_MODULE_2_jquery__('#msgs-container').height()
+                    __WEBPACK_IMPORTED_MODULE_3_jquery__('#chatroom-container').animate({
+                        scrollTop: __WEBPACK_IMPORTED_MODULE_3_jquery__('#msgs-container').height()
                     }, 'slow');
-                    if (_this.messages[_this.messages.length - 1]['who'] === 'onflo' && !_this.initMsgsLoad) {
+                    if (_this.msgs[_this.msgs.length - 1]['who'] === 'onflo') {
                         new Audio('../../assets/bell.mp3').play();
-                    }
-                    if (_this.initMsgsLoad) {
-                        new Audio('../../assets/bell.mp3').play();
-                        _this.initMsgsLoad = false;
-                    }
-                    if (_this.pageIsActive) {
-                        __WEBPACK_IMPORTED_MODULE_1_firebase__["database"]().ref('unread/' + userUID).set(unreadByWhom);
                     }
                     clearInterval(scrollToBottom_1);
                 }, 500);
             }
         });
     };
-    MessengerComponent.prototype.ngOnDestroy = function () {
-        this.pageIsActive = false;
+    ChatMsgsComponent.prototype.ngOnDestroy = function () {
+        this.formInView = false;
     };
+    return ChatMsgsComponent;
+}());
+ChatMsgsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-chat-msgs',
+        template: __webpack_require__("../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/messenger/chat-msgs/chat-msgs.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object])
+], ChatMsgsComponent);
+
+var _a;
+//# sourceMappingURL=chat-msgs.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "div.box-content {\n    background-color: #F5F5F5!important;\n}\n\ndiv.chat-form {\n    border: none;\n    background-color: #F5F5F5!important;\n    max-width: 740px;\n}\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"box-content\" id=\"chatroom-form\">\n  <div class=\"chat-form\">\n    <!-- message sender -->\n    <textarea placeholder=\"Type your message here...\" [(ngModel)]=\"msg\" (keyup)=\"sendMsg($event)\"></textarea>\n    <button class=\"btn btn-primary\" (click)=\"sengMsg()\">Send</button>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatSenderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__("../../../../firebase/firebase-browser.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_jquery__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ChatSenderComponent = (function () {
+    function ChatSenderComponent(route) {
+        this.route = route;
+        this.msg = '';
+    }
+    ChatSenderComponent.prototype.sendMsg = function (key) {
+        if (key.keyCode === 13 || !key) {
+            // cache build info
+            var now = new Date().toString();
+            var who = void 0;
+            var userUID = void 0;
+            // switch for admin repling
+            if (this.route.snapshot.params['userUID'] && __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.email === 'hello@onflo.io') {
+                userUID = this.route.snapshot.params['userUID'];
+                who = 'onflo';
+                __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('unread/' + userUID + '/user').set(true);
+            }
+            else {
+                userUID = __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"]().currentUser.uid;
+                who = 'you';
+                __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('unread/' + userUID + '/onflo').set(true);
+            }
+            // push msg to firebase
+            __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref('messages/' + userUID).push({
+                who: who,
+                what: this.msg,
+                when: now
+            });
+            // scroll to bottom
+            __WEBPACK_IMPORTED_MODULE_3_jquery__('#chatroom-container').animate({
+                scrollTop: __WEBPACK_IMPORTED_MODULE_3_jquery__('#msgs-container').height()
+            }, 'slow');
+            // reset msg txt
+            this.msg = '';
+        }
+    };
+    ChatSenderComponent.prototype.ngOnInit = function () {
+    };
+    return ChatSenderComponent;
+}());
+ChatSenderComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-chat-sender',
+        template: __webpack_require__("../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/pages/messenger/chat-sender/chat-sender.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object])
+], ChatSenderComponent);
+
+var _a;
+//# sourceMappingURL=chat-sender.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/messenger.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/messenger.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Messenger</h1><br />\n<app-chat-msgs></app-chat-msgs>\n<app-chat-sender></app-chat-sender>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/messenger/messenger.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessengerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MessengerComponent = (function () {
+    function MessengerComponent() {
+    }
+    MessengerComponent.prototype.ngOnInit = function () { };
     return MessengerComponent;
 }());
 MessengerComponent = __decorate([
@@ -1922,10 +2040,9 @@ MessengerComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pages/messenger/messenger.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pages/messenger/messenger.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [])
 ], MessengerComponent);
 
-var _a, _b;
 //# sourceMappingURL=messenger.component.js.map
 
 /***/ }),

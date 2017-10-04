@@ -1,0 +1,19 @@
+<div class="box-content" id="chatroom-container">
+  <!-- messages -->
+  <div id="msgs-container">
+    <ul class="chat" *ngFor="let msg of this.msgs" id="msgs-list">
+      <li class="left" *ngIf="msg.who === 'you'">
+        <span class="message"><span class="arrow"></span>
+        <span class="from"><b>You</b> <i>({{ formatDate(msg.when) }})</i></span>
+        <span class="text" [innerHTML]="formatMsg(msg.what)"></span>
+        </span>
+      </li>
+      <li class="right" *ngIf="msg.who === 'onflo'">
+        <span class="message"><span class="arrow"></span>
+        <span class="from">({{ formatDate(msg.when) }}) <b>Onflo</b></span>
+        <span class="text" [innerHTML]="formatMsg(msg.what)"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

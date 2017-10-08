@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
+import { Message } from '../../../interfaces/message';
 
 @Component({
   selector: 'app-chat-sender',
@@ -10,42 +11,41 @@ import * as $ from 'jquery';
 })
 export class ChatSenderComponent implements OnInit {
 
-  msg: string = '';
+  message: Message = {
+    who: '',
+    what: '',
+    when: ''
+  };
 
   sendMsg(key) {
+    // check for enter btn or method call
     if (!key || key.keyCode === 13) {
       // cache build info
-      const now = new Date().toString();
-      let who: string;
-      let userUID: string;
-      // switch for admin repling
+      this.message.when = new Date().toString();
+      let uid: string;
+      // switch for admin repling (if admin is signed in)
       if (this.route.snapshot.params['userUID'] && firebase.auth().currentUser.email === 'hello@onflo.io') {
-        userUID = this.route.snapshot.params['userUID'];
-        who = 'onflo';
-        firebase.database().ref('unread/' + userUID + '/user').set(true);
+        uid = this.route.snapshot.params['userUID'];
+        this.message.who = 'onflo';
+        firebase.database().ref('unread/' + uid + '/user').set(true);
       } else {
-        userUID = firebase.auth().currentUser.uid;
-        who = 'you';
-        firebase.database().ref('unread/' + userUID + '/onflo').set(true);
+        uid = firebase.auth().currentUser.uid;
+        this.message.who = 'you';
+        firebase.database().ref('unread/' + uid + '/onflo').set(true);
       }
       // push msg to firebase
-      firebase.database().ref('messages/' + userUID).push({
-        who: who,
-        what: this.msg,
-        when: now
-      });
+      firebase.database().ref('messages/' + uid).push(this.message);
       // scroll to bottom
       $('#chatroom-container').animate({
         scrollTop: $('#msgs-container').height()
       }, 'slow');
       // reset msg txt
-      this.msg = '';
+      this.message.what = '';
     }
   }
 
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

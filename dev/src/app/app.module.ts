@@ -37,6 +37,7 @@ import { HttpModule } from '@angular/http';
 import { MessengerComponent } from './pages/messenger/messenger.component';
 import { ChatMsgsComponent } from './pages/messenger/chat-msgs/chat-msgs.component';
 import { ChatSenderComponent } from './pages/messenger/chat-sender/chat-sender.component';
+import { ActiveSolutionsComponent } from './pages/solutions/active-solutions/active-solutions.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
     AddSaleComponent,
     MessengerComponent,
     ChatMsgsComponent,
-    ChatSenderComponent
+    ChatSenderComponent,
+    ActiveSolutionsComponent
   ],
   imports: [
     BrowserModule,

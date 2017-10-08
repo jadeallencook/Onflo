@@ -1,7 +1,7 @@
 <div class="box-content" id="chatroom-form">
   <div class="chat-form">
     <!-- message sender -->
-    <textarea placeholder="Type your message here..." [(ngModel)]="msg" (keyup)="sendMsg($event)"></textarea>
+    <textarea placeholder="Type your message here..." [(ngModel)]="this.message.what" (keyup)="sendMsg($event)"></textarea>
     <button class="btn btn-primary" (click)="sendMsg()">Send</button>
   </div>
 </div>

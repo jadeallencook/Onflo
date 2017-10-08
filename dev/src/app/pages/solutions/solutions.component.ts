@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import { FirebaseAuthService } from '../../services/firebase-auth/firebase-auth.service';
 
 @Component({
   selector: 'app-solutions',
@@ -11,12 +10,11 @@ export class SolutionsComponent implements OnInit {
 
   solutions: any = [];
 
-  constructor(private FirebaseAuthService: FirebaseAuthService) { }
+  constructor() { }
 
   ngOnInit() {
     // get deals for user
-    const userUID = this.FirebaseAuthService.ActiveUser.uid;
-    firebase.database().ref('users/' + userUID + '/deals').on('value', (deals) => {
+    firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/deals').on('value', (deals) => {
       // add each deal
       if (deals.val()) {
         this.solutions = [];

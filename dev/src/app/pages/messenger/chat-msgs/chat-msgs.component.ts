@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
 import * as $ from 'jquery';
-
-interface ChatMsg {
-  what: string;
-  when: string;
-  who: string;
-}
+import { Message } from '../../../interfaces/message';
 
 @Component({
   selector: 'app-chat-msgs',
@@ -17,7 +12,7 @@ interface ChatMsg {
 
 export class ChatMsgsComponent implements OnInit {
 
-  msgs: Array<ChatMsg> = [];
+  msgs: Array<Message> = [];
   userUID: string = '';
   formInView: boolean = false;
 
